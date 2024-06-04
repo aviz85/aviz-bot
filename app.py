@@ -11,9 +11,9 @@ app = Flask(__name__)
 chatbot_name = os.environ['CHATBOT_NAME']
 
 # Construct the full path
-chatbot_module = f"bot.{chatbot_name}.chatbot"
+chatbot_module = f"bots.{chatbot_name}.chatbot"
 
-ChatBot = getattr(importlib.import_module(chatbot_module), chatbot_class_name)
+ChatBot = getattr(importlib.import_module(chatbot_module), 'ChatBot')
 
 chatbot = ChatBot() 
 
