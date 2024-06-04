@@ -59,7 +59,7 @@ class ChatBot:
             response_data = response.json()
             
             # Debugging: Print the entire response data
-            print("Response Data:", json.dumps(response_data, indent=4))
+            # print("Response Data:", json.dumps(response_data, indent=4))
 
             if 'content' in response_data and len(response_data['content']) > 0:
                 chat_response = response_data['content'][0]['text'].strip()
