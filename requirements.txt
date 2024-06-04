@@ -3,3 +3,4 @@ flask             # Web framework (>=2.0)
 python-dotenv     # For loading environment variables (>=0.20)
 openai            # OpenAI API client (check for the latest stable version)
 requests          # For making HTTP requests (>=2.28)
+gunicorn
