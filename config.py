@@ -1,0 +1,1 @@
+CHATBOT_IMPORT_PATH = "bots.chatbot.chatbot.ChatBot"
