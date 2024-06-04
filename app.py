@@ -1,12 +1,20 @@
 from flask import Flask, request, jsonify, render_template
 import importlib
-import config
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load .env file
 
 app = Flask(__name__)
 
-# Dynamic Import
-chatbot_module, chatbot_class_name = config.CHATBOT_IMPORT_PATH.rsplit(".", 1)
+# Get the name from .env file
+chatbot_name = os.environ['CHATBOT_NAME']
+
+# Construct the full path
+chatbot_module = f"bot.{chatbot_name}.chatbot"
+
 ChatBot = getattr(importlib.import_module(chatbot_module), chatbot_class_name)
+
 chatbot = ChatBot() 
 
 @app.route('/')
