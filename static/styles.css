@@ -72,6 +72,13 @@ button:hover {
     text-align: left;
 }
 
+/* Image styling */
+.chat-image {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
 /* Responsive Design */
 @media (max-width: 600px) {
     .chat-container {
@@ -86,4 +93,40 @@ button:hover {
         width: 100%;
         margin-top: 10px;
     }
+}
+
+button:disabled {
+    background-color: #b0b0b0;
+    cursor: not-allowed;
+}
+
+.message {
+    margin-bottom: 5px; /* Reduce margin */
+    padding: 5px 10px;  /* Adjust padding: top/bottom left/right */
+    border-radius: 15px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.user {
+    text-align: right;
+    background-color: #e6f7e6; /* Lighter green for user */
+    align-self: flex-start;
+    color: #155724; /* Darker green text for contrast */
+}
+
+.message.bot {
+    text-align: left;
+    background-color: #f2f2f2; /* Lighter gray for bot */
+    align-self: flex-end;
+    color: #383d41; /* Darker gray text for contrast */
+}
+
+.message p {
+    margin: 0; /* Remove margin from p elements */
+}
+
+/* Custom button styles */
+button {
+    margin-left: 10px; /* Add some margin for spacing */
 }
