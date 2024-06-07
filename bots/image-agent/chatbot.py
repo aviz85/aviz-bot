@@ -29,9 +29,6 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 # Setup logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(message)s')
 
-# Fetch the server URL from environment variables, with a fallback default
-server_url = os.getenv('SERVER_URL', 'http://127.0.0.1:5001')
-
 class ChatBot:
     def __init__(self, prompts_file=None):
         if prompts_file is None:
@@ -111,7 +108,7 @@ class ChatBot:
                         logging.debug(f"Image generated with absolute path: {image_path}")
                         
                         relative_path = os.path.relpath(image_path, start=os.path.dirname(__file__))
-                        image_url = f"{server_url}/{relative_path.replace(os.sep, '/')}"
+                        image_url = relative_path
                         
                         # Append function call result to conversation history
                         self.conversation_history.append({"role": "function", "name": "generate_image", "content": image_url})

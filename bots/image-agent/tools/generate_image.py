@@ -31,18 +31,21 @@ def generate_image(prompt):
     response = requests.get(image_url)
     if response.status_code == 200:
         # Create the uploads directory if it doesn't exist
-        uploads_dir = os.path.join(os.path.dirname(__file__), '../uploads')
+        uploads_dir = os.path.join(os.path.dirname(__file__), '..', 'uploads')
         os.makedirs(uploads_dir, exist_ok=True)
 
         # Define the path to save the image
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-        image_path = os.path.join(uploads_dir, f"generated_image_{timestamp}.png")
+        filename = f"generated_image_{timestamp}.png"
+        image_path = os.path.join(uploads_dir, filename)
 
         # Save the image
         with open(image_path, 'wb') as f:
             f.write(response.content)
 
-        return image_path
+        # Construct the relative URL
+        relative_url = f"/uploads/{filename}"
+        return relative_url
     else:
         raise ValueError(f"Failed to download image: {response.status_code}")
 
