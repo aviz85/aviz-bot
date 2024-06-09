@@ -1,0 +1,195 @@
+{
+    "scenarios": [
+        {
+            "general_system_prompt": "You function as an assistant within a state machine framework. Each state requires specific information from the user. Please ask for these details politely and kindly. If the user does not respond, keep the conversation going and remind them of the information needed to proceed.",
+            "nodes": [
+                {
+                    "name": "opening_node",
+                    "system_prompt": "אתה נמצא במצב פתיחה. עליך לברר אם המשתמש מעל גיל 18.",
+                    "required_info": ["is_adult"],
+                    "edges": [
+                        {
+                            "condition": "is_adult",
+                            "next_node": "offer_red_wine_node"
+                        },
+                        {
+                            "condition": "is_minor",
+                            "next_node": "end_conversation_node"
+                        }
+                    ]
+                },
+                {
+                    "name": "offer_red_wine_node",
+                    "system_prompt": "המשתמש מעל גיל 18. הצע לו לקנות יין אדום.",
+                    "required_info": ["wants_red_wine"],
+                    "edges": [
+                        {
+                            "condition": "wants_red_wine",
+                            "next_node": "complete_purchase_node"
+                        },
+                        {
+                            "condition": "does_not_want_red_wine",
+                            "next_node": "ask_white_wine_node"
+                        }
+                    ]
+                },
+                {
+                    "name": "ask_white_wine_node",
+                    "system_prompt": "ברר אם המשתמש רוצה לקנות יין לבן (אין במלאי).",
+                    "required_info": ["wants_white_wine"],
+                    "edges": [
+                        {
+                            "condition": "wants_white_wine",
+                            "next_node": "out_of_stock_node"
+                        },
+                        {
+                            "condition": "does_not_want_white_wine",
+                            "next_node": "end_conversation_node"
+                        }
+                    ]
+                },
+                {
+                    "name": "out_of_stock_node",
+                    "system_prompt": "יין לבן אינו במלאי. נסה להתחמק באלגנטיות.",
+                    "required_info": ["is_frustrated"],
+                    "edges": [
+                        {
+                            "condition": "is_frustrated",
+                            "next_node": "offer_last_white_wine_node"
+                        },
+                        {
+                            "condition": "not_frustrated",
+                            "next_node": "end_conversation_node"
+                        }
+                    ]
+                },
+                {
+                    "name": "offer_last_white_wine_node",
+                    "system_prompt": "הצע למשתמש את הבקבוק האחרון של יין לבן שנשאר במלאי.",
+                    "required_info": ["wants_last_white_wine"],
+                    "edges": [
+                        {
+                            "condition": "wants_last_white_wine",
+                            "next_node": "complete_purchase_node"
+                        },
+                        {
+                            "condition": "does_not_want_last_white_wine",
+                            "next_node": "end_conversation_node"
+                        }
+                    ]
+                },
+                {
+                    "name": "complete_purchase_node",
+                    "system_prompt": "סיים את המכירה וברך את המשתמש על הרכישה.",
+                    "required_info": ["purchase_completed"],
+                    "edges": []
+                },
+                {
+                    "name": "end_conversation_node",
+                    "system_prompt": "סיים את השיחה בצורה נעימה.",
+                    "required_info": ["conversation_ended"],
+                    "edges": []
+                }
+            ],
+            "conditions": {
+                "is_adult": "lambda global_data: global_data.get('is_adult') == True",
+                "is_minor": "lambda global_data: global_data.get('is_adult') == False",
+                "wants_red_wine": "lambda global_data: global_data.get('wants_red_wine') == True",
+                "does_not_want_red_wine": "lambda global_data: global_data.get('wants_red_wine') == False",
+                "wants_white_wine": "lambda global_data: global_data.get('wants_white_wine') == True",
+                "does_not_want_white_wine": "lambda global_data: global_data.get('wants_white_wine') == False",
+                "is_frustrated": "lambda global_data: global_data.get('is_frustrated') == True",
+                "not_frustrated": "lambda global_data: global_data.get('is_frustrated') == False",
+                "wants_last_white_wine": "lambda global_data: global_data.get('wants_last_white_wine') == True",
+                "does_not_want_last_white_wine": "lambda global_data: global_data.get('wants_last_white_wine') == False",
+                "purchase_completed": "lambda global_data: global_data.get('purchase_completed') == True",
+                "conversation_ended": "lambda global_data: global_data.get('conversation_ended') == True"
+            }
+        },
+        {
+            "general_system_prompt": "You function as an assistant within a state machine framework. Each state requires specific information from the user. Please ask for these details politely and kindly. If the user does not respond, keep the conversation going and remind them of the information needed to proceed.",
+            "nodes": [
+                {
+                    "name": "opening_node",
+                    "system_prompt": "אתה נמצא במצב פתיחה. עליך לברר אם המשתמש מבוגר או קטין.",
+                    "required_info": ["is_adult"],
+                    "edges": [
+                        {
+                            "condition": "is_adult",
+                            "next_node": "adult_node"
+                        },
+                        {
+                            "condition": "is_minor",
+                            "next_node": "minor_node"
+                        }
+                    ]
+                },
+                {
+                    "name": "adult_node",
+                    "system_prompt": "המשתמש הוא מבוגר. עליך לברר האם האירוע שהמשתמש מתכנן הוא עסקי או פרטי.",
+                    "required_info": ["is_business_event"],
+                    "edges": [
+                        {
+                            "condition": "is_business_event",
+                            "next_node": "business_event_node"
+                        },
+                        {
+                            "condition": "is_private_event",
+                            "next_node": "private_event_node"
+                        }
+                    ]
+                },
+                {
+                    "name": "minor_node",
+                    "system_prompt": "המשתמש הוא קטין. עליך להציע לו להיפרד מהמסך",
+                    "required_info": ["is_end_conversation"],
+                    "edges": []
+                },
+                {
+                    "name": "business_event_node",
+                    "system_prompt": "המשתמש מתכנן אירוע עסקי. עליך לברר את מספר האורחים, התאריך והמיקום.",
+                    "required_info": ["num_guests", "event_date", "event_location"],
+                    "edges": [
+                        {
+                            "condition": "is_large_business_event",
+                            "next_node": "large_business_event_node"
+                        }
+                    ]
+                },
+                {
+                    "name": "private_event_node",
+                    "system_prompt": "המשתמש מתכנן אירוע פרטי. עליך לברר את מספר האורחים, התאריך והאם זה יום הולדת.",
+                    "required_info": ["num_guests", "event_date", "is_birthday"],
+                    "edges": []
+                },
+                {
+                    "name": "educational_event_node",
+                    "system_prompt": "המשתמש מתכנן אירוע לימודי. עליך לברר את הנושא, מספר המשתתפים והתאריך.",
+                    "required_info": ["event_topic", "num_participants", "event_date"],
+                    "edges": []
+                },
+                {
+                    "name": "social_event_node",
+                    "system_prompt": "המשתמש מתכנן אירוע חברתי. עליך לברר את מספר המשתתפים, התאריך והאם יש פעילויות מיוחדות.",
+                    "required_info": ["num_participants", "event_date", "special_activities"],
+                    "edges": []
+                },
+                {
+                    "name": "large_business_event_node",
+                    "system_prompt": "המשתמש מתכנן אירוע עסקי גדול. עליך לברר פרטים נוספים.",
+                    "required_info": ["additional_info"],
+                    "edges": []
+                }
+            ],
+            "conditions": {
+                "is_adult": "lambda global_data: global_data.get('is_adult') == True",
+                "is_minor": "lambda global_data: global_data.get('is_adult') == False",
+                "is_business_event": "lambda global_data: global_data.get('is_business_event') == True",
+                "is_private_event": "lambda global_data: global_data.get('is_business_event') == False",
+                "is_educational_event": "lambda global_data: global_data.get('is_educational_event') == True",
+                "is_social_event": "lambda global_data: global_data.get('is_educational_event') == False",
+                "is_large_business_event": "lambda global_data: global_data.get('is_business_event') == True and global_data.get('num_guests', 0) > 100"
+            }
+        }
+    ]
+}

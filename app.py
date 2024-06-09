@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template, send_from_directory
 import importlib
-import os
+import os, sys
 from dotenv import load_dotenv
 from jinja2 import TemplateNotFound
 import logging
@@ -23,6 +23,8 @@ if not os.path.exists(bot_directory):
     app.logger.warning(f"Directory for {chatbot_name} not found, falling back to default chatbot directory.")
     chatbot_name = 'chatbot'  # Revert to the default chatbot
     bot_directory = 'bots/chatbot'  # Set the directory to the default chatbot's directory
+
+sys.path.append(os.path.join(os.path.dirname(__file__), bot_directory))
 
 # Determine the module paths for the chatbot and its routes
 chatbot_module = f"bots.{chatbot_name}.chatbot"
@@ -74,8 +76,10 @@ def chat():
 # Reset the chat history
 @app.route('/reset', methods=['POST'])
 def reset():
-    chatbot.reset_chat_history()
-    return jsonify({'message': 'Chat history cleared'}), 200
+    global chatbot
+    del chatbot
+    chatbot = ChatBot()
+    return jsonify({'message': 'Chat history cleared and chatbot reset'}), 200
 
 # Main execution block to run the Flask app
 if __name__ == '__main__':
