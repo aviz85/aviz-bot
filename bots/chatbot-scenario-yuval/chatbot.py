@@ -32,13 +32,30 @@ class ChatBot:
 
     def get_chat_response(self, user_message):
         current_node = self.state_machine.current_node
+        
+        current_node.chat_history.append({"role": "user", "content": user_message})
+
+        # Pass the whole chat history to the extractor
+        extracted_info = extractor.extract_info(
+            user_message,
+            "",
+            current_node.required_info,
+            current_node.chat_history  # Passing the full chat history
+        )
+
+        self.state_machine.global_data_store.update(extracted_info)
+        
+        # Transition to the next node before generating the next response
+        self.state_machine.transition_to_next_node()
+        
+        # Update the current node after the transition
+        current_node = self.state_machine.current_node
+        
         # Include the general system prompt with the current node's system prompt
         combined_prompt = f"{self.state_machine.general_system_prompt} {current_node.system_prompt}"
-
-        current_node.chat_history.append({"role": "user", "content": user_message})
         print(f'system: {combined_prompt}')
         
-        # Generate a response from the AI model using the combined prompt
+        # Generate a new response from the AI model using the combined prompt for the updated state
         response = client.chat.completions.create(
             model="gpt-4o",
             messages=[
@@ -54,17 +71,6 @@ class ChatBot:
 
         chat_response = response.choices[0].message.content.strip()
         current_node.chat_history.append({"role": "assistant", "content": chat_response})
-
-        # Pass the whole chat history to the extractor
-        extracted_info = extractor.extract_info(
-            user_message,
-            chat_response,
-            current_node.required_info,
-            current_node.chat_history  # Passing the full chat history
-        )
-
-        self.state_machine.global_data_store.update(extracted_info)
-        self.state_machine.transition_to_next_node()
 
         return chat_response
 
