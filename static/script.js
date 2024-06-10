@@ -18,6 +18,7 @@ const emojiMap = {
 };
 
 let enterDisabled = false;
+let loadingMessageElement = null;
 
 function replaceEmoticonsWithEmoji(text) {
     for (const [emoticon, emoji] of Object.entries(emojiMap)) {
@@ -61,6 +62,9 @@ function sendMessage(fetchMessageFunction = defaultFetchMessage) {
     sendButton.disabled = true;
     enterDisabled = true;
 
+    // Show loading message
+    showLoadingMessage();
+
     // Send message to the server using the provided fetch function
     fetchMessageFunction(message)
     .then(response => response.json())
@@ -79,7 +83,21 @@ function sendMessage(fetchMessageFunction = defaultFetchMessage) {
         // Re-enable the send button and enter key after the response is handled
         sendButton.disabled = false;
         enterDisabled = false;
+        // Remove loading message
+        if (loadingMessageElement) {
+            loadingMessageElement.remove();
+            loadingMessageElement = null;
+        }
     });
+}
+
+function showLoadingMessage() {
+    const chatBox = document.getElementById('chat-box');
+    loadingMessageElement = document.createElement('div');
+    loadingMessageElement.classList.add('message', 'bot');
+    loadingMessageElement.innerHTML = '<span class="loading"><span>.</span><span>.</span><span>.</span></span>';
+    chatBox.appendChild(loadingMessageElement);
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
 
 function addMessageToChat(sender, message) {
@@ -115,7 +133,6 @@ function addMessageToChat(sender, message) {
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight;
 }
-
 
 function clearChat() {
     const chatBox = document.getElementById('chat-box');

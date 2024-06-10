@@ -86,4 +86,4 @@ if __name__ == '__main__':
     app.logger.info(f'Starting server for {chatbot_name}')
     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
         print(f' * Starting server for {chatbot_name}')
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

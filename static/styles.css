@@ -130,3 +130,43 @@ button:disabled {
 button {
     margin-left: 10px; /* Add some margin for spacing */
 }
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    font-size: 24px;
+    letter-spacing: 3px;
+}
+
+.loading span {
+    display: inline-block;
+    width: 8px; /* Adjust width to fit a single dot */
+    animation: blink 1.4s infinite both;
+}
+
+.loading span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loading span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
