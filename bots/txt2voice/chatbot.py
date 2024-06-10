@@ -1,5 +1,5 @@
 # Created by sagi 10/6
-
+# sagi 2
 from openai import OpenAI
 from dotenv import load_dotenv
 import json, os
