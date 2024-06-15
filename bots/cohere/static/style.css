@@ -1,0 +1,15 @@
+#loading-animation {
+    display: none;
+    font-size: 18px;
+    color: #333;
+}
+
+#uploaded-files {
+    margin-top: 10px;
+}
+
+.uploaded-file {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}

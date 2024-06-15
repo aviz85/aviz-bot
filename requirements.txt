@@ -5,3 +5,8 @@ openai            # OpenAI API client (check for the latest stable version)
 groq
 requests          # For making HTTP requests (>=2.28)
 gunicorn
+cohere
+llama-index
+llama-index-llms-cohere
+llama-index-embeddings-cohere
+python-docx

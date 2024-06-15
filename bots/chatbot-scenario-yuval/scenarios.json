@@ -1,5 +1,104 @@
 {
     "scenarios": [
+    {
+  "general_system_prompt": "You function as an assistant within a state machine framework. Each state requires specific information from the user. Please ask for these details politely and kindly, and make sure to communicate in the user's preferred language. If the user does not respond, keep the conversation going and remind them of the information needed to proceed. Stick closely to this guideline. Always be polite and kind, manage a human-like conversation, don't be too direct. Wrap your need for information in a friendly and courteous manner, while collecting data in an engaging and interesting way, like a real human conversation.",
+    "nodes": [
+        {
+            "name": "opening_node",
+            "system_prompt": "התחל בברכה ידידותית ושאל את הלקוח מה סוג הסחורה שהוא מחפש.",
+            "required_info": ["goods_type"],
+            "edges": [
+                {
+                    "condition": "goods_type_provided",
+                    "next_node": "ask_business_info_node"
+                }
+            ]
+        },
+        {
+            "name": "ask_business_info_node",
+            "system_prompt": "שאל את הלקוח על העסק שלו, סוג העסק, סוג תעשיה, ענף התעשיה וכו׳.",
+            "required_info": ["business_type", "industry_type"],
+            "edges": [
+                {
+                    "condition": "business_info_provided",
+                    "next_node": "ask_contact_info_node"
+                }
+            ]
+        },
+        {
+            "name": "ask_contact_info_node",
+            "system_prompt": "בקשת פרטים על איש הקשר - שם, טלפון, מייל, תפקיד בחברה.",
+            "required_info": ["contact_name", "contact_phone", "contact_email", "contact_position"],
+            "edges": [
+                {
+                    "condition": "contact_info_provided",
+                    "next_node": "ask_payment_info_node"
+                }
+            ]
+        },
+        {
+            "name": "ask_payment_info_node",
+            "system_prompt": "ברר מי אחראי על התשלומים ומה תנאי התשלום.",
+            "required_info": ["payment_responsible", "payment_terms"],
+            "edges": [
+                {
+                    "condition": "payment_info_provided",
+                    "next_node": "offer_pricing_node"
+                }
+            ]
+        },
+        {
+            "name": "offer_pricing_node",
+            "system_prompt": "הצע ללקוח מחירון למוצרים שהוא ביקש על פי קטגוריית העסק שלו.",
+            "required_info": ["pricing_accepted"],
+            "edges": [
+                {
+                    "condition": "pricing_accepted",
+                    "next_node": "complete_sale_node"
+                }
+            ]
+        },
+        {
+            "name": "negotiate_pricing_node",
+            "system_prompt": "התחל משא ומתן להבין מה הבעיה עם ההצעה הנוכחית ולנסות להגיע לעמק השווה.",
+            "required_info": ["negotiation_successful"],
+            "edges": [
+                {
+                    "condition": "negotiation_successful",
+                    "next_node": "complete_sale_node"
+                }
+            ]
+        },
+        {
+            "name": "complete_sale_node",
+            "system_prompt": "סיים את המכירה וברך את הלקוח על העסקה.",
+            "required_info": ["sale_completed"],
+            "edges": []
+        },
+        {
+            "name": "end_conversation_node",
+            "system_prompt": "סיים את השיחה בצורה נעימה.",
+            "required_info": ["conversation_ended"],
+            "edges": []
+        }
+    ],
+    "conditions": {
+        "goods_type_provided": "lambda global_data: global_data.get('goods_type') is not None",
+        "no_goods_type_provided": "lambda global_data: global_data.get('goods_type') is None",
+        "business_info_provided": "lambda global_data: global_data.get('business_type') is not None and global_data.get('industry_type') is not None",
+        "no_business_info_provided": "lambda global_data: global_data.get('business_type') is None or global_data.get('industry_type') is None",
+        "contact_info_provided": "lambda global_data: global_data.get('contact_name') is not None and global_data.get('contact_phone') is not None and global_data.get('contact_email') is not None and global_data.get('contact_position') is not None",
+        "no_contact_info_provided": "lambda global_data: global_data.get('contact_name') is None or global_data.get('contact_phone') is None or global_data.get('contact_email') is None or global_data.get('contact_position') is None",
+        "payment_info_provided": "lambda global_data: global_data.get('payment_responsible') is not None and global_data.get('payment_terms') is not None",
+        "no_payment_info_provided": "lambda global_data: global_data.get('payment_responsible') is None or global_data.get('payment_terms') is None",
+        "pricing_accepted": "lambda global_data: global_data.get('pricing_accepted') == True",
+        "pricing_not_accepted": "lambda global_data: global_data.get('pricing_accepted') == False",
+        "negotiation_successful": "lambda global_data: global_data.get('negotiation_successful') == True",
+        "negotiation_failed": "lambda global_data: global_data.get('negotiation_successful') == False",
+        "sale_completed": "lambda global_data: global_data.get('sale_completed') == True",
+        "conversation_ended": "lambda global_data: global_data.get('conversation_ended') == True"
+    }
+},
         {
             "general_system_prompt": "You function as an assistant within a state machine framework. Each state requires specific information from the user. Please ask for these details politely and kindly. If the user does not respond, keep the conversation going and remind them of the information needed to proceed.",
             "nodes": [

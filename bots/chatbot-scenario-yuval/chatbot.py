@@ -35,12 +35,12 @@ class ChatBot:
         
         current_node.chat_history.append({"role": "user", "content": user_message})
 
-        # Pass the whole chat history to the extractor
+        # Pass only the current node's chat history to the extractor
         extracted_info = extractor.extract_info(
             user_message,
             "",
             current_node.required_info,
-            current_node.chat_history  # Passing the full chat history
+            current_node.chat_history  # Passing the current node's chat history
         )
 
         self.state_machine.global_data_store.update(extracted_info)
@@ -60,7 +60,7 @@ class ChatBot:
             model="gpt-4o",
             messages=[
                 {"role": "system", "content": combined_prompt},
-                *current_node.chat_history
+                *self.state_machine.global_chat_history()  # Using the entire chat history
             ],
             temperature=1,
             max_tokens=256,
@@ -77,4 +77,15 @@ class ChatBot:
     def reset_chat_history(self):
         # Reset the chat history by rebuilding the state machine
         self.state_machine.clear_global_data_store()
-        self.state_machine = self.build_state_machine()
+        tree_builder = TreeBuilder(os.path.join(os.path.dirname(__file__), 'scenarios.json'))
+        self.state_machine = tree_builder.build_state_machine()
+
+# Additional method to get the entire chat history
+def global_chat_history(self):
+    history = []
+    for node in self.nodes.values():  # Accessing self.nodes directly
+        history.extend(node.chat_history)
+    return history
+
+# Adding the method to the StateMachine class
+StateMachine.global_chat_history = global_chat_history
