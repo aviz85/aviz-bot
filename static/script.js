@@ -7,7 +7,6 @@ const emojiMap = {
     ':D': '😃',
     ':-P': '😛',
     ':P': '😛',
-    ';-)': '😉',
     ';)': '😉',
     ':-O': '😮',
     ':O': '😮',
@@ -38,12 +37,19 @@ function handleKeyPress(event) {
 }
 
 function defaultFetchMessage(message) {
+    let fetchParams = {};
+    try {
+        fetchParams = JSON.parse(localStorage.getItem('fetchParams')) || {};
+    } catch (e) {
+        console.error('Error parsing fetchParams from localStorage', e);
+    }
+
     return fetch('/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ message: message })
+        body: JSON.stringify({ message: message, ...fetchParams })
     });
 }
 
@@ -114,6 +120,14 @@ function addMessageToChat(sender, message) {
 
     // Wrap images in a clickable link
     htmlContent = htmlContent.replace(/<img src="(.*?)"(.*?)>/g, '<a href="$1" target="_blank"><img src="$1" class="chat-image"$2></a>');
+
+    // Wrap Markdown audio links with audio player
+    htmlContent = htmlContent.replace(/\[([^\]]+)\]\((.*?\.mp3)\)/g, (match, p1, p2) => {
+        return `<figure>
+                    <audio controls src="${p2}"></audio>
+                    <a href="${p2}"> Download audio </a>
+                </figure>`;
+    });
 
     // Process each paragraph
     const tempDiv = document.createElement('div');

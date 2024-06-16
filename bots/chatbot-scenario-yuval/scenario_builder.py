@@ -22,10 +22,11 @@ class Node:
                 global_data_store[info] = None
 
 class StateMachine:
-    def __init__(self, initial_node, general_system_prompt=""):
+    def __init__(self, initial_node, nodes, general_system_prompt=""):
         self.current_node = initial_node
         self.general_system_prompt = general_system_prompt  # Store the general prompt
         self.global_data_store = {}
+        self.nodes = nodes  # Initialize nodes attribute
         self.clear_global_data_store()
 
     def clear_global_data_store(self):
@@ -43,7 +44,7 @@ class StateMachine:
                 break
         else:
             print("No condition met for transition.")
-            
+
 CURRENT_SCENARIO = 0
 
 class TreeBuilder:
@@ -77,5 +78,5 @@ class TreeBuilder:
                 node.add_edge(condition, edge["condition"], next_node)
 
         # Initialize the state machine with the starting node and the general prompt
-        state_machine = StateMachine(nodes["opening_node"], general_system_prompt)
+        state_machine = StateMachine(nodes["opening_node"], nodes, general_system_prompt)
         return state_machine
