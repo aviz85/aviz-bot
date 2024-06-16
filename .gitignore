@@ -8,3 +8,5 @@ Thumbs.db
 **/uploads/
 **/uploads/**
 **/test.py
+*.mp3
+app.log
