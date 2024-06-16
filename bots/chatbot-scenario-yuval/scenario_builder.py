@@ -63,9 +63,17 @@ class TreeBuilder:
 
         # Define nodes
         for node_data in scenario["nodes"]:
+            system_prompt = node_data["system_prompt"]
+            required_info = node_data.get("required_info", [])
+
+            # Append details to inquire about to the system prompt based on required_info
+            if required_info:
+                details_to_inquire = ", ".join(required_info)
+                system_prompt += f" Details to inquire about: {details_to_inquire}."
+
             node = Node(
-                system_prompt=node_data["system_prompt"],
-                required_info=node_data.get("required_info", [])
+                system_prompt=system_prompt,
+                required_info=required_info
             )
             nodes[node_data["name"]] = node
 
