@@ -10,3 +10,4 @@ llama-index
 llama-index-llms-cohere
 llama-index-embeddings-cohere
 python-docx
+ffmpeg

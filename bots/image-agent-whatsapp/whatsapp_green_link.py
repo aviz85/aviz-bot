@@ -1,9 +1,23 @@
 from whatsapp_chatbot_python import GreenAPIBot, Notification
 from whatsapp_chatbot_python.filters import TEXT_TYPES
 import os
-import re
+import re, sys
 import requests
 from datetime import datetime
+
+# Fetch the chatbot's name from environment variables, with a fallback default
+chatbot_name = os.getenv('CHATBOT_NAME', 'chatbot')
+
+# Check if the specific chatbot's directory exists; fallback to default if it does not
+bot_directory = f'bots/{chatbot_name}'
+if not os.path.exists(bot_directory):
+    app.logger.warning(f"Directory for {chatbot_name} not found, falling back to default chatbot directory.")
+    chatbot_name = 'chatbot'  # Revert to the default chatbot
+    bot_directory = 'bots/chatbot'  # Set the directory to the default chatbot's directory
+
+sys.path.append(os.path.join(os.path.dirname(__file__), bot_directory))
+
+uploads_dir = f'{bot_directory}/uploads'
 
 def init_whatsapp_green_link(chatbot):
     greenapi_id_instance = os.getenv("GREENAPI_ID_INSTANCE")
@@ -14,10 +28,12 @@ def init_whatsapp_green_link(chatbot):
 
     bot = GreenAPIBot(greenapi_id_instance, greenapi_access_token)
 
+
     @bot.router.message(type_message=TEXT_TYPES)
     def txt_message_handler(notification: Notification) -> None:
-        message_data = notification.event["messageData"]
         
+        message_data = notification.event["messageData"]
+
         if message_data["typeMessage"] == "textMessage":
             user_message = message_data["textMessageData"]["textMessage"]
             print(f"Received message: {user_message}")
@@ -37,7 +53,6 @@ def init_whatsapp_green_link(chatbot):
                 image_response = requests.get(image_url)
                 if image_response.status_code == 200:
                     # Create the uploads folder if it doesn't exist
-                    uploads_dir = "uploads"
                     os.makedirs(uploads_dir, exist_ok=True)
                     
                     # Save the image with a timestamp in the filename
