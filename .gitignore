@@ -10,3 +10,4 @@ Thumbs.db
 **/test.py
 *.mp3
 app.log
+*.code-workspace
