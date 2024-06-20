@@ -20,13 +20,14 @@ def generate_image(prompt):
 
     # Run the model
     output = replicate.run(
-        "fofr/juggernaut-xl-lightning:c9a24c321ceb0b7843b872dcae82109dddadd1f82e94b115ee39289e0e182e40",
+        "bytedance/sdxl-lightning-4step:5f24084160c9089501c1b3545d9be3c27883ae2239b6f412990e82d4a6210f8f",
         input=input
     )
 
     # Get the URL of the generated image
     image_url = output[0]
-
+    return image_url
+    
     # Download the image
     response = requests.get(image_url)
     if response.status_code == 200:

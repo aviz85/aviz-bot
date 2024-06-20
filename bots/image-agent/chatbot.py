@@ -104,11 +104,8 @@ class ChatBot:
                         prompt = json.loads(arguments).get("prompt")
                         logging.debug(f"Generating image with prompt: {prompt}")
                         
-                        image_path = generate_image(prompt)
-                        logging.debug(f"Image generated with absolute path: {image_path}")
-                        
-                        relative_path = os.path.relpath(image_path, start=os.path.dirname(__file__))
-                        image_url = relative_path
+                        image_url = generate_image(prompt)
+                        logging.debug(f"Image generated with absolute path: {image_url}")
                         
                         # Append function call result to conversation history
                         self.conversation_history.append({"role": "function", "name": "generate_image", "content": image_url})
