@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import json, os
 import sys
 import logging
+import time
 
 # Load environment variables from .env file if it exists
 load_dotenv()
@@ -54,6 +55,7 @@ class ChatBot:
             raise ValueError(f"Prompt with label '{self.initial_prompt_label}' not found in prompts.")
 
     def get_chat_response(self, user_message):
+        start_time = time.time()  # Start timing
         try:
             # Add the user's message to the conversation history
             self.conversation_history.append({"role": "user", "content": user_message})
@@ -104,7 +106,14 @@ class ChatBot:
                         prompt = json.loads(arguments).get("prompt")
                         logging.debug(f"Generating image with prompt: {prompt}")
                         
+                        image_start_time = time.time()  # Start timing the generate_image function
+                        
                         image_url = generate_image(prompt)
+                        
+                        image_end_time = time.time()  # End timing the generate_image function
+                        image_duration = image_end_time - image_start_time
+                        logging.info(f"Image generation time: {image_duration:.2f} seconds")
+
                         logging.debug(f"Image generated with absolute path: {image_url}")
                         
                         # Append function call result to conversation history
@@ -133,7 +142,11 @@ class ChatBot:
                         
                         logging.debug(f"Final conversation history: {self.conversation_history}")
                         
-                        return chat_response
+                        end_time = time.time()  # End timing
+                        duration = end_time - start_time
+                        logging.info(f"Total response time: {duration:.2f} seconds")
+                        
+                        return f"{chat_response}\n\nImage generation time: {image_duration:.2f} seconds\nTotal time taken: {duration:.2f} seconds"
 
             # Access the response content correctly
             content = getattr(response.choices[0].message, "content", None)
@@ -145,7 +158,11 @@ class ChatBot:
             # Add the assistant's response to the conversation history
             self.conversation_history.append({"role": "assistant", "content": chat_response})
         
-            return chat_response
+            end_time = time.time()  # End timing
+            duration = end_time - start_time
+            logging.info(f"Total response time: {duration:.2f} seconds")
+            
+            return f"{chat_response}\n\nTotal time taken: {duration:.2f} seconds"
         except Exception as e:
             logging.error(f"Error in get_chat_response: {str(e)}")
             return {"error": str(e)}

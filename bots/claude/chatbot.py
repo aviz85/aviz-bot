@@ -49,7 +49,7 @@ class ChatBot:
                     'content-type': 'application/json'
                 },
                 json={
-                    "model": "claude-3-haiku-20240307",
+                    "model": "claude-3-5-sonnet-20240620",
                     "max_tokens": 256,
                     "system": self.system_prompt,
                     "messages": self.conversation_history
