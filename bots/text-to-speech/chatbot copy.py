@@ -1,30 +1,58 @@
-# Created by sagi bar on 20/6/2024
-import os
-from pathlib import Path
+# Created by sagi bar on 10/6/2024
+# http://127.0.0.1:5001/
+# the reference: https://platform.openai.com/docs/guides/text-to-speech
+
+from openai import OpenAI
+from dotenv import load_dotenv
+import json, os
 import uuid
 
-from deep_translator import GoogleTranslator
 from flask import request
-from bots.tools.BaseChatBot import BaseChatBot
-from openai import OpenAI
+from pathlib import Path
+from deep_translator import GoogleTranslator
 
-class ChatBot(BaseChatBot):
+# Load environment variables from .env file if it exists
+load_dotenv()
+
+if os.getenv("OPENAI_API_KEY") is None or os.getenv("OPENAI_API_KEY") == "":
+    raise ValueError("OPENAI_API_KEY is not set")
+
+# Get the API key from the environment variable
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+
+if OPENAI_API_KEY is None:
+    raise ValueError("OPENAI_API_KEY not found in environment variables.")
+
+client = OpenAI(api_key=OPENAI_API_KEY)
+
+class ChatBot:
+    # Define the constant for the uploads folder
+    UPLOAD_FOLDER = Path(__file__).parent / "uploads"
+
     def __init__(self, prompts_file=None):
-        print("__init__")
-        super().__init__(prompts_file)
-        # Additional initialization if needed   
-        if os.getenv("OPENAI_API_KEY") is None or os.getenv("OPENAI_API_KEY") == "":
-            raise ValueError("OPENAI_API_KEY is not set")    
+        if prompts_file is None:
+            # Set the default path to the prompts.json file within the current directory
+            prompts_file = os.path.join(os.path.dirname(__file__), 'prompts.json')
         
-        OPENAI_API_KEY = os.getenv('OPENAI_API_KEY') 
-        if OPENAI_API_KEY is None:
-            raise ValueError("OPENAI_API_KEY not found in environment variables.")
+        with open(prompts_file, 'r') as f:
+            prompts_data = json.load(f)
+        self.prompts = prompts_data["prompts"]
+        self.conversation_history = []
         
-        self.llm_object = OpenAI(api_key=OPENAI_API_KEY)
+        # Set the initial prompt label
+        self.initial_prompt_label = "sarcastic_friend"  # Specify the label of the chosen prompt
+        
+        # Initialize conversation history with the initial system prompt
+        self.set_initial_prompt()
+        
+    def set_initial_prompt(self):
+        initial_prompt = next((prompt["prompt"] for prompt in self.prompts if prompt["label"] == self.initial_prompt_label), None)
+        if initial_prompt:
+            self.conversation_history.append({"role": "system", "content": initial_prompt})
+        else:
+            raise ValueError(f"Prompt with label '{self.initial_prompt_label}' not found in prompts.")
 
     def get_chat_response(self, user_message):
-        super().get_chat_response(user_message)
-        print("get_chat_response")
         try:
             print(user_message)
 
@@ -43,7 +71,7 @@ class ChatBot(BaseChatBot):
              # Add the user's message to the conversation history
             self.conversation_history.append({"role": "user", "content": user_message})
             
-            response = self.llm_object.chat.completions.create(
+            response = client.chat.completions.create(
                 model="gpt-4o",
                 messages=self.conversation_history,
                 temperature=0.5,
@@ -70,7 +98,11 @@ class ChatBot(BaseChatBot):
             return voice_response
         except Exception as e:
             return str(e)
-        
+    
+    def reset_chat_history(self):
+        self.conversation_history = []
+        self.set_initial_prompt()
+    
     def is_hebrew(self, prompt: str) -> bool:
         for char in prompt:
             if '\u0590' <= char <= '\u05FF':
@@ -87,24 +119,26 @@ class ChatBot(BaseChatBot):
 
     def get_file_url(self, prompt=None):
         print(f'Enter get_file_url')
-       
+
         # Generate a unique filename
-        speech_file_name = f"{uuid.uuid4()}.mp3"
-        speech_file_path = Path(self.upload_folder) / speech_file_name        
-        
+        unique_filename = f"{uuid.uuid4()}.mp3"            
+        # base_dir = Path(__file__).parent / "uploads"
+        speech_file_path = self.UPLOAD_FOLDER / unique_filename
+        # speech_file_path = Path(__file__).parent / "uploads" / "speech.mp3"
+
         # Ensure the directory exists
         speech_file_path.parent.mkdir(parents=True, exist_ok=True)
 
-        response = self.llm_object.audio.speech.create(
+        response = client.audio.speech.create(
         model="tts-1",
         voice="onyx",
         input= prompt
         )
 
         response.stream_to_file(speech_file_path)
-        # voice_url = f"/bots/text-to-speech/uploads/{speech_file_name}"
         voice_url = f"/uploads/{os.path.basename( speech_file_path.as_uri())}"
-        
+
+        # voice_url = speech_file_path.as_uri()
         full_url = request.host_url.rstrip('/') + voice_url
         print(full_url)
         return full_url
