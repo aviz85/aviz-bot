@@ -11,3 +11,4 @@ Thumbs.db
 *.mp3
 app.log
 *.code-workspace
+venv/
