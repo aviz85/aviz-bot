@@ -75,11 +75,12 @@ class ChatBot:
         # Append the message
         self.conversation_history.append({"role": role, "content": content})
         
-        # If over max_history, remove the first two messages
+        # If over max_history, trim to max_history ensuring even length from the start
         if len(self.conversation_history) > self.max_history:
-            self.conversation_history = self.conversation_history[2:]
-            
-        return True
+            excess_length = len(self.conversation_history) - self.max_history
+            trim_length = excess_length if excess_length % 2 == 0 else excess_length + 1
+            self.conversation_history = self.conversation_history[trim_length:]       
+            return True
 
     def get_chat_response_text(self, user_message):
         try:

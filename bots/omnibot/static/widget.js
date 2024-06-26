@@ -10,10 +10,12 @@ const modeLabels = [
     { value: 'curious_explorer', label: '🔍 חוקר סקרן' },
     { value: 'calm_meditator', label: '🧘 מתרגל מדיטציה רגוע' },
     { value: 'tech_guru', label: '💻 גורו טכנולוגי' },
-    { value: 'storyteller', label: '📖 מספר סיפורים' },
-    { value: 'sarcastic', label: '😜 סרקסטי' },
+    { value: 'inventive_thinker', label: '💡 חושב יצירתי' },
+    { value: 'argumentative_debater', label: '🗣️ ווכחן' },
+    { value: 'angry_companion', label: '😡 חבר כועס' },
     { value: 'nonsense', label: '🤪 שטויות' }
 ];
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.getElementById('mode-slider');
