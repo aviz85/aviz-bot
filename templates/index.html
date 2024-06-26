@@ -27,8 +27,8 @@
         </div>
         <div class="input-container">
             <input type="text" id="user-input" placeholder="קשקש פה משהו..." onkeypress="handleKeyPress(event)">
-            <button onclick="clearChat()" class="clear-button"><i class="fas fa-trash-alt"></i></button>
             <button id="send-button" onclick="sendMessage()">ש-גר</button>
+            <button onclick="clearChat()" class="clear-button"><i class="fas fa-trash-alt"></i></button>
         </div>
     </div>
     <script src="{{ url_for('static', filename='background-animation.js') }}"></script>
