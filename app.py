@@ -1,5 +1,6 @@
 import os
 import sys
+import time
 from flask import Flask, request, jsonify, render_template, send_from_directory
 from dotenv import load_dotenv
 from jinja2 import TemplateNotFound, ChoiceLoader, FileSystemLoader
@@ -8,6 +9,10 @@ import logging
 
 # Load environment variables from the .env file
 load_dotenv()
+
+# Constants for rate limiting
+RATE_LIMIT_WINDOW = 3600  # 1 hour in seconds
+RATE_LIMIT_REQUESTS = 30  # Number of requests per hour
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -64,15 +69,35 @@ def index():
         widget_template = None
     return render_template('index.html', widget_template=widget_template, bot_name=chatbot_name)
 
+# In-memory store for rate limiting
+first_request_time = None
+request_count = 0
+
 # Handle chat messages via POST requests
 import inspect
 
 @app.route('/chat', methods=['POST'])
 def chat():
+    global first_request_time, request_count
+
     payload = request.json
     user_message = payload.get('message')
     if not user_message:
         return jsonify({'error': 'No message provided'}), 400
+
+    # Check global usage limit
+    current_time = time.time()
+
+    if first_request_time is None or current_time - first_request_time > RATE_LIMIT_WINDOW:
+        # Reset the rate limit window
+        first_request_time = current_time
+        request_count = 0
+
+    if request_count >= RATE_LIMIT_REQUESTS:
+        return jsonify({'response': "וואו, אני עייף. בוא נדבר עוד שעה ככה... בסדר?"})
+
+    # Increment the request count
+    request_count += 1
 
     additional_params = {key: value for key, value in payload.items() if key != 'message'}
     
@@ -96,9 +121,11 @@ def chat():
 # Reset the chat history
 @app.route('/reset', methods=['POST'])
 def reset():
-    global chatbot
+    global chatbot, first_request_time, request_count
     del chatbot
     chatbot = ChatBot()
+    first_request_time = None
+    request_count = 0
     return jsonify({'message': 'Chat history cleared and chatbot reset'}), 200
 
 # Register the chatbot's custom routes after default routes

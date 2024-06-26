@@ -13,3 +13,4 @@ llama-index-embeddings-cohere
 python-docx
 ffmpeg
 replicate
+redis
