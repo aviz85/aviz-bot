@@ -11,8 +11,9 @@ import logging
 load_dotenv()
 
 # Constants for rate limiting
-RATE_LIMIT_WINDOW = 3600  # 1 hour in seconds
-RATE_LIMIT_REQUESTS = 30  # Number of requests per hour
+RATE_LIMIT_WINDOW = int(os.getenv('RATE_LIMIT_WINDOW', 3600))  # 1 hour in seconds by default
+RATE_LIMIT_REQUESTS = int(os.getenv('RATE_LIMIT_REQUESTS', 30))  # 30 requests per hour by default
+
 
 # Initialize the Flask application
 app = Flask(__name__)

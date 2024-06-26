@@ -1250,3 +1250,13 @@
 2024-06-26 13:40:50,474 INFO app Starting server for omnibot
 2024-06-26 13:40:50,477 WARNING werkzeug  * Debugger is active!
 2024-06-26 13:40:50,482 INFO werkzeug  * Debugger PIN: 242-494-381
+2024-06-26 13:42:28,350 DEBUG root generate_image function loaded successfully.
+2024-06-26 13:42:28,353 INFO app Starting server for omnibot
+2024-06-26 13:42:28,359 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-06-26 13:42:28,359 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-06-26 13:42:28,360 INFO werkzeug  * Restarting with stat
+2024-06-26 13:42:28,643 DEBUG root generate_image function loaded successfully.
+2024-06-26 13:42:28,644 INFO app Starting server for omnibot
+2024-06-26 13:42:28,647 WARNING werkzeug  * Debugger is active!
+2024-06-26 13:42:28,653 INFO werkzeug  * Debugger PIN: 242-494-381
