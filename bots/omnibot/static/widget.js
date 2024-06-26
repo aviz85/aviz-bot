@@ -31,7 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Initialize with first mode
-    updateMode(0);
+    updateMode(3);
+    slider.value = 3;
 });
 
 function setPrompt(selectedPrompt) {
@@ -54,6 +55,6 @@ function updateChatbotTitle(selectedPrompt) {
     const titleElement = document.querySelector('.chat-header h1');
     if (titleElement) {
         const mode = modeLabels.find(mode => mode.value === selectedPrompt);
-        titleElement.textContent = mode ? mode.label : 'ברקוני הבוט';
+        titleElement.textContent = mode ? mode.label : '😏 חבר סרקסטי';
     }
 }

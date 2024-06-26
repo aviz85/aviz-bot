@@ -918,3 +918,184 @@
 2024-06-26 03:31:32,698 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:32] "POST /set_prompt HTTP/1.1" 200 -
 2024-06-26 03:31:32,749 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:32] "POST /set_prompt HTTP/1.1" 200 -
 2024-06-26 03:31:32,947 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:32] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:47:42,290 DEBUG root generate_image function loaded successfully.
+2024-06-26 07:47:42,292 INFO app Starting server for omnibot
+2024-06-26 07:47:42,299 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-06-26 07:47:42,299 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-06-26 07:47:42,299 INFO werkzeug  * Restarting with stat
+2024-06-26 07:47:42,601 DEBUG root generate_image function loaded successfully.
+2024-06-26 07:47:42,604 INFO app Starting server for omnibot
+2024-06-26 07:47:42,607 WARNING werkzeug  * Debugger is active!
+2024-06-26 07:47:42,614 INFO werkzeug  * Debugger PIN: 242-494-381
+2024-06-26 07:47:51,884 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:47:51] "GET / HTTP/1.1" 200 -
+2024-06-26 07:47:51,911 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:47:51] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 07:47:51,912 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:47:51] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 07:47:51,922 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:47:51] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 07:47:51,922 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:47:51] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-06-26 07:47:51,923 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:47:51] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 07:47:51,928 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:47:51] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 07:47:51,929 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:47:51] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-26 07:47:51,982 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:47:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:47:59,506 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 07:48:00,700 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 07:48:00,702 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:00] "POST /chat HTTP/1.1" 200 -
+2024-06-26 07:48:11,921 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 07:48:13,345 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 07:48:13,347 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:13] "POST /chat HTTP/1.1" 200 -
+2024-06-26 07:48:19,781 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:19] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:20,580 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:20] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:21,214 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:21] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:21,364 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:21] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:21,430 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:21] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:21,463 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:21] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:21,496 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:21] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:21,547 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:21] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:21,712 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:21] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:21,899 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:21] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:21,964 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:21] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:21,996 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:21] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:22,063 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:22] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:22,230 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:22] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:22,414 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:22] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:22,446 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:22] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:22,481 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:22] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:22,496 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:22] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:22,513 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:22] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:22,548 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:22] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:25,665 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:25] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:25,780 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:25] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:25,931 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:25] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:28,381 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:28,464 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:28,679 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 07:48:34,116 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 07:48:36,225 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 07:48:36,227 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:36] "POST /chat HTTP/1.1" 200 -
+2024-06-26 07:48:46,584 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:46] "POST /reset HTTP/1.1" 200 -
+2024-06-26 07:48:49,572 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 07:48:50,832 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 07:48:50,834 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:48:50] "POST /chat HTTP/1.1" 200 -
+2024-06-26 07:49:02,824 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 07:49:04,871 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 07:49:04,872 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:49:04] "POST /chat HTTP/1.1" 200 -
+2024-06-26 07:49:10,595 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 07:49:12,654 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 07:49:12,655 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:49:12] "POST /chat HTTP/1.1" 200 -
+2024-06-26 07:49:19,406 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 07:49:21,340 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 07:49:21,342 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-06-26 07:49:21,343 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-06-26 07:49:21,354 DEBUG httpcore.connection connect_tcp.started host='api.replicate.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-06-26 07:49:21,398 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x106340c10>
+2024-06-26 07:49:21,398 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x10633adc0> server_hostname='api.replicate.com' timeout=5.0
+2024-06-26 07:49:21,420 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1063406d0>
+2024-06-26 07:49:21,421 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-06-26 07:49:21,421 DEBUG httpcore.http11 send_request_headers.complete
+2024-06-26 07:49:21,421 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-06-26 07:49:21,421 DEBUG httpcore.http11 send_request_body.complete
+2024-06-26 07:49:21,421 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-06-26 07:49:22,568 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 201, b'Created', [(b'Date', b'Wed, 26 Jun 2024 04:49:22 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'572'), (b'Connection', b'keep-alive'), (b'ratelimit-remaining', b'599'), (b'ratelimit-reset', b'1'), (b'via', b'1.1 google'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Report-To', b'{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=yl6VKSJBVpi%2BwjYjxSGEj%2BIcIJ7mww4huMonyM9uMDyPhGiU54Y1x78AOCRhpLPPRYIVjTaZleQAldnZz7vkvkxUEoEn6u93x7onVYYU3jm%2B5x93J2KkWW8vxulFzMScNPx6NeTRkiGkgn433d5N"}],"group":"cf-nel","max_age":604800}'), (b'NEL', b'{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Server', b'cloudflare'), (b'CF-RAY', b'899a91fe29e7c21f-TLV'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-06-26 07:49:22,570 INFO httpx HTTP Request: POST https://api.replicate.com/v1/predictions "HTTP/1.1 201 Created"
+2024-06-26 07:49:22,570 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-06-26 07:49:22,570 DEBUG httpcore.http11 receive_response_body.complete
+2024-06-26 07:49:22,570 DEBUG httpcore.http11 response_closed.started
+2024-06-26 07:49:22,570 DEBUG httpcore.http11 response_closed.complete
+2024-06-26 07:49:22,571 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'GET']>
+2024-06-26 07:49:22,572 DEBUG httpcore.http11 send_request_headers.complete
+2024-06-26 07:49:22,572 DEBUG httpcore.http11 send_request_body.started request=<Request [b'GET']>
+2024-06-26 07:49:22,572 DEBUG httpcore.http11 send_request_body.complete
+2024-06-26 07:49:22,572 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'GET']>
+2024-06-26 07:49:22,915 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 26 Jun 2024 04:49:22 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'allow', b'GET, DELETE, HEAD, OPTIONS'), (b'alt-svc', b'h3=":443"; ma=86400'), (b'cf-cache-status', b'DYNAMIC'), (b'content-security-policy-report-only', b"default-src 'self'; worker-src 'none'; img-src 'report-sample' 'self' data: https://replicate.delivery https://*.replicate.delivery https://*.githubusercontent.com https://github.com https://d31rfu1d3w8e4q.cloudfront.net; frame-src 'self' https://replicatestatus.com; script-src 'report-sample' 'self' https://cdn.rudderlabs.com/v1.1/rudder-analytics.min.js https://d31rfu1d3w8e4q.cloudfront.net; font-src 'report-sample' 'self' data: https://d31rfu1d3w8e4q.cloudfront.net; media-src 'report-sample' 'self' https://replicate.delivery https://*.replicate.delivery https://*.sentry.io https://d31rfu1d3w8e4q.cloudfront.net; style-src 'report-sample' 'self' 'unsafe-inline' https://d31rfu1d3w8e4q.cloudfront.net; connect-src 'report-sample' 'self' https://replicate.delivery https://*.replicate.delivery https://*.rudderlabs.com https://*.rudderstack.com https://*.sentry.io https://api.markprompt.com; report-uri"), (b'cross-origin-opener-policy', b'same-origin'), (b'nel', b'{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'), (b'ratelimit-remaining', b'2999'), (b'ratelimit-reset', b'1'), (b'referrer-policy', b'same-origin'), (b'report-to', b'{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=ChNol5Ses4TJPHTjMJFMST9z7jaeZ8V%2BAcTDJ54ht3RvVPntdpynYqxTlWO9TTlaHSTtpUjL%2B4eTjIsM8%2FRLgniezP4uQDw6KuqiQE3WQMUNt5yi1Om8xcUPnf%2FvuR8XAW7Vu3%2Bex9Z4bnE%2B55UkWAPY0Lw%3D"}],"group":"cf-nel","max_age":604800}'), (b'strict-transport-security', b'max-age=15552000'), (b'vary', b'Cookie, origin'), (b'x-content-type-options', b'nosniff'), (b'x-frame-options', b'DENY'), (b'Server', b'cloudflare'), (b'CF-RAY', b'899a92051f71c21f-TLV'), (b'Content-Encoding', b'gzip')])
+2024-06-26 07:49:22,916 INFO httpx HTTP Request: GET https://api.replicate.com/v1/models/bytedance/sdxl-lightning-4step/versions/5f24084160c9089501c1b3545d9be3c27883ae2239b6f412990e82d4a6210f8f "HTTP/1.1 200 OK"
+2024-06-26 07:49:22,916 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'GET']>
+2024-06-26 07:49:22,917 DEBUG httpcore.http11 receive_response_body.complete
+2024-06-26 07:49:22,917 DEBUG httpcore.http11 response_closed.started
+2024-06-26 07:49:22,917 DEBUG httpcore.http11 response_closed.complete
+2024-06-26 07:49:23,422 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'GET']>
+2024-06-26 07:49:23,423 DEBUG httpcore.http11 send_request_headers.complete
+2024-06-26 07:49:23,423 DEBUG httpcore.http11 send_request_body.started request=<Request [b'GET']>
+2024-06-26 07:49:23,423 DEBUG httpcore.http11 send_request_body.complete
+2024-06-26 07:49:23,423 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'GET']>
+2024-06-26 07:49:23,631 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 26 Jun 2024 04:49:23 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'ratelimit-remaining', b'59999'), (b'ratelimit-reset', b'1'), (b'via', b'1.1 google'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Report-To', b'{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=PyaFqf%2FJ9G6yxFjnFt3sBKEaHOmM%2F17ESVnTgyK1QFvA2R93%2FArdFP0HT%2F2dbjXosYAoQ8YFiLkOYHKm1jTuVIhRW3QFJSEaQ4toBX4GA0b9s2S498%2FXDA%2FwxersB7gGN%2BFSNLyrb2iBoKuK3jCp"}],"group":"cf-nel","max_age":604800}'), (b'NEL', b'{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Server', b'cloudflare'), (b'CF-RAY', b'899a920a7c9ec21f-TLV'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-06-26 07:49:23,631 INFO httpx HTTP Request: GET https://api.replicate.com/v1/predictions/0m3qgt3ypxrg80cgabgb4xys5m "HTTP/1.1 200 OK"
+2024-06-26 07:49:23,632 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'GET']>
+2024-06-26 07:49:23,632 DEBUG httpcore.http11 receive_response_body.complete
+2024-06-26 07:49:23,632 DEBUG httpcore.http11 response_closed.started
+2024-06-26 07:49:23,632 DEBUG httpcore.http11 response_closed.complete
+2024-06-26 07:49:24,138 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'GET']>
+2024-06-26 07:49:24,139 DEBUG httpcore.http11 send_request_headers.complete
+2024-06-26 07:49:24,139 DEBUG httpcore.http11 send_request_body.started request=<Request [b'GET']>
+2024-06-26 07:49:24,139 DEBUG httpcore.http11 send_request_body.complete
+2024-06-26 07:49:24,139 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'GET']>
+2024-06-26 07:49:24,488 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Wed, 26 Jun 2024 04:49:24 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'ratelimit-remaining', b'59999'), (b'ratelimit-reset', b'1'), (b'via', b'1.1 google'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Report-To', b'{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=i8w55%2FhXweSrPjRGDtDcEvFqJDiBY1Fx%2BVia25nPzRODTwsqjAZEHDV5pPdifIPBfHysTivoWEU7kTelyxcHXG17IsJZfvczsMWTJjo4HRU1Et4T%2F8G1XvPcf7oRWibciiH7UArVE%2Fn42DCoSSqK"}],"group":"cf-nel","max_age":604800}'), (b'NEL', b'{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'), (b'Strict-Transport-Security', b'max-age=15552000'), (b'Server', b'cloudflare'), (b'CF-RAY', b'899a920eefccc21f-TLV'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-06-26 07:49:24,488 INFO httpx HTTP Request: GET https://api.replicate.com/v1/predictions/0m3qgt3ypxrg80cgabgb4xys5m "HTTP/1.1 200 OK"
+2024-06-26 07:49:24,488 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'GET']>
+2024-06-26 07:49:24,489 DEBUG httpcore.http11 receive_response_body.complete
+2024-06-26 07:49:24,489 DEBUG httpcore.http11 response_closed.started
+2024-06-26 07:49:24,489 DEBUG httpcore.http11 response_closed.complete
+2024-06-26 07:49:24,493 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 07:49:28,902 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 07:49:28,905 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:49:28] "POST /chat HTTP/1.1" 200 -
+2024-06-26 07:50:25,549 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 07:50:27,609 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 07:50:27,611 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:50:27] "POST /chat HTTP/1.1" 200 -
+2024-06-26 07:50:35,320 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 07:50:36,947 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 07:50:36,950 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 07:50:36] "POST /chat HTTP/1.1" 200 -
+2024-06-26 08:18:29,148 DEBUG root generate_image function loaded successfully.
+2024-06-26 08:18:29,150 INFO app Starting server for omnibot
+2024-06-26 08:18:29,158 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-06-26 08:18:29,158 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-06-26 08:18:29,158 INFO werkzeug  * Restarting with stat
+2024-06-26 08:18:29,445 DEBUG root generate_image function loaded successfully.
+2024-06-26 08:18:29,450 INFO app Starting server for omnibot
+2024-06-26 08:18:29,458 WARNING werkzeug  * Debugger is active!
+2024-06-26 08:18:29,464 INFO werkzeug  * Debugger PIN: 242-494-381
+2024-06-26 08:18:33,926 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:33] "GET / HTTP/1.1" 200 -
+2024-06-26 08:18:33,957 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:33] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 08:18:33,958 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:33] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 08:18:33,967 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 08:18:33,968 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:33] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 08:18:33,972 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:33] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-06-26 08:18:33,976 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:33] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 08:18:33,977 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:33] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-26 08:18:34,039 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:34] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:45,118 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:45] "GET / HTTP/1.1" 200 -
+2024-06-26 08:18:45,148 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:45] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 08:18:45,150 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:45] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 08:18:45,152 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:45] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 08:18:45,156 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:45] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-26 08:18:45,158 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:45] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 08:18:45,161 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:45] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 08:18:45,161 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:45] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-06-26 08:18:45,171 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:45] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:47,699 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:47] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:47,733 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:47] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:47,798 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:47] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:48,899 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:48] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:48,947 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:48] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:49,014 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:49] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:49,716 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:49] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:49,750 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:49] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:49,782 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:49] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:18:50,465 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:18:50] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:21:17,423 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:17] "GET / HTTP/1.1" 200 -
+2024-06-26 08:21:17,443 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:17] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 08:21:17,443 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:17] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 08:21:17,447 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:17] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 08:21:17,449 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:17] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 08:21:17,451 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:17] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-26 08:21:17,451 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:17] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-06-26 08:21:17,453 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:17] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 08:21:17,504 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:17] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 08:21:37,753 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "GET / HTTP/1.1" 200 -
+2024-06-26 08:21:37,776 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 08:21:37,780 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 08:21:37,784 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 08:21:37,788 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 08:21:37,788 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-26 08:21:37,791 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-06-26 08:21:37,792 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 08:21:37,810 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "POST /set_prompt HTTP/1.1" 200 -
