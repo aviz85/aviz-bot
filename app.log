@@ -713,3 +713,208 @@
 2024-06-26 03:01:48,841 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
 2024-06-26 03:01:50,274 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
 2024-06-26 03:01:50,275 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:01:50] "POST /chat HTTP/1.1" 200 -
+2024-06-26 03:11:08,293 DEBUG root generate_image function loaded successfully.
+2024-06-26 03:11:08,295 INFO app Starting server for omnibot
+2024-06-26 03:11:08,303 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-06-26 03:11:08,303 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-06-26 03:11:08,303 INFO werkzeug  * Restarting with stat
+2024-06-26 03:11:08,597 DEBUG root generate_image function loaded successfully.
+2024-06-26 03:11:08,599 INFO app Starting server for omnibot
+2024-06-26 03:11:08,602 WARNING werkzeug  * Debugger is active!
+2024-06-26 03:11:08,608 INFO werkzeug  * Debugger PIN: 242-494-381
+2024-06-26 03:21:16,476 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:21:16] "GET / HTTP/1.1" 200 -
+2024-06-26 03:21:16,504 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:21:16] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 03:21:16,524 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:21:16] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 03:21:16,525 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:21:16] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 03:21:16,526 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:21:16] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 03:21:16,562 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:21:16] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 03:21:27,994 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:21:27] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 03:21:27,997 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:21:27] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 03:23:03,143 DEBUG root generate_image function loaded successfully.
+2024-06-26 03:23:03,145 INFO app Starting server for omnibot
+2024-06-26 03:23:03,154 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-06-26 03:23:03,155 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-06-26 03:23:03,155 INFO werkzeug  * Restarting with stat
+2024-06-26 03:23:03,450 DEBUG root generate_image function loaded successfully.
+2024-06-26 03:23:03,452 INFO app Starting server for omnibot
+2024-06-26 03:23:03,455 WARNING werkzeug  * Debugger is active!
+2024-06-26 03:23:03,459 INFO werkzeug  * Debugger PIN: 242-494-381
+2024-06-26 03:23:06,847 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:23:06] "GET / HTTP/1.1" 200 -
+2024-06-26 03:23:06,875 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:23:06] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 03:23:06,879 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:23:06] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 03:23:06,885 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:23:06] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 03:23:06,895 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:23:06] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 03:23:06,896 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:23:06] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 03:25:33,423 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:33] "GET / HTTP/1.1" 200 -
+2024-06-26 03:25:33,447 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 03:25:33,449 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:33] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 03:25:33,453 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:33] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 03:25:33,454 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:33] "GET /custom/static/widget.css HTTP/1.1" 200 -
+2024-06-26 03:25:33,455 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:33] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 03:25:33,459 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:33] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 03:25:33,460 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:33] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-06-26 03:25:33,534 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:33] "GET /get_prompts HTTP/1.1" 200 -
+2024-06-26 03:25:33,885 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:33] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:25:42,615 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:42] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:25:44,235 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:44] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:25:46,002 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:46] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:25:47,715 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:25:47] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:15,559 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:15] "GET / HTTP/1.1" 200 -
+2024-06-26 03:29:15,586 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:15] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 03:29:15,588 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:15] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 03:29:15,590 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:15] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 03:29:15,592 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:15] "GET /custom/static/widget.css HTTP/1.1" 200 -
+2024-06-26 03:29:15,594 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:15] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 03:29:15,597 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:15] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-06-26 03:29:15,597 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:15] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 03:29:15,655 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:15] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:17,433 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:17] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:17,533 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:17] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:17,582 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:17] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:17,616 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:17] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:17,684 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:17] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:17,848 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:17] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:17,949 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:17] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:18,432 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:18] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:18,464 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:18] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:18,516 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:18] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:19,800 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:19] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:19,833 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:19] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:19,849 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:19] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:19,865 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:19] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:20,000 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:20] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:20,065 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:20] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:20,214 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:20] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:20,282 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:20] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:20,349 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:20] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:20,400 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:20] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:50,352 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:50] "GET / HTTP/1.1" 200 -
+2024-06-26 03:29:50,379 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:50] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 03:29:50,380 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:50] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 03:29:50,383 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:50] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 03:29:50,384 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:50] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 03:29:50,386 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:50] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-26 03:29:50,388 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:50] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 03:29:50,388 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:50] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-06-26 03:29:50,447 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:50] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:51,599 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:51,649 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:51,665 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:51,681 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:51,699 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:51,731 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:51,764 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:51,932 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:51,948 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:51,981 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:51] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:52,633 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:52] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:52,649 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:52] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:52,665 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:52] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:52,681 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:52] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:52,698 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:52] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:52,714 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:52] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:52,732 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:52] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:52,764 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:52] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:53,316 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:53] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:53,331 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:53] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:53,365 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:53] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:53,447 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:53] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:54,115 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:54] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:54,149 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:54] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:54,166 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:54] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:54,249 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:54] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:29:55,416 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:29:55] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:00,654 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 03:30:02,224 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 03:30:02,226 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:02] "POST /chat HTTP/1.1" 200 -
+2024-06-26 03:30:04,698 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:04] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:04,731 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:04] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:04,748 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:04] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:04,781 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:04] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:04,798 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:04] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:04,815 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:04] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:04,849 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:04] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:04,883 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:04] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:04,898 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:04] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,466 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,482 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,499 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,515 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,548 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,649 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,699 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,916 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,932 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,965 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:05,999 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:05] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:06,031 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:06] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:06,065 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:06] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:06,083 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:06] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:06,132 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:06] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:06,167 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:06] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:06,683 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:06] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:06,698 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:06] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:08,065 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:08] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:09,016 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:09] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:09,781 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:09] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:13,725 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 03:30:15,488 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 03:30:15,490 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:15] "POST /chat HTTP/1.1" 200 -
+2024-06-26 03:30:22,520 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:22] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:22,949 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:22] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:23,400 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:23] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:24,533 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:24] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,034 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,083 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,117 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,150 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,166 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,182 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,449 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,482 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,497 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,515 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,532 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,565 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:26,590 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:27,099 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:27] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:27,149 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:27] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:27,182 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:27] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:27,833 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:27] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:27,882 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:27] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:28,399 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:30:28,799 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:30:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:23,305 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:23] "GET / HTTP/1.1" 200 -
+2024-06-26 03:31:23,329 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:23] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 03:31:23,334 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:23] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 03:31:23,334 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:23] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 03:31:23,338 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:23] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 03:31:23,340 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:23] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-26 03:31:23,340 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:23] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 03:31:23,341 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:23] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-06-26 03:31:23,394 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:23] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:25,981 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:25] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:26,496 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:27,045 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:27] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:28,414 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:28,430 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:28,447 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:28,464 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:28,480 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:28,830 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:29,114 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:29] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:29,147 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:29] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:30,181 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:30] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:31,081 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:31] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:31,150 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:31] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:31,263 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:31] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:31,347 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:31] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:31,464 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:31] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:32,230 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:32] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:32,573 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:32] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:32,694 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:32] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:32,698 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:32] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:32,749 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:32] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 03:31:32,947 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 03:31:32] "POST /set_prompt HTTP/1.1" 200 -

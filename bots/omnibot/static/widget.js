@@ -1,62 +1,59 @@
-document.addEventListener('DOMContentLoaded', function () {
-    fetchPrompts();
+// widget.js
+const modeLabels = [
+    { value: 'helpful_assistant', label: '🛠️ עוזר מועיל' },
+    { value: 'funny_comedian', label: '😂 קומיקאי מצחיק' },
+    { value: 'barkuni', label: '👾 ברקוני' },
+    { value: 'sarcastic_friend', label: '😏 חבר סרקסטי' },
+    { value: 'professional_advisor', label: '💼 יועץ מקצועי' },
+    { value: 'cheerful_motivator', label: '😊 מעודד עליז' },
+    { value: 'wise_mentor', label: '🧠 מנטור חכם' },
+    { value: 'curious_explorer', label: '🔍 חוקר סקרן' },
+    { value: 'calm_meditator', label: '🧘 מתרגל מדיטציה רגוע' },
+    { value: 'tech_guru', label: '💻 גורו טכנולוגי' },
+    { value: 'storyteller', label: '📖 מספר סיפורים' },
+    { value: 'sarcastic', label: '😜 סרקסטי' },
+    { value: 'nonsense', label: '🤪 שטויות' }
+];
+
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('mode-slider');
+    const sliderLabel = document.getElementById('slider-label');
+
+    slider.max = modeLabels.length - 1;
+    
+    function updateMode(index) {
+        const mode = modeLabels[index];
+        setPrompt(mode.value);
+    }
+
+    slider.addEventListener('input', function() {
+        updateMode(this.value);
+    });
+
+    // Initialize with first mode
+    updateMode(0);
 });
 
-function fetchPrompts() {
-    fetch('/get_prompts')
-        .then(response => response.json())
-        .then(data => {
-            console.log('Fetched prompts:', data);  // Debugging line to ensure we fetch the correct data
-            const dropdown = document.getElementById('prompt-dropdown');
-            data.prompts.forEach(prompt => {
-                const option = document.createElement('option');
-                option.value = prompt.label;
-                option.text = prompt.label;
-                dropdown.add(option);
-            });
-        })
-        .catch(error => console.error('Error fetching prompts:', error));
-}
-
-function setPrompt() {
-    const dropdown = document.getElementById('prompt-dropdown');
-    const selectedPrompt = dropdown.value;
-    if (selectedPrompt) {
-        fetch('/set_prompt', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ label: selectedPrompt })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Prompt set:', data);
-            updateChatbotTitle(selectedPrompt);
-        })
-        .catch(error => console.error('Error setting prompt:', error));
-    }
+function setPrompt(selectedPrompt) {
+    fetch('/set_prompt', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ label: selectedPrompt })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Prompt set:', data);
+        updateChatbotTitle(selectedPrompt);
+    })
+    .catch(error => console.error('Error setting prompt:', error));
 }
 
 function updateChatbotTitle(selectedPrompt) {
     const titleElement = document.querySelector('.chat-header h1');
     if (titleElement) {
-        titleElement.textContent = labelToHebrew[selectedPrompt] || 'ברקוני הבוט';
+        const mode = modeLabels.find(mode => mode.value === selectedPrompt);
+        titleElement.textContent = mode ? mode.label : 'ברקוני הבוט';
     }
 }
-
-const labelToHebrew = {
-    'helpful_assistant': '🛠️ עוזר מועיל',
-    'funny_comedian': '😂 קומיקאי מצחיק',
-    'barkuni': '🌦️ ברקוני',
-    'sarcastic_friend': '😏 חבר סרקסטי',
-    'professional_advisor': '💼 יועץ מקצועי',
-    'cheerful_motivator': '😊 מעודד עליז',
-    'wise_mentor': '🧠 מנטור חכם',
-    'curious_explorer': '🔍 חוקר סקרן',
-    'calm_meditator': '🧘 מתרגל מדיטציה רגוע',
-    'tech_guru': '💻 גורו טכנולוגי',
-    'storyteller': '📖 מספר סיפורים',
-    'sarcastic': '😜 סרקסטי',
-    'nonsense': '🤪 שטויות'
-};
