@@ -14,6 +14,11 @@
 <body>
     <div class="background-animation"></div>
     <div class="chat-container">
+        <div class="widget-template">
+            {% if widget_template %}
+                {% include widget_template %}
+            {% endif %}
+        </div>
         <div class="chat-header">
             <h1>🤖 אביץ הבוט</h1>
         </div>

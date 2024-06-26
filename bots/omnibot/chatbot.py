@@ -41,8 +41,9 @@ class ChatBot:
         self.conversation_history = []
         
         # Set the initial prompt label
-        self.initial_prompt_label = "sarcastic_friend"  # Specify the label of the chosen prompt
-        
+        if not hasattr(self, 'initial_prompt_label') or not self.initial_prompt_label:
+            self.initial_prompt_label = "sarcastic_friend"  # Specify the label of the chosen prompt
+     
         # Initialize conversation history with the initial system prompt
         self.system_message = self.get_system_message()
 

@@ -1,5 +1,3 @@
-# https://github.com/aviz85/aviz-bot/
-
 import os
 import sys
 from flask import Flask, request, jsonify, render_template, send_from_directory
@@ -39,6 +37,7 @@ chatbot = ChatBot()
 
 # Make chatbot globally accessible
 app.config['chatbot'] = chatbot
+app.config['bot_directory'] = bot_directory
 
 # Add the bot's template directory to the template loader search path
 template_path = os.path.join(os.path.dirname(__file__), bot_directory, 'templates')
@@ -105,9 +104,12 @@ def reset():
 # Register the chatbot's custom routes after default routes
 try:
     bot_routes = importlib.import_module(routes_module)
-    app.register_blueprint(bot_routes.bp)
+    blueprint = bot_routes.create_blueprint(chatbot)
+    app.register_blueprint(blueprint)
 except ModuleNotFoundError:
     app.logger.warning(f"Routes module for {chatbot_name} not found. Continuing without additional routes.")
+except AttributeError:
+    app.logger.error(f"Routes module for {chatbot_name} does not have create_blueprint function.")
 
 # Main execution block to run the Flask app
 if __name__ == '__main__':
