@@ -1099,3 +1099,61 @@
 2024-06-26 08:21:37,791 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "GET /custom/static/widget.js HTTP/1.1" 200 -
 2024-06-26 08:21:37,792 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
 2024-06-26 08:21:37,810 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 08:21:37] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 12:49:32,357 DEBUG root generate_image function loaded successfully.
+2024-06-26 12:49:32,359 INFO app Starting server for omnibot
+2024-06-26 12:49:32,370 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-06-26 12:49:32,370 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-06-26 12:49:32,370 INFO werkzeug  * Restarting with stat
+2024-06-26 12:49:32,648 DEBUG root generate_image function loaded successfully.
+2024-06-26 12:49:32,649 INFO app Starting server for omnibot
+2024-06-26 12:49:32,652 WARNING werkzeug  * Debugger is active!
+2024-06-26 12:49:32,663 INFO werkzeug  * Debugger PIN: 242-494-381
+2024-06-26 12:49:34,951 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:34] "GET / HTTP/1.1" 200 -
+2024-06-26 12:49:34,983 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:34] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 12:49:34,985 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:34] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 12:49:35,006 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:35] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 12:49:35,006 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:35] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-06-26 12:49:35,008 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:35] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-26 12:49:35,008 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:35] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 12:49:35,008 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:35] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 12:49:35,044 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:35] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 12:49:40,416 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 12:49:42,092 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 12:49:42,095 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:42] "POST /chat HTTP/1.1" 200 -
+2024-06-26 12:49:44,458 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 12:49:46,397 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 12:49:46,400 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:46] "POST /chat HTTP/1.1" 200 -
+2024-06-26 12:49:49,512 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:49] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 12:49:49,545 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:49] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 12:49:49,560 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:49] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 12:49:53,552 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 12:49:54,869 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 12:49:54,870 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:49:54] "POST /chat HTTP/1.1" 200 -
+2024-06-26 12:49:58,913 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 12:50:00,525 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 12:50:00,530 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:50:00] "POST /chat HTTP/1.1" 200 -
+2024-06-26 12:51:05,284 INFO werkzeug  * Detected change in '/Users/aviz/new/aviz-bot/bots/omnibot/chatbot.py', reloading
+2024-06-26 12:51:05,348 INFO werkzeug  * Restarting with stat
+2024-06-26 12:51:05,645 DEBUG root generate_image function loaded successfully.
+2024-06-26 12:51:05,647 INFO app Starting server for omnibot
+2024-06-26 12:51:05,651 WARNING werkzeug  * Debugger is active!
+2024-06-26 12:51:05,657 INFO werkzeug  * Debugger PIN: 242-494-381
+2024-06-26 12:51:12,837 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:12] "GET / HTTP/1.1" 200 -
+2024-06-26 12:51:12,870 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:12] "[33mGET /custom/static/styles.css HTTP/1.1[0m" 404 -
+2024-06-26 12:51:12,872 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:12] "[33mGET /custom/static/script.js HTTP/1.1[0m" 404 -
+2024-06-26 12:51:12,877 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-26 12:51:12,878 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:12] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-06-26 12:51:12,880 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:12] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-26 12:51:12,880 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:12] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-26 12:51:12,881 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:12] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-26 12:51:12,935 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:12] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-26 12:51:15,503 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 12:51:17,650 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 12:51:17,652 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:17] "POST /chat HTTP/1.1" 200 -
+2024-06-26 12:51:18,518 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 12:51:20,555 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 12:51:20,558 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:20] "POST /chat HTTP/1.1" 200 -
+2024-06-26 12:51:26,899 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-26 12:51:28,748 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-26 12:51:28,750 INFO werkzeug 127.0.0.1 - - [26/Jun/2024 12:51:28] "POST /chat HTTP/1.1" 200 -
