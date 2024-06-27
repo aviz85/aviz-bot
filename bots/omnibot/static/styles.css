@@ -1,0 +1,126 @@
+/* Styles for the modal backdrop */
+.selfie-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+.selfie-modal-backdrop.active {
+    opacity: 1;
+}
+
+/* Styles for the modal */
+.selfie-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.selfie-modal.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Styles for modal content */
+.modal-content {
+    text-align: center;
+}
+
+.modal-content p {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Styles for buttons */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #ff4d4d;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #ff1a1a;
+}
+
+.selfie-button, .download-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.selfie-button:hover, .download-button:hover {
+    background-color: #45a049;
+}
+
+/* Styles for screenshot modal */
+.screenshot-modal {
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+
+.screenshot-container {
+    max-width: 50%; /* One third of the current size */
+    margin: 0 auto; /* Center the container */
+}
+
+.screenshot-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.download-button {
+    margin-top: 10px;
+}
+
+.download-button i {
+    margin-right: 5px;
+}
+
+/* Flash animation */
+@keyframes flash {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1001;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flash.active {
+    animation: flash 0.5s ease-out;
+}
