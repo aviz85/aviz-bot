@@ -1,5 +1,21 @@
 import json
 
+class Agent:
+    def __init__(self, llm, system_prompt, goal, conditions, tools):
+        self.llm = llm
+        self.system_prompt = system_prompt
+        self.goal = goal
+        self.conditions = conditions
+        self.tools = tools
+        self.chat_history = []
+
+    def add_condition(self, condition, next_agent_id):
+        self.conditions.append({"condition": condition, "next_agent_id": next_agent_id})
+
+    def reset_agent_data(self, global_data_store):
+        self.chat_history = []
+        # Reset other agent-specific data if needed
+
 class Node:
     def __init__(self, system_prompt, required_info=None):
         self.system_prompt = system_prompt
@@ -22,11 +38,11 @@ class Node:
                 global_data_store[info] = None
 
 class StateMachine:
-    def __init__(self, initial_node, nodes, general_system_prompt=""):
-        self.current_node = initial_node
-        self.general_system_prompt = general_system_prompt  # Store the general prompt
+    def __init__(self, initial_agent, agents, general_system_prompt=""):
+        self.current_agent = initial_agent
+        self.general_system_prompt = general_system_prompt
         self.global_data_store = {}
-        self.nodes = nodes  # Initialize nodes attribute
+        self.agents = agents
         self.clear_global_data_store()
 
     def clear_global_data_store(self):
@@ -57,34 +73,33 @@ class TreeBuilder:
 
     def build_state_machine(self):
         scenario = self.tree_data["scenarios"][CURRENT_SCENARIO]
-        nodes = {}
+        agents = {}
         conditions = scenario["conditions"]
-        general_system_prompt = scenario.get("general_system_prompt", "")  # Retrieve the general system prompt
+        general_system_prompt = scenario.get("general_system_prompt", "")
 
-        # Define nodes
-        for node_data in scenario["nodes"]:
-            system_prompt = node_data["system_prompt"]
-            required_info = node_data.get("required_info", [])
-
-            # Append details to inquire about to the system prompt based on required_info
-            if required_info:
-                details_to_inquire = ", ".join(required_info)
-                system_prompt += f" Details to inquire about: {details_to_inquire}."
-
-            node = Node(
+        # Define agents
+        for agent_data in scenario["agents"]:
+            llm = agent_data["llm"]
+            system_prompt = agent_data["system_prompt"]
+            goal = agent_data["goal"]
+            tools = agent_data.get("tools", [])
+            agent = Agent(
+                llm=llm,
                 system_prompt=system_prompt,
-                required_info=required_info
+                goal=goal,
+                conditions=[],
+                tools=tools
             )
-            nodes[node_data["name"]] = node
+            agents[agent_data["id"]] = agent
 
-        # Connect nodes with edges
-        for node_data in scenario["nodes"]:
-            node = nodes[node_data["name"]]
-            for edge in node_data["edges"]:
-                condition = eval(conditions[edge["condition"]])  # Evaluate the condition
-                next_node = nodes[edge["next_node"]]
-                node.add_edge(condition, edge["condition"], next_node)
+        # Connect agents with conditions
+        for agent_data in scenario["agents"]:
+            agent = agents[agent_data["id"]]
+            for condition in agent_data["conditions"]:
+                condition_func = eval(conditions[condition["condition"]])
+                next_agent_id = condition["next_agent_id"]
+                agent.add_condition(condition_func, next_agent_id)
 
-        # Initialize the state machine with the starting node and the general prompt
-        state_machine = StateMachine(nodes["opening_node"], nodes, general_system_prompt)
+        # Initialize the state machine with the starting agent and the general prompt
+        state_machine = StateMachine(agents["initial_agent"], agents, general_system_prompt)
         return state_machine
