@@ -18,9 +18,9 @@ class ChatBot:
 
         self.conversation_history = []
                 
-    def get_chat_response(self, user_message):
+    def get_chat_response(self, user_message, history):
         try:
-            # Add the user's message to the conversation history
+            self.conversation_history = [{"role": msg["role"], "content": msg["content"]} for msg in history]
             self.conversation_history.append({"role": "user", "content": user_message})
             
             response = client.chat.completions.create(
