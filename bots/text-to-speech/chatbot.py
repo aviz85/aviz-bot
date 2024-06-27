@@ -22,7 +22,7 @@ class ChatBot(BaseChatBot):
         
         self.llm_object = OpenAI(api_key=OPENAI_API_KEY)
 
-    def get_chat_response(self, user_message):
+    def get_chat_response(self, user_message, history):
         super().get_chat_response(user_message)
         print("get_chat_response")
         try:
@@ -40,7 +40,8 @@ class ChatBot(BaseChatBot):
                 
             print(user_message)
 
-             # Add the user's message to the conversation history
+            # Initialize conversation history from history parameter
+            self.conversation_history = [{"role": msg["role"], "content": msg["content"]} for msg in history]
             self.conversation_history.append({"role": "user", "content": user_message})
             
             response = self.llm_object.chat.completions.create(

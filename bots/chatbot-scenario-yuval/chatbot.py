@@ -41,9 +41,10 @@ class ChatBot:
         tree_builder = TreeBuilder(tree_file)
         self.state_machine = tree_builder.build_state_machine()  # State machine now contains the general system prompt
 
-    def get_chat_response(self, user_message):
+    def get_chat_response(self, user_message, history):
         current_node = self.state_machine.current_node
         
+        current_node.chat_history = [{"role": msg["role"], "content": msg["content"]} for msg in history]
         current_node.chat_history.append({"role": "user", "content": user_message})
 
         # Pass only the current node's chat history to the extractor
