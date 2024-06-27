@@ -182,7 +182,7 @@ class ChatBot:
                                     "content": switch_result
                                 }]
                             })
-                            data["system"] = "say that you are making the transition as asked. up to 2 sentences"
+                            
                         # Make another API call with tool result
                         response = requests.post(
                             "https://api.anthropic.com/v1/messages",
