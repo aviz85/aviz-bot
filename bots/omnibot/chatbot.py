@@ -23,7 +23,7 @@ except ImportError as e:
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(message)s')
 
 class ChatBot:
-    def __init__(self, prompts_file=None, max_history=30):
+    def __init__(self, prompts_file=None):
         # Get the API key from the environment variable
         self.api_key = os.getenv('ANTHROPIC_API_KEY')
         
@@ -37,14 +37,12 @@ class ChatBot:
         with open(prompts_file, 'r') as f:
             prompts_data = json.load(f)
         self.prompts = prompts_data["prompts"]
-        self.max_history = max_history
-        self.conversation_history = []
         
         # Set the initial prompt label
         if not hasattr(self, 'initial_prompt_label') or not self.initial_prompt_label:
             self.initial_prompt_label = "sarcastic_friend"  # Specify the label of the chosen prompt
      
-        # Initialize conversation history with the initial system prompt
+        # Initialize the system message
         self.system_message = self.get_system_message()
 
     def get_system_message(self):
@@ -65,28 +63,8 @@ class ChatBot:
         else:
             raise ValueError(f"Prompt with label '{self.initial_prompt_label}' not found in prompts.")
 
-    def add_message_to_history(self, role, content):
-        # Validate the alternating pattern
-        if self.conversation_history:
-            last_role = self.conversation_history[-1]["role"]
-            if (role == "user" and last_role != "assistant") or (role == "assistant" and last_role != "user"):
-                raise ValueError(f"Invalid message sequence. Expected {last_role} role, but got {role}.")
-
-        # Append the message
-        self.conversation_history.append({"role": role, "content": content})
-        
-        # If over max_history, trim to max_history ensuring even length from the start
-        if len(self.conversation_history) > self.max_history:
-            excess_length = len(self.conversation_history) - self.max_history
-            trim_length = excess_length if excess_length % 2 == 0 else excess_length + 1
-            self.conversation_history = self.conversation_history[trim_length:]       
-            return True
-
-    def get_chat_response_text(self, user_message):
+    def get_chat_response(self, user_message, history):
         try:
-            # Add the user's message to the conversation history
-            self.add_message_to_history("user", [{"type": "text", "text": user_message}])
-            
             # Define the tools to call
             tools = [
                 {
@@ -111,12 +89,21 @@ class ChatBot:
                 "anthropic-version": "2023-06-01"
             }
 
+            # Prepare messages including history
+            messages = []
+            for msg in history:
+                role = "user" if msg["role"] == "user" else "assistant"
+                messages.append({"role": role, "content": [{"type": "text", "text": msg["content"][0]["text"]}]})
+            
+            # Add the new user message
+            messages.append({"role": "user", "content": [{"type": "text", "text": user_message}]})
+
             data = {
                 "model": "claude-3-5-sonnet-20240620",
                 "max_tokens": 1024,
                 "system": self.system_message,
                 "tools": tools,
-                "messages": self.conversation_history
+                "messages": messages
             }
 
             response = requests.post(
@@ -135,11 +122,6 @@ class ChatBot:
                         tool_name = content_block.get('name')
                         tool_use_id = content_block.get('id')
                         tool_input = content_block.get('input')
-                        tool_use = {
-                            "role": "assistant",
-                            "content": response_data.get('content')
-                        }
-                        self.add_message_to_history("assistant", tool_use["content"])
                         print(f"Tool use requested: {tool_name}")
                         print(f"Tool input: {tool_input}")
                         
@@ -158,27 +140,18 @@ class ChatBot:
                                     }
                                 ]
                             }
-                            # Add tool result to conversation history
-                            if self.add_message_to_history("user", tool_result["content"]):
-                                print('added tool result to history')
-                
-                # Make another API call with the tool result
-                data["messages"] = self.conversation_history
-                data["system"] = "use this image_url to response the user with markup image link"
-                print(data["messages"])
-                response = requests.post(
-                    "https://api.anthropic.com/v1/messages",
-                    headers=headers,
-                    json=data
-                )
-                response_data = response.json()
-                print(response_data)
-                if response.status_code != 200:
-                    raise Exception(f"API request failed with status {response.status_code}: {response_data}")
-                response_data['content'] = response_data.get('content', [{"type": "text", "text": f"![{image_url}]"}])
-
-            # Add the assistant's response to the conversation history
-            self.add_message_to_history("assistant", response_data.get('content', []))
+                            # Make another API call with the tool result
+                            data["messages"].append(tool_result)
+                            data["system"] = "use this image_url to response the user with markup image link"
+                            response = requests.post(
+                                "https://api.anthropic.com/v1/messages",
+                                headers=headers,
+                                json=data
+                            )
+                            response_data = response.json()
+                            if response.status_code != 200:
+                                raise Exception(f"API request failed with status {response.status_code}: {response_data}")
+                            response_data['content'] = response_data.get('content', [{"type": "text", "text": f"![{image_url}]"}])
 
             # Extract and return the text response
             assistant_response = ""
@@ -188,25 +161,8 @@ class ChatBot:
             return assistant_response
 
         except Exception as e:
-            logging.error(f"Error in get_chat_response_text: {str(e)}")
+            logging.error(f"Error in get_chat_response: {str(e)}")
             return str({"error": str(e)})
-    
-    def get_chat_response(self, user_message):
-        # Use the get_chat_response_text logic for text responses
-        return self.get_chat_response_text(user_message)
-    
-    def reset_chat_history(self):
-        self.conversation_history = []
-        self.system_message = self.get_system_message()
 
 # Instantiate ChatBot
 chatbot = ChatBot()
-
-# Example usage
-if __name__ == "__main__":
-    while True:
-        user_input = input("You: ")
-        if user_input.lower() in ['exit', 'quit', 'bye']:
-            break
-        response = chatbot.get_chat_response(user_input)
-        print("ChatBot:", response)

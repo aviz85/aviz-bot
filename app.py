@@ -80,64 +80,47 @@ import inspect
 @app.route('/chat', methods=['POST'])
 def chat():
     global first_request_time, request_count
-
     payload = request.json
     user_message = payload.get('message')
+    history = payload.get('history', [])
+    
     if not user_message:
         return jsonify({'error': 'No message provided'}), 400
 
-    # Check global usage limit
+    # Check rate limit
     current_time = time.time()
-
     if first_request_time is None or current_time - first_request_time > RATE_LIMIT_WINDOW:
-        # Reset the rate limit window
         first_request_time = current_time
         request_count = 0
-
     if request_count >= RATE_LIMIT_REQUESTS:
         return jsonify({'response': "וואו, אני עייף. בוא נדבר עוד שעה ככה... בסדר?"})
-
-    # Increment the request count
     request_count += 1
 
-    additional_params = {key: value for key, value in payload.items() if key != 'message'}
-    
-    # Determine the number of parameters the function accepts
-    params_count = len(inspect.signature(chatbot.get_chat_response).parameters)
-    
-    if params_count == 1:
-        chat_response = chatbot.get_chat_response(user_message)
-    elif params_count == 2:
-        chat_response = chatbot.get_chat_response(user_message, additional_params)
-    else:
-        app.logger.error("chatbot.get_chat_response has an unexpected number of parameters")
-        return jsonify({'error': 'Unexpected error occurred'}), 500
-    
-    if 'error' in chat_response:
+    try:
+        # Call get_chat_response with both user_message and history
+        chat_response = chatbot.get_chat_response(user_message, history)
+    except Exception as e:
+        app.logger.error(f"Error in chatbot.get_chat_response: {str(e)}")
+        return jsonify({'error': 'An error occurred while processing your request'}), 500
+
+    if isinstance(chat_response, dict) and 'error' in chat_response:
         app.logger.error(f"Chat response error: {chat_response['error']}")
-        return jsonify({'error': chat_response}), 500
-    
+        return jsonify({'error': chat_response['error']}), 500
+
     return jsonify({'response': chat_response})
-
-# Reset the chat history
-@app.route('/reset', methods=['POST'])
-def reset():
-    global chatbot, first_request_time, request_count
-    del chatbot
-    chatbot = ChatBot()
-    first_request_time = None
-    request_count = 0
-    return jsonify({'message': 'Chat history cleared and chatbot reset'}), 200
-
-# Register the chatbot's custom routes after default routes
+    
 try:
+    routes_module = f"bots.{chatbot_name}.routes"
     bot_routes = importlib.import_module(routes_module)
     blueprint = bot_routes.create_blueprint(chatbot)
     app.register_blueprint(blueprint)
+    app.logger.info(f"Custom routes for {chatbot_name} registered successfully.")
 except ModuleNotFoundError:
     app.logger.warning(f"Routes module for {chatbot_name} not found. Continuing without additional routes.")
 except AttributeError:
     app.logger.error(f"Routes module for {chatbot_name} does not have create_blueprint function.")
+except Exception as e:
+    app.logger.error(f"Error registering custom routes for {chatbot_name}: {str(e)}")
 
 # Main execution block to run the Flask app
 if __name__ == '__main__':

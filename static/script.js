@@ -36,7 +36,29 @@ function handleKeyPress(event) {
     }
 }
 
-function defaultFetchMessage(message) {
+function getChatHistory() {
+    const chatBox = document.getElementById('chat-box');
+    const messageElements = chatBox.getElementsByClassName('message');
+    const history = [];
+
+    for (let element of messageElements) {
+        const role = element.classList.contains('user') ? 'user' : 'assistant';
+        
+        // Extract text content without HTML tags
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = element.innerHTML;
+        const content = tempDiv.textContent || tempDiv.innerText || "";
+        
+        history.push({
+            role: role,
+            content: [{ type: "text", text: content.trim() }]
+        });
+    }
+
+    return history;
+}
+
+function defaultFetchMessage(message, history) {
     let fetchParams = {};
     try {
         fetchParams = JSON.parse(localStorage.getItem('fetchParams')) || {};
@@ -49,7 +71,7 @@ function defaultFetchMessage(message) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ message: message, ...fetchParams })
+        body: JSON.stringify({ message: message, history: history, ...fetchParams })
     });
 }
 
@@ -59,6 +81,9 @@ function sendMessage(fetchMessageFunction = defaultFetchMessage) {
     const message = userInput.value.trim();
 
     if (message === '') return;
+
+    // Get chat history
+    const history = getChatHistory();
 
     // Add user message to chat box
     addMessageToChat('user', message);
@@ -72,7 +97,7 @@ function sendMessage(fetchMessageFunction = defaultFetchMessage) {
     showLoadingMessage();
 
     // Send message to the server using the provided fetch function
-    fetchMessageFunction(message)
+    fetchMessageFunction(message, history)
     .then(response => response.json())
     .then(data => {
         if (data && data.response) {
