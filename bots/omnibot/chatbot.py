@@ -63,8 +63,21 @@ class ChatBot:
         else:
             raise ValueError(f"Prompt with label '{self.initial_prompt_label}' not found in prompts.")
 
+    def get_personality_list(self):
+        return "\n".join([f"{i}: {prompt['label']}" for i, prompt in enumerate(self.prompts)])
+
+    def switch_prompt(self, prompt_index):
+        try:
+            new_prompt = self.prompts[prompt_index]
+            self.initial_prompt_label = new_prompt["label"]
+            self.system_message = self.get_system_message()
+            return f"Switched to {self.initial_prompt_label} personality."
+        except IndexError:
+            return "Invalid prompt index. Please choose a valid index."
+
     def get_chat_response(self, user_message, history):
         try:
+            self.system_message = self.get_system_message()
             tools = [{
                 "name": "generate_image",
                 "description": "Generate an image based on a given prompt",
@@ -77,6 +90,20 @@ class ChatBot:
                         }
                     },
                     "required": ["prompt"]
+                }
+            },
+            {
+                "name": "switch_prompt",
+                "description": f"Switch to a different bot personality. Available personalities:\n{self.get_personality_list()}",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "prompt_index": {
+                            "type": "integer",
+                            "description": "The index of the prompt to switch to"
+                        }
+                    },
+                    "required": ["prompt_index"]
                 }
             }]
 
@@ -135,16 +162,36 @@ class ChatBot:
                                     "content": image_url
                                 }]
                             })
-                            data["system"] = "return answer with markdown link to the picture"
-                            # Make another API call with tool result
-                            response = requests.post(
-                                "https://api.anthropic.com/v1/messages",
-                                headers=headers,
-                                json=data
-                            )
-                            response_data = response.json()
-                            if response.status_code != 200:
-                                raise Exception(f"API request failed with status {response.status_code}: {response_data}")
+                            data["system"] = "return answer with markdown link to the picture. add some comment up to 2 sentences"
+                        elif tool_name == "switch_prompt":
+                            prompt_index = tool_input.get("prompt_index")
+                            switch_result = self.switch_prompt(prompt_index)
+                            
+                            # Append tool use message
+                            data["messages"].append({
+                                "role": "assistant",
+                                "content": [content_block]
+                            })
+                            
+                            # Append tool result
+                            data["messages"].append({
+                                "role": "user",
+                                "content": [{
+                                    "type": "tool_result",
+                                    "tool_use_id": tool_use_id,
+                                    "content": switch_result
+                                }]
+                            })
+                            data["system"] = "say that you are making the transition as asked. up to 2 sentences"
+                        # Make another API call with tool result
+                        response = requests.post(
+                            "https://api.anthropic.com/v1/messages",
+                            headers=headers,
+                            json=data
+                        )
+                        response_data = response.json()
+                        if response.status_code != 200:
+                            raise Exception(f"API request failed with status {response.status_code}: {response_data}")
 
             # Extract and return the text response
             assistant_response = "".join(content_block.get('text', '') for content_block in response_data.get('content', []) if content_block.get('type') == 'text')

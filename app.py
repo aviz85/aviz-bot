@@ -108,7 +108,16 @@ def chat():
         return jsonify({'error': chat_response['error']}), 500
 
     return jsonify({'response': chat_response})
-    
+
+@app.route('/get_current_personality', methods=['GET'])
+def get_current_personality():
+    try:
+        current_personality = chatbot.initial_prompt_label
+        return jsonify({'current_personality': current_personality})
+    except AttributeError:
+        app.logger.error("Chatbot object does not have initial_prompt_label attribute")
+        return jsonify({'error': 'Unable to retrieve current personality'}), 500
+          
 try:
     routes_module = f"bots.{chatbot_name}.routes"
     bot_routes = importlib.import_module(routes_module)
