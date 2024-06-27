@@ -2638,3 +2638,94 @@
 2024-06-27 18:27:45,599 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:27:45] "POST /set_prompt HTTP/1.1" 200 -
 2024-06-27 18:27:45,615 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:27:45] "POST /set_prompt HTTP/1.1" 200 -
 2024-06-27 18:27:45,633 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:27:45] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-27 18:44:28,656 DEBUG root generate_image function loaded successfully.
+2024-06-27 18:44:28,658 INFO app Custom routes for omnibot registered successfully.
+2024-06-27 18:44:28,658 INFO app Starting server for omnibot
+2024-06-27 18:44:28,662 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-06-27 18:44:28,662 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-06-27 18:44:28,679 INFO werkzeug  * Restarting with watchdog (fsevents)
+2024-06-27 18:44:28,984 DEBUG root generate_image function loaded successfully.
+2024-06-27 18:44:28,985 INFO app Custom routes for omnibot registered successfully.
+2024-06-27 18:44:28,986 INFO app Starting server for omnibot
+2024-06-27 18:44:28,990 WARNING werkzeug  * Debugger is active!
+2024-06-27 18:44:28,997 INFO werkzeug  * Debugger PIN: 126-122-877
+2024-06-27 18:44:33,648 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:44:33] "GET / HTTP/1.1" 200 -
+2024-06-27 18:44:33,688 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:44:33] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-27 18:44:33,689 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:44:33] "[36mGET /custom/static/script.js HTTP/1.1[0m" 304 -
+2024-06-27 18:44:33,690 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:44:33] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-06-27 18:44:33,690 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:44:33] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-27 18:44:33,692 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:44:33] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-06-27 18:44:33,697 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:44:33] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-27 18:44:33,698 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:44:33] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-27 18:44:33,742 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:44:33] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-27 18:44:37,031 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-27 18:44:40,236 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-27 18:44:41,364 DEBUG httpx._client HTTP Request: POST https://api.replicate.com/v1/predictions "HTTP/1.1 201 Created"
+2024-06-27 18:44:41,577 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/models/bytedance/sdxl-lightning-4step/versions/5f24084160c9089501c1b3545d9be3c27883ae2239b6f412990e82d4a6210f8f "HTTP/1.1 200 OK"
+2024-06-27 18:44:42,328 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/predictions/hjjk2byfjxrj60cgb9faefh27m "HTTP/1.1 200 OK"
+2024-06-27 18:44:43,410 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/predictions/hjjk2byfjxrj60cgb9faefh27m "HTTP/1.1 200 OK"
+2024-06-27 18:44:43,415 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-27 18:44:43,651 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 400 115
+2024-06-27 18:44:43,653 ERROR root Error in get_chat_response: API request failed with status 400: {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.1.id: Extra inputs are not permitted'}}
+2024-06-27 18:44:43,657 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:44:43] "POST /chat HTTP/1.1" 200 -
+2024-06-27 18:49:03,146 DEBUG fsevents NativeEvent(path="/Users/aviz/new/aviz-bot/bots/omnibot/chatbot.py", inode=71142207, flags=419400, id=12488251): is_cloned, is_file, is_inode_meta_mod, is_modified, is_xattr_mod
+2024-06-27 18:49:03,147 DEBUG fsevents queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/aviz/new/aviz-bot/bots/omnibot/chatbot.py', is_directory=False>
+2024-06-27 18:49:03,151 INFO werkzeug  * Detected change in '/Users/aviz/new/aviz-bot/bots/omnibot/chatbot.py', reloading
+2024-06-27 18:49:03,660 INFO werkzeug  * Restarting with watchdog (fsevents)
+2024-06-27 18:49:03,982 DEBUG root generate_image function loaded successfully.
+2024-06-27 18:49:03,983 INFO app Custom routes for omnibot registered successfully.
+2024-06-27 18:49:03,984 INFO app Starting server for omnibot
+2024-06-27 18:49:03,987 WARNING werkzeug  * Debugger is active!
+2024-06-27 18:49:03,992 INFO werkzeug  * Debugger PIN: 126-122-877
+2024-06-27 18:49:12,206 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:49:12] "GET / HTTP/1.1" 200 -
+2024-06-27 18:49:12,254 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:49:12] "[36mGET /custom/static/script.js HTTP/1.1[0m" 304 -
+2024-06-27 18:49:12,256 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:49:12] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-06-27 18:49:12,256 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:49:12] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-06-27 18:49:12,256 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:49:12] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-27 18:49:12,256 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:49:12] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-06-27 18:49:12,257 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:49:12] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-06-27 18:49:12,259 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:49:12] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-06-27 18:49:12,298 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:49:12] "POST /set_prompt HTTP/1.1" 200 -
+2024-06-27 18:49:14,955 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-27 18:49:17,679 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-27 18:49:18,780 DEBUG httpx._client HTTP Request: POST https://api.replicate.com/v1/predictions "HTTP/1.1 201 Created"
+2024-06-27 18:49:19,014 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/models/bytedance/sdxl-lightning-4step/versions/5f24084160c9089501c1b3545d9be3c27883ae2239b6f412990e82d4a6210f8f "HTTP/1.1 200 OK"
+2024-06-27 18:49:19,756 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/predictions/z13ydagb6hrj40cgb9hshrfa0r "HTTP/1.1 200 OK"
+2024-06-27 18:49:20,500 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/predictions/z13ydagb6hrj40cgb9hshrfa0r "HTTP/1.1 200 OK"
+2024-06-27 18:49:21,245 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/predictions/z13ydagb6hrj40cgb9hshrfa0r "HTTP/1.1 200 OK"
+2024-06-27 18:49:21,249 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-27 18:49:22,955 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-27 18:49:22,960 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:49:22] "POST /chat HTTP/1.1" 200 -
+2024-06-27 18:50:17,172 DEBUG fsevents NativeEvent(path="/Users/aviz/new/aviz-bot/bots/omnibot/chatbot.py", inode=71142207, flags=419400, id=12492685): is_cloned, is_file, is_inode_meta_mod, is_modified, is_xattr_mod
+2024-06-27 18:50:17,173 DEBUG fsevents queue_event <FileModifiedEvent: event_type=modified, src_path='/Users/aviz/new/aviz-bot/bots/omnibot/chatbot.py', is_directory=False>
+2024-06-27 18:50:17,174 INFO werkzeug  * Detected change in '/Users/aviz/new/aviz-bot/bots/omnibot/chatbot.py', reloading
+2024-06-27 18:50:17,480 INFO werkzeug  * Restarting with watchdog (fsevents)
+2024-06-27 18:50:17,844 DEBUG root generate_image function loaded successfully.
+2024-06-27 18:50:17,846 INFO app Custom routes for omnibot registered successfully.
+2024-06-27 18:50:17,847 INFO app Starting server for omnibot
+2024-06-27 18:50:17,850 WARNING werkzeug  * Debugger is active!
+2024-06-27 18:50:17,855 INFO werkzeug  * Debugger PIN: 126-122-877
+2024-06-27 18:50:24,865 DEBUG root generate_image function loaded successfully.
+2024-06-27 18:50:24,869 INFO app Custom routes for omnibot registered successfully.
+2024-06-27 18:50:24,869 INFO app Starting server for omnibot
+2024-06-27 18:50:24,873 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-06-27 18:50:24,873 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-06-27 18:50:24,877 INFO werkzeug  * Restarting with watchdog (fsevents)
+2024-06-27 18:50:25,233 DEBUG root generate_image function loaded successfully.
+2024-06-27 18:50:25,235 INFO app Custom routes for omnibot registered successfully.
+2024-06-27 18:50:25,235 INFO app Starting server for omnibot
+2024-06-27 18:50:25,237 WARNING werkzeug  * Debugger is active!
+2024-06-27 18:50:25,242 INFO werkzeug  * Debugger PIN: 126-122-877
+2024-06-27 18:50:31,031 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-27 18:50:33,347 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-27 18:50:34,423 DEBUG httpx._client HTTP Request: POST https://api.replicate.com/v1/predictions "HTTP/1.1 201 Created"
+2024-06-27 18:50:34,822 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/models/bytedance/sdxl-lightning-4step/versions/5f24084160c9089501c1b3545d9be3c27883ae2239b6f412990e82d4a6210f8f "HTTP/1.1 200 OK"
+2024-06-27 18:50:35,632 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/predictions/z0rx7p1k2drj40cgb9j8p5hgrr "HTTP/1.1 200 OK"
+2024-06-27 18:50:36,395 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/predictions/z0rx7p1k2drj40cgb9j8p5hgrr "HTTP/1.1 200 OK"
+2024-06-27 18:50:37,165 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/predictions/z0rx7p1k2drj40cgb9j8p5hgrr "HTTP/1.1 200 OK"
+2024-06-27 18:50:37,914 DEBUG httpx._client HTTP Request: GET https://api.replicate.com/v1/predictions/z0rx7p1k2drj40cgb9j8p5hgrr "HTTP/1.1 200 OK"
+2024-06-27 18:50:37,920 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-06-27 18:50:41,834 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-06-27 18:50:41,842 INFO werkzeug 127.0.0.1 - - [27/Jun/2024 18:50:41] "POST /chat HTTP/1.1" 200 -

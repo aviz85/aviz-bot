@@ -65,23 +65,20 @@ class ChatBot:
 
     def get_chat_response(self, user_message, history):
         try:
-            # Define the tools to call
-            tools = [
-                {
-                    "name": "generate_image",
-                    "description": "Generate an image based on a given prompt",
-                    "input_schema": {
-                        "type": "object",
-                        "properties": {
-                            "prompt": {
-                                "type": "string",
-                                "description": "The prompt for generating the image"
-                            }
-                        },
-                        "required": ["prompt"]
-                    }
+            tools = [{
+                "name": "generate_image",
+                "description": "Generate an image based on a given prompt",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "prompt": {
+                            "type": "string",
+                            "description": "The prompt for generating the image"
+                        }
+                    },
+                    "required": ["prompt"]
                 }
-            ]
+            }]
 
             headers = {
                 "content-type": "application/json",
@@ -89,13 +86,7 @@ class ChatBot:
                 "anthropic-version": "2023-06-01"
             }
 
-            # Prepare messages including history
-            messages = []
-            for msg in history:
-                role = "user" if msg["role"] == "user" else "assistant"
-                messages.append({"role": role, "content": [{"type": "text", "text": msg["content"][0]["text"]}]})
-            
-            # Add the new user message
+            messages = [{"role": msg["role"], "content": [{"type": "text", "text": msg["content"][0]["text"]}]} for msg in history]
             messages.append({"role": "user", "content": [{"type": "text", "text": user_message}]})
 
             data = {
@@ -115,7 +106,6 @@ class ChatBot:
             if response.status_code != 200:
                 raise Exception(f"API request failed with status {response.status_code}: {response_data}")
 
-            # Check if the model wants to use a tool
             if response_data.get('stop_reason') == 'tool_use':
                 for content_block in response_data.get('content', []):
                     if content_block.get('type') == 'tool_use':
@@ -129,20 +119,24 @@ class ChatBot:
                             prompt = tool_input.get("prompt")
                             image_url = generate_image(prompt)
                             print(f"Image generated with absolute path: {image_url}")
-                            # Prepare tool result
-                            tool_result = {
+                            
+                            # Append tool use message
+                            data["messages"].append({
+                                "role": "assistant",
+                                "content": [content_block]
+                            })
+                            
+                            # Append tool result
+                            data["messages"].append({
                                 "role": "user",
-                                "content": [
-                                    {
-                                        "type": "tool_result",
-                                        "tool_use_id": tool_use_id,
-                                        "content": image_url
-                                    }
-                                ]
-                            }
-                            # Make another API call with the tool result
-                            data["messages"].append(tool_result)
-                            data["system"] = "use this image_url to response the user with markup image link"
+                                "content": [{
+                                    "type": "tool_result",
+                                    "tool_use_id": tool_use_id,
+                                    "content": image_url
+                                }]
+                            })
+                            data["system"] = "return answer with markdown link to the picture"
+                            # Make another API call with tool result
                             response = requests.post(
                                 "https://api.anthropic.com/v1/messages",
                                 headers=headers,
@@ -151,13 +145,9 @@ class ChatBot:
                             response_data = response.json()
                             if response.status_code != 200:
                                 raise Exception(f"API request failed with status {response.status_code}: {response_data}")
-                            response_data['content'] = response_data.get('content', [{"type": "text", "text": f"![{image_url}]"}])
 
             # Extract and return the text response
-            assistant_response = ""
-            for content_block in response_data.get('content', []):
-                if content_block.get('type') == 'text':
-                    assistant_response += content_block.get('text', '')
+            assistant_response = "".join(content_block.get('text', '') for content_block in response_data.get('content', []) if content_block.get('type') == 'text')
             return assistant_response
 
         except Exception as e:
