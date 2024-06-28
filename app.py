@@ -1,7 +1,8 @@
 import os
 import sys
 import time
-from flask import Flask, request, jsonify, render_template, send_from_directory
+import sqlite3
+from flask import Flask, request, jsonify, render_template, send_from_directory, g, redirect, url_for
 from dotenv import load_dotenv
 from jinja2 import TemplateNotFound, ChoiceLoader, FileSystemLoader
 import importlib
@@ -14,9 +15,23 @@ load_dotenv()
 RATE_LIMIT_WINDOW = int(os.getenv('RATE_LIMIT_WINDOW', 3600))  # 1 hour in seconds by default
 RATE_LIMIT_REQUESTS = int(os.getenv('RATE_LIMIT_REQUESTS', 30))  # 30 requests per hour by default
 
-
 # Initialize the Flask application
 app = Flask(__name__)
+
+# Set up the database connection
+DATABASE = 'tokens.db'
+
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(DATABASE)
+    return db
+
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.close()
 
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(message)s')
@@ -59,6 +74,22 @@ def custom_static(filename):
 def uploads(filename):
     return send_from_directory(f'{bot_directory}/uploads', filename)
 
+# Add login route
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        token = request.form['token']
+        db = get_db()
+        cur = db.execute('SELECT * FROM tokens WHERE token = ?', (token,))
+        user_token = cur.fetchone()
+        if user_token:
+            response = redirect(url_for('index'))
+            response.set_cookie('token', token)
+            return response
+        else:
+            return 'Invalid token', 401
+    return render_template('login.html')
+
 # Render the main page template
 @app.route('/')
 def index():
@@ -80,6 +111,23 @@ import inspect
 @app.route('/chat', methods=['POST'])
 def chat():
     global first_request_time, request_count
+    token = request.cookies.get('token')
+    if not token:
+        return redirect(url_for('login'))
+
+    db = get_db()
+    cur = db.execute('SELECT * FROM tokens WHERE token = ?', (token,))
+    user_token = cur.fetchone()
+    if not user_token:
+        return redirect(url_for('login'))
+
+    token_id, token_str, credits, expiration_date = user_token
+    if credits is not None and credits <= 0:
+        return jsonify({'error': 'Token has no credits left'}), 403
+
+    if expiration_date and time.time() > time.mktime(time.strptime(expiration_date, "%Y-%m-%d %H:%M:%S")):
+        return jsonify({'error': 'Token has expired'}), 403
+
     payload = request.json
     user_message = payload.get('message')
     history = payload.get('history', [])
@@ -109,6 +157,20 @@ def chat():
 
     return jsonify({'response': chat_response})
 
+@app.route('/dashboard', methods=['GET', 'POST'])
+def dashboard():
+    if request.authorization and request.authorization.password == os.getenv('DASHBOARD_PASSWORD'):
+        db = get_db()
+        if request.method == 'POST':
+            token = request.form['token']
+            credits = request.form['credits']
+            expiration_date = request.form['expiration_date']
+            db.execute('INSERT INTO tokens (token, credits, expiration_date) VALUES (?, ?, ?)', (token, credits, expiration_date))
+            db.commit()
+        tokens = db.execute('SELECT * FROM tokens').fetchall()
+        return render_template('dashboard.html', tokens=tokens)
+    return 'Unauthorized', 401
+
 @app.route('/get_current_personality', methods=['GET'])
 def get_current_personality():
     try:
@@ -130,6 +192,15 @@ except AttributeError:
     app.logger.error(f"Routes module for {chatbot_name} does not have create_blueprint function.")
 except Exception as e:
     app.logger.error(f"Error registering custom routes for {chatbot_name}: {str(e)}")
+
+def init_db():
+    with app.app_context():
+        db = get_db()
+        with app.open_resource('schema.sql', mode='r') as f:
+            db.cursor().executescript(f.read())
+        db.commit()
+
+init_db()
 
 # Main execution block to run the Flask app
 if __name__ == '__main__':
