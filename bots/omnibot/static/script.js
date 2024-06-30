@@ -5,7 +5,7 @@ let messageCount = 0;
 function incrementMessageCount() {
     messageCount++;
     if (messageCount === 3) {
-    	// setTimeout(showSelfieModal, 750);
+    	setTimeout(showSelfieModal, 1750);
     }
 }
 
