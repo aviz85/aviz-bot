@@ -1,5 +1,6 @@
 # routes.py
 import os
+import traceback
 import json
 from flask import Blueprint, jsonify, request, current_app, send_from_directory
 from werkzeug.utils import secure_filename
@@ -72,12 +73,12 @@ def create_blueprint(chatbot):
                 return jsonify({'error': 'File not found'}), 404
             
             # Call the chatbot's append_knowledge method
+            print(file_path)
             result = current_app.config['chatbot'].append_knowledge(file_path)
             current_app.logger.info(f"Knowledge appended successfully: {result}")
             return jsonify({'message': result}), 200
         except Exception as e:
             current_app.logger.error(f"Error in append_knowledge route: {str(e)}")
-            current_app.logger.error(f"Traceback: {traceback.format_exc()}")
             return jsonify({'error': str(e), 'traceback': traceback.format_exc()}), 500
             
     
@@ -106,7 +107,6 @@ def create_blueprint(chatbot):
     def delete_file():
         try:
             filename = request.json.get('filename')
-            print('hwll')
             if not filename:
                 return jsonify({'error': 'No filename provided'}), 400
             

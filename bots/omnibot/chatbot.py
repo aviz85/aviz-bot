@@ -2,6 +2,7 @@ import json
 import os
 import logging
 import requests
+import traceback
 from dotenv import load_dotenv
 from flask import Blueprint, jsonify, request, current_app, send_from_directory
 from tools.generate_image import generate_image
@@ -245,6 +246,7 @@ class ChatBot:
         """
         try:
             logging.info(f"Attempting to append knowledge from file: {file_path}")
+            
             self.rag = VectorDB(file_path)
             logging.info(f"Successfully created VectorDB instance with file: {file_path}")
             return f"Knowledge from {file_path} has been successfully appended."
