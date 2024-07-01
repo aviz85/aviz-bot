@@ -94,7 +94,7 @@ function combineWithBackground(chatCanvas) {
 
     // Load a random background image
     const backgroundImage = new Image();
-    const randomNum = Math.floor(Math.random() * 5) + 1;
+    const randomNum = Math.floor(Math.random() * 10) + 1;
     backgroundImage.src = `/custom/static/assets/background-${randomNum}.png`;
 
     backgroundImage.onload = () => {

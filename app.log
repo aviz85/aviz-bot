@@ -28344,3 +28344,43 @@
 2024-07-01 05:08:43,577 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 05:08:43] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
 2024-07-01 05:08:43,578 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 05:08:43] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
 2024-07-01 05:08:43,652 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 05:08:43] "[36mGET /custom/static/assets/background-2.png HTTP/1.1[0m" 304 -
+2024-07-01 06:28:09,719 DEBUG root generate_image function loaded successfully.
+2024-07-01 06:28:09,721 INFO app Custom routes for omnibot registered successfully.
+2024-07-01 06:28:09,721 INFO app Starting server for omnibot
+2024-07-01 06:28:09,733 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-07-01 06:28:09,733 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-07-01 06:28:09,734 INFO werkzeug  * Restarting with stat
+2024-07-01 06:28:10,021 DEBUG root generate_image function loaded successfully.
+2024-07-01 06:28:10,027 INFO app Custom routes for omnibot registered successfully.
+2024-07-01 06:28:10,027 INFO app Starting server for omnibot
+2024-07-01 06:28:10,036 WARNING werkzeug  * Debugger is active!
+2024-07-01 06:28:10,043 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-01 06:28:13,399 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:13] "GET / HTTP/1.1" 200 -
+2024-07-01 06:28:13,478 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:13] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-07-01 06:28:13,483 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:13] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-07-01 06:28:13,491 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:13] "[36mGET /custom/static/script.js HTTP/1.1[0m" 304 -
+2024-07-01 06:28:13,491 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:13] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-07-01 06:28:13,491 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:13] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-07-01 06:28:13,492 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:13] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-07-01 06:28:13,493 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:13] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-07-01 06:28:13,516 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:13] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 06:28:19,922 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 06:28:22,024 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 06:28:22,027 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:22] "POST /chat HTTP/1.1" 200 -
+2024-07-01 06:28:22,035 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:22] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 06:28:22,041 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:22] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 06:28:31,539 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 06:28:33,928 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 06:28:33,931 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:33] "POST /chat HTTP/1.1" 200 -
+2024-07-01 06:28:33,940 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:33] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 06:28:33,945 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:33] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 06:28:49,822 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 06:28:52,055 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 06:28:52,056 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:52] "POST /chat HTTP/1.1" 200 -
+2024-07-01 06:28:52,065 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:52] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 06:28:52,071 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:52] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 06:28:55,999 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:55] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-07-01 06:28:56,000 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-07-01 06:28:56,001 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:56] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-07-01 06:28:56,112 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 06:28:56] "GET /custom/static/assets/background-2.png HTTP/1.1" 200 -
