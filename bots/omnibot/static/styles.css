@@ -11,7 +11,6 @@
     transition: opacity 0.3s ease;
     z-index: 999;
 }
-
 .selfie-modal-backdrop.active {
     opacity: 1;
 }
@@ -30,7 +29,6 @@
     opacity: 0;
     transition: all 0.3s ease;
 }
-
 .selfie-modal.active {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
@@ -40,7 +38,6 @@
 .modal-content {
     text-align: center;
 }
-
 .modal-content p {
     font-size: 24px;
     margin-bottom: 20px;
@@ -55,12 +52,13 @@
     color: #ff4d4d;
     cursor: pointer;
     transition: color 0.3s ease;
+    background: none;
+    border: none;
+    padding: 0;
 }
-
 .close-button:hover {
     color: #ff1a1a;
 }
-
 .selfie-button, .download-button {
     background-color: #4CAF50;
     color: white;
@@ -71,7 +69,6 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 .selfie-button:hover, .download-button:hover {
     background-color: #45a049;
 }
@@ -82,22 +79,18 @@
     max-height: 90%;
     overflow: auto;
 }
-
 .screenshot-container {
     max-width: 50%; /* One third of the current size */
     margin: 0 auto; /* Center the container */
 }
-
 .screenshot-image {
     max-width: 100%;
     height: auto;
     display: block;
 }
-
 .download-button {
     margin-top: 10px;
 }
-
 .download-button i {
     margin-right: 5px;
 }
@@ -108,7 +101,6 @@
     50% { opacity: 1; }
     100% { opacity: 0; }
 }
-
 .flash {
     position: fixed;
     top: 0;
@@ -120,7 +112,39 @@
     opacity: 0;
     pointer-events: none;
 }
-
 .flash.active {
     animation: flash 0.5s ease-out;
+}
+
+/* Capture button styles (new) */
+.capture-screen-button {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.2s ease;
+}
+.capture-screen-button:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Ensure the chat header can position the capture button correctly (new) */
+.chat-header {
+    position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .screenshot-container {
+        max-width: 80%;
+    }
+    .selfie-button, .download-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
 }
