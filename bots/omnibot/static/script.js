@@ -166,6 +166,7 @@ function showScreenshotModal(imageDataUrl) {
         link.href = imageDataUrl;
         link.download = 'chat-selfie.png';
         link.click();
+        closeModal(backdrop, modal);
     };
 }
 
