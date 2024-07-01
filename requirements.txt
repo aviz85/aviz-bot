@@ -14,3 +14,7 @@ python-docx
 ffmpeg
 replicate
 redis
+faiss-cpu==1.7.4
+numpy==1.24.3
+PyPDF2==3.0.1
+llama-index==0.7.7

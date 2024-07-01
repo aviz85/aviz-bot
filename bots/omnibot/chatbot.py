@@ -4,12 +4,13 @@ import logging
 import requests
 from dotenv import load_dotenv
 from tools.generate_image import generate_image
+from tools.rag import VectorDB
 
 load_dotenv()
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(message)s')
 
 class ChatBot:
-    def __init__(self, prompts_file=None):
+    def __init__(self, prompts_file=None, knowledge_file=None):
         self.api_key = os.getenv('ANTHROPIC_API_KEY')
         if not self.api_key:
             raise ValueError("ANTHROPIC_API_KEY not found in environment variables.")
@@ -20,6 +21,15 @@ class ChatBot:
         
         self.initial_prompt_label = "sarcastic_friend"
         self.system_message = self.get_system_message()
+        self.rag = None
+
+        knowledge_file = knowledge_file or os.path.join(os.path.dirname(__file__), 'uploads', 'aviz.docx')
+
+        print(f"Knowledge file exists: {os.path.exists(knowledge_file)}")
+        
+        # Automatically append knowledge if file exists
+        if knowledge_file and os.path.exists(knowledge_file):
+            self.append_knowledge(knowledge_file)
 
     def get_system_message(self):
         system_prompt = next((prompt["prompt"] for prompt in self.prompts if prompt["label"] == self.initial_prompt_label), None)
@@ -61,6 +71,36 @@ class ChatBot:
             raise Exception(f"API request failed with status {response.status_code}: {response.json()}")
         return response.json()
 
+    def handle_knowledge_response(self, queries, original_question, knowledge_chunks):
+        knowledge_context = "\n".join(knowledge_chunks)
+        queries_str = "\n".join(f"- {query}" for query in queries)
+        prompt = f"""
+        Based on the following information:
+
+        {knowledge_context}
+
+        And considering these queries:
+        {queries_str}
+
+        Please answer the original question: "{original_question}"
+
+        Provide a concise answer using the given information. If the information is not
+        sufficient to answer the question completely, state what is known based on the
+        provided context and what additional information might be needed.
+        """
+        
+        # Instead of calling get_chat_response, directly call the API
+        data = {
+            "model": "claude-3-5-sonnet-20240620",
+            "max_tokens": 1024,
+            "tool_choice": {"type": "tool", "name": "get_knowledge"},
+            "system": self.system_message,
+            "messages": [{"role": "user", "content": [{"type": "text", "text": prompt}]}]
+        }
+        
+        response_data = self.call_anthropic_api(data)
+        return "".join(content_block.get('text', '') for content_block in response_data.get('content', []) if content_block.get('type') == 'text')
+
     def get_chat_response(self, user_message, history):
         try:
             tools = [
@@ -88,13 +128,18 @@ class ChatBot:
                 },
                 {
                     "name": "get_knowledge",
-                    "description": "Retrieve specific knowledge when the bot feels it lacks information or understanding on a particular topic.",
+                    "description": "Retrieve specific knowledge when the bot feels it lacks information or understanding on particular topics. Can ask up to 3 queries.",
                     "input_schema": {
                         "type": "object",
                         "properties": {
-                            "query": {"type": "string", "description": "A rephrased question to find the answer in the knowledge base"}
+                            "queries": {
+                                "type": "array",
+                                "items": {"type": "string"},
+                                "description": "An array of up to 3 queries to find answers in the knowledge base",
+                                "maxItems": 1
+                            }
                         },
-                        "required": ["query"]
+                        "required": ["queries"]
                     }
                 }
             ]
@@ -107,63 +152,101 @@ class ChatBot:
                 "max_tokens": 1024,
                 "system": self.system_message,
                 "tools": tools,
+                "tool_choice": {"type": "tool", "name": "get_knowledge"},
                 "messages": messages
             }
 
-            response_data = self.call_anthropic_api(data)
+            first_iteration = True
+            while True:
+                response_data = self.call_anthropic_api(data)
 
-            if response_data.get('stop_reason') == 'tool_use':
+                if response_data.get('stop_reason') != 'tool_use':
+                    break
+
+                print(f"Debug: Tool use detected. Stop reason: {response_data.get('stop_reason')}")
                 for content_block in response_data.get('content', []):
+                    print(f"Debug: Processing content block: {content_block}")
                     if content_block.get('type') == 'tool_use':
                         tool_name = content_block.get('name')
                         tool_use_id = content_block.get('id')
                         tool_input = content_block.get('input')
+                        print(f"Debug: Tool use details - Name: {tool_name}, ID: {tool_use_id}, Input: {tool_input}")
                         
-                        if tool_name == "generate_image":
-                            image_url = generate_image(tool_input.get("prompt"))
-                            data["messages"].extend([
-                                {"role": "assistant", "content": [content_block]},
-                                {"role": "user", "content": [{"type": "tool_result", "tool_use_id": tool_use_id, "content": image_url}]}
-                            ])
-                            data["system"] = "return answer with markdown link to the picture. add some comment up to 2 sentences"
-                        elif tool_name == "switch_prompt":
-                            switch_result = self.switch_prompt(tool_input.get("prompt_index"))
-                            data["messages"].extend([
-                                {"role": "assistant", "content": [content_block]},
-                                {"role": "user", "content": [{"type": "tool_result", "tool_use_id": tool_use_id, "content": switch_result}]}
-                            ])
-                        elif tool_name == "get_knowledge":
-                            knowledge_chunks = self.mock_get_knowledge(tool_input.get("query"))
-                            return self.handle_knowledge_response(tool_input.get("query"), user_message, knowledge_chunks)
+                        tool_result = self.handle_tool_use(tool_name, tool_input, tool_use_id)
                         
-                        response_data = self.call_anthropic_api(data)
+                        data["messages"].extend([
+                            {"role": "assistant", "content": [content_block]},
+                            {"role": "user", "content": [{"type": "tool_result", "tool_use_id": tool_use_id, "content": tool_result}]}
+                        ])
 
-            return "".join(content_block.get('text', '') for content_block in response_data.get('content', []) if content_block.get('type') == 'text')
+                if first_iteration:
+                    # Remove tools and tool_choice after the first iteration
+                    data.pop("tool_choice", None)
+                    first_iteration = False
 
+                print("Debug: Calling Anthropic API with updated data")
+
+            print("Debug: Extracting final response")
+            final_response = "".join(content_block.get('text', '') for content_block in response_data.get('content', []) if content_block.get('type') == 'text')
+            print(f"Debug: Final response: {final_response}")
+            return final_response
         except Exception as e:
             logging.error(f"Error in get_chat_response: {str(e)}")
             return str({"error": str(e)})
+            
+            
+    def handle_tool_use(self, tool_name, tool_input, tool_use_id):
+        if tool_name == "generate_image":
+            print("Debug: Generating image")
+            image_url = generate_image(tool_input.get("prompt"))
+            print(f"Debug: Image generated. URL: {image_url}")
+            return image_url
+        elif tool_name == "switch_prompt":
+            print("Debug: Switching prompt")
+            switch_result = self.switch_prompt(tool_input.get("prompt_index"))
+            print(f"Debug: Prompt switch result: {switch_result}")
+            return switch_result
+        elif tool_name == "get_knowledge":
+            print("Debug: Getting knowledge")
+            queries = tool_input.get("queries", [])
+            knowledge_chunks = self.get_knowledge(queries)
+            print(f"Debug: Knowledge chunks retrieved: {knowledge_chunks}")
+            return json.dumps(knowledge_chunks)  # Return as JSON string
+        else:
+            return f"Unknown tool: {tool_name}"
+            
+    def get_knowledge(self, queries):
+        print(f"Getting knowledge for queries: {queries}")
+        if self.rag:
+            try:
+                results = self.rag.search(queries)
+                print(f"Search results: {results}")
+                if not results:
+                    print("No results found in knowledge base")
+                    return ["No relevant information found in the knowledge base."]
+                return [result['text'] for result in results]
+            except Exception as e:
+                print(f"Error retrieving knowledge: {str(e)}")
+                return [f"Error retrieving knowledge: {str(e)}"]
+        else:
+            print("RAG not initialized, using mock data")
+            return [f"Relevant information for '{query}': chunk {i}" for i, query in enumerate(queries, 1)]
 
-    def handle_knowledge_response(self, query, original_question, knowledge_chunks):
-        knowledge_context = "\n".join(knowledge_chunks)
-        prompt = f"""
-        Based on the following information:
 
-        {knowledge_context}
-
-        Please answer the original question: "{original_question}"
-
-        Provide a concise answer using the given information. If the information is not
-        sufficient to answer the question completely, state what is known based on the
-        provided context and what additional information might be needed.
+    def append_knowledge(self, file_path):
         """
-        return self.get_chat_response(prompt, [])
+        Create a new VectorDB instance with the given file and assign it to self.rag.
+        
+        :param file_path: Path to the file containing the knowledge to be added.
+        :return: None
+        """
+        try:
+            self.rag = VectorDB(file_path)
+            logging.info(f"Successfully appended knowledge from file: {file_path}")
+            return f"Knowledge from {file_path} has been successfully appended."
+        except Exception as e:
+            logging.error(f"Error appending knowledge: {str(e)}")
+            return f"Error appending knowledge: {str(e)}"
 
-    def mock_get_knowledge(self, query):
-        return [
-            f"Relevant information for '{query}': chunk 1",
-            f"Additional context for '{query}': chunk 2",
-            f"More details about '{query}': chunk 3"
-        ]
-
-chatbot = ChatBot()
+# Usage
+# chatbot = ChatBot(knowledge_file="path/to/your/knowledge_file.txt")
