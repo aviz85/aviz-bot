@@ -10,10 +10,11 @@ const modeLabels = [
     { value: 'curious_explorer', label: '🔍 חוקר סקרן' },
     { value: 'calm_meditator', label: '🧘 מתרגל מדיטציה רגוע' },
     { value: 'tech_guru', label: '💻 גורו טכנולוגי' },
+    { value: 'enthusiastic_marketer', label: '🤑 איש מכירות ללא מעצורים'},    
     { value: 'inventive_thinker', label: '💡 חושב יצירתי' },
     { value: 'argumentative_debater', label: '🗣️ ווכחן' },
     { value: 'angry_companion', label: '😡 חבר כועס' },
-    { value: 'nonsense', label: '🤪 שטויות' }
+    { value: 'nonsense', label: '🤪 שטויות' },
 ];
 
 let currentPersonality = null;

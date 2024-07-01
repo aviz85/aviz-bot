@@ -54,7 +54,7 @@ def create_blueprint(chatbot):
                 return jsonify({'message': 'File successfully uploaded', 'filename': filename})
         except Exception as e:
             current_app.logger.error(f"Error in upload_file: {str(e)}")
-            return jsonify({'error': str(e)}), 500
+            return jsonify({'error': str(e), 'traceback': traceback.format_exc()}), 500
     
     @bp.route('/append_knowledge', methods=['POST'])
     def append_knowledge():

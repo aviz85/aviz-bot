@@ -6,6 +6,7 @@ import json
 import faiss
 import numpy as np
 import pickle
+from flask import current_app
 from typing import Union, List, Dict, Any
 from cohere import Client
 from docx import Document
@@ -38,64 +39,74 @@ class VectorDB:
         print("Cohere client initialized.")
         
         self.file_paths = file_paths_or_urls if isinstance(file_paths_or_urls, list) else [file_paths_or_urls]
-        self.chunks_file = "chunks.pkl"
-        self.embeddings_file = "embeddings.npy"
-        self.index_file = "index.faiss"
         
-        if self._load_existing_data():
-            print("Loaded existing data.")
-        else:
-            self.file_content = self._load_files(self.file_paths)
-            print(f"Files loaded. Total content length: {len(self.file_content)} characters")
-            
-            self.chunks = self._split_text()
-            print(f"Text split into {len(self.chunks)} chunks")
-            
-            self.embeddings = self._create_embeddings()
-            print(f"Embeddings created. Shape: {self.embeddings.shape}")
-            
-            self.index = self._create_faiss_index()
-            print("FAISS index created")
-            
-            self._save_data()
-            print("Data saved for future use.")
+        # Ensure filenames are set correctly based on the input files
+        self.files_metadata = {
+            os.path.splitext(os.path.basename(file_path))[0]: {
+                "chunks_file": os.path.join(current_app.config['UPLOAD_FOLDER'], f"{os.path.splitext(os.path.basename(file_path))[0]}_chunks.pkl"),
+                "embeddings_file": os.path.join(current_app.config['UPLOAD_FOLDER'], f"{os.path.splitext(os.path.basename(file_path))[0]}_embeddings.npy"),
+                "index_file": os.path.join(current_app.config['UPLOAD_FOLDER'], f"{os.path.splitext(os.path.basename(file_path))[0]}_index.faiss")
+            }
+            for file_path in self.file_paths
+        }
+        
+        self.file_content = ""
+        for file_path in self.file_paths:
+            if self._load_existing_data(file_path):
+                print(f"Loaded existing data for {file_path}.")
+            else:
+                self.file_content = self._load_files(file_path)
+                print(f"Files loaded. Total content length: {len(self.file_content)} characters")
+                
+                self.chunks = self._split_text()
+                print(f"Text split into {len(self.chunks)} chunks")
+                
+                self.embeddings = self._create_embeddings()
+                print(f"Embeddings created. Shape: {self.embeddings.shape}")
+                
+                self.index = self._create_faiss_index()
+                print("FAISS index created")
+                
+                self._save_data(file_path)
+                print(f"Data saved for {file_path} for future use.")
         
         print("VectorDB initialization complete")
 
-    def _load_existing_data(self) -> bool:
-        if os.path.exists(self.chunks_file) and os.path.exists(self.embeddings_file) and os.path.exists(self.index_file):
-            with open(self.chunks_file, 'rb') as f:
+    def _load_existing_data(self, file_path: str) -> bool:
+        file_metadata = self.files_metadata[os.path.splitext(os.path.basename(file_path))[0]]
+        if os.path.exists(file_metadata["chunks_file"]) and os.path.exists(file_metadata["embeddings_file"]) and os.path.exists(file_metadata["index_file"]):
+            with open(file_metadata["chunks_file"], 'rb') as f:
                 self.chunks = pickle.load(f)
-            with open(self.embeddings_file, 'rb') as f:
+            with open(file_metadata["embeddings_file"], 'rb') as f:
                 self.embeddings = np.load(f)
-            self.index = faiss.read_index(self.index_file)
+            self.index = faiss.read_index(file_metadata["index_file"])
             return True
         return False
 
-    def _save_data(self):
-        with open(self.chunks_file, 'wb') as f:
+    def _save_data(self, file_path: str):
+        file_metadata = self.files_metadata[os.path.splitext(os.path.basename(file_path))[0]]
+        with open(file_metadata["chunks_file"], 'wb') as f:
             pickle.dump(self.chunks, f)
-        with open(self.embeddings_file, 'wb') as f:
+        with open(file_metadata["embeddings_file"], 'wb') as f:
             np.save(f, self.embeddings)
-        faiss.write_index(self.index, self.index_file)
+        faiss.write_index(self.index, file_metadata["index_file"])
 
-    def _load_files(self, file_paths_or_urls: List[str]) -> str:
-        print(f"Loading files from: {file_paths_or_urls}")
+    def _load_files(self, file_path_or_url: str) -> str:
+        print(f"Loading file from: {file_path_or_url}")
         content = []
-        for file_path_or_url in file_paths_or_urls:
-            if file_path_or_url.startswith(('http://', 'https://')):
-                response = requests.get(file_path_or_url)
-                file_content = response.content
-                content.append(self._process_file_content(file_content, file_path_or_url))
+        if file_path_or_url.startswith(('http://', 'https://')):
+            response = requests.get(file_path_or_url)
+            file_content = response.content
+            content.append(self._process_file_content(file_content, file_path_or_url))
+        else:
+            file_extension = os.path.splitext(file_path_or_url)[1].lower()
+            if file_extension == '.docx':
+                content.append(self._process_docx(file_path_or_url))
             else:
-                file_extension = os.path.splitext(file_path_or_url)[1].lower()
-                if file_extension == '.docx':
-                    content.append(self._process_docx(file_path_or_url))
-                else:
-                    reader = SimpleDirectoryReader(input_files=[file_path_or_url])
-                    documents = reader.load_data()
-                    file_content = documents[0].get_content()
-                    content.append(file_content)
+                reader = SimpleDirectoryReader(input_files=[file_path_or_url])
+                documents = reader.load_data()
+                file_content = documents[0].get_content()
+                content.append(file_content)
         
         combined_content = "\n".join(content)
         print(f"Total combined content length: {len(combined_content)} characters")
