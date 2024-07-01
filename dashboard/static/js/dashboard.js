@@ -1,19 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // אישור מחיקת קובץ
-    const deleteButtons = document.querySelectorAll('.btn-delete');
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            if (!confirm('האם אתה בטוח שברצונך למחוק קובץ זה?')) {
-                e.preventDefault();
-            }
-        });
-    });
-
-    // הוספת אנימציה פשוטה בעת העלאת קובץ
-    const uploadForm = document.querySelector('form[action$="upload_file"]');
-    const uploadButton = uploadForm.querySelector('button[type="submit"]');
-    uploadForm.addEventListener('submit', function() {
-        uploadButton.textContent = 'מעלה...';
-        uploadButton.disabled = true;
-    });
-});
+// tabs.js
+function openTab(evt, tabName) {
+    var i, tabContent, tabLinks;
+    tabContent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+    }
+    tabLinks = document.getElementsByClassName("tab");
+    for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}

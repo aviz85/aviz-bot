@@ -1,63 +1,31 @@
-body { 
-    font-family: Arial, sans-serif; 
-    padding: 2rem; 
-    background-color: #f0f0f0; 
+/* tabs_styles.css */
+.tab-container {
+    display: flex;
+    justify-content: flex-start;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ccc;
 }
-.dashboard-container, .login-container { 
-    background-color: white; 
-    padding: 2rem; 
-    border-radius: 5px; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-    max-width: 600px;
-    margin: 0 auto;
+
+.tab {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
 }
-h1 { 
-    margin-top: 0; 
+
+.tab:hover {
+    background-color: #ddd;
 }
-.file-list { 
-    list-style-type: none; 
-    padding: 0; 
+
+.tab.active {
+    background-color: #ccc;
 }
-.file-list li { 
-    margin-bottom: 0.5rem; 
-}
-.file-actions { 
-    display: inline-block; 
-    margin-right: 1rem; 
-}
-.file-actions form { 
-    display: inline; 
-}
-.btn, button[type="submit"] { 
-    padding: 0.25rem 0.5rem; 
-    background-color: #007bff; 
-    color: white; 
-    border: none; 
-    border-radius: 3px; 
-    cursor: pointer; 
-    text-decoration: none; 
-}
-.btn-delete { 
-    background-color: #dc3545; 
-}
-.folder { 
-    font-weight: bold; 
-}
-.login-container form div {
-    margin-bottom: 1rem;
-}
-.login-container label {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-.login-container input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-}
-.messages {
-    list-style-type: none;
-    padding: 0;
-    color: #dc3545;
+
+.tab-content {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
 }

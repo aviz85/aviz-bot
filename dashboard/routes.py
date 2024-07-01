@@ -20,24 +20,27 @@ def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        if username in users and check_password_hash(users.get(username), password):
+        if username == os.getenv('ADMIN_USERNAME') and check_password_hash(generate_password_hash(os.getenv('ADMIN_PASSWORD')), password):
             user = User(username)
             login_user(user)
             return redirect(url_for('dashboard.index'))
         else:
             flash('שם משתמש או סיסמה לא נכונים')
     return render_template('dashboard/login.html')
-
+    
 @dashboard.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect(url_for('dashboard.login'))
-
+    
 @dashboard.route('/')
 @dashboard.route('/<path:subpath>')
 @login_required
 def index(subpath=''):
+    bot_name = current_app.config['CHATBOT_NAME']
+    widget_template_path = 'dashboard/widget.html'  # Relative path from the template folder
+
     uploads_dir = os.path.join(current_app.config['UPLOAD_FOLDER'], subpath)
     
     if not os.path.exists(uploads_dir):
@@ -53,39 +56,4 @@ def index(subpath=''):
         elif os.path.isdir(item_path):
             folders.append(item)
     
-    return render_template('dashboard/index.html', files=files, folders=folders, current_path=subpath)
-
-@dashboard.route('/upload', methods=['POST'])
-@login_required
-def upload_file():
-    if 'file' not in request.files:
-        flash('לא נבחר קובץ')
-        return redirect(request.referrer)
-    file = request.files['file']
-    if file.filename == '':
-        flash('לא נבחר קובץ')
-        return redirect(request.referrer)
-    if file:
-        filename = secure_filename(file.filename)
-        subpath = request.form.get('subpath', '')
-        upload_folder = os.path.join(current_app.config['UPLOAD_FOLDER'], subpath)
-        os.makedirs(upload_folder, exist_ok=True)
-        file.save(os.path.join(upload_folder, filename))
-        flash('הקובץ הועלה בהצלחה')
-    return redirect(request.referrer)
-
-@dashboard.route('/delete/<path:filepath>', methods=['POST'])
-@login_required
-def delete_file(filepath):
-    file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filepath)
-    if os.path.exists(file_path):
-        os.remove(file_path)
-        flash('הקובץ נמחק בהצלחה')
-    else:
-        flash('הקובץ לא נמצא')
-    return redirect(request.referrer)
-
-@dashboard.route('/download/<path:filepath>')
-@login_required
-def download_file(filepath):
-    return send_from_directory(current_app.config['UPLOAD_FOLDER'], filepath, as_attachment=True)
+    return render_template('dashboard/index.html', files=files, folders=folders, current_path=subpath, bot_name=bot_name, widget_template=widget_template_path)

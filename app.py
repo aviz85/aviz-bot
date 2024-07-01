@@ -9,6 +9,8 @@ from jinja2 import TemplateNotFound, ChoiceLoader, FileSystemLoader
 import importlib
 import logging
 from models import User
+from config import Config
+
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -20,6 +22,9 @@ RATE_LIMIT_REQUESTS = int(os.getenv('RATE_LIMIT_REQUESTS', 30))  # 30 requests p
 # Initialize the Flask application
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'your_secret_key')  # Make sure to set this in your .env file
+
+app.config.from_object(Config)
+
 
 # Initialize Flask-Login
 login_manager = LoginManager()
@@ -35,7 +40,7 @@ def load_user(user_id):
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(message)s')
 
 # Fetch the chatbot's name from environment variables, with a fallback default
-chatbot_name = os.getenv('CHATBOT_NAME', 'chatbot')
+chatbot_name = app.config['CHATBOT_NAME']
 
 # Check if the specific chatbot's directory exists; fallback to default if it does not
 bot_directory = f'bots/{chatbot_name}'
@@ -130,9 +135,12 @@ def get_current_personality():
         app.logger.error("Chatbot object does not have initial_prompt_label attribute")
         return jsonify({'error': 'Unable to retrieve current personality'}), 500
 
-# Register the dashboard blueprint
-from dashboard.routes import dashboard
-app.register_blueprint(dashboard, url_prefix='/dashboard')
+from dashboard.routes import dashboard as dashboard_blueprint
+
+app.register_blueprint(dashboard_blueprint, url_prefix='/dashboard')
+
+# Remove or comment out any references to 'auth' blueprint if it's not used
+# app.register_blueprint(auth_blueprint, url_prefix='/auth')
 
 try:
     routes_module = f"bots.{chatbot_name}.routes"

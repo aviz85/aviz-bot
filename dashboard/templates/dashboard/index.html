@@ -1,65 +1,44 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>לוח בקרה</title>
+    <title>{{ bot_name }} Chatbot UI</title>
     <link rel="stylesheet" href="{{ url_for('dashboard.static', filename='css/dashboard.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="dashboard-container">
-        <h1>לוח בקרה</h1>
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <ul>
-                    {% for message in messages %}
-                    <li>{{ message }}</li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
-        
-        <h2>תיקייה נוכחית: {{ current_path or 'ראשית' }}</h2>
-        
-        {% if current_path %}
-            <a href="{{ url_for('dashboard.index', subpath='/'.join(current_path.split('/')[:-1])) }}" class="btn">חזרה לתיקייה הקודמת</a>
-        {% endif %}
-        
-        <h3>תיקיות:</h3>
-        <ul class="file-list">
-            {% for folder in folders %}
-                <li class="folder">
-                    <a href="{{ url_for('dashboard.index', subpath=(current_path + '/' if current_path else '') + folder) }}">{{ folder }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-        
-        <h3>קבצים:</h3>
-        <ul class="file-list">
-            {% for file in files %}
-                <li>
-                    {{ file }}
-                    <div class="file-actions">
-                        <a href="{{ url_for('dashboard.download_file', filepath=(current_path + '/' if current_path else '') + file) }}" class="btn">הורדה</a>
-                        <form action="{{ url_for('dashboard.delete_file', filepath=(current_path + '/' if current_path else '') + file) }}" method="POST">
-                            <button type="submit" class="btn btn-delete">מחיקה</button>
-                        </form>
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
-        
-        <h3>העלאת קובץ חדש:</h3>
-        <form action="{{ url_for('dashboard.upload_file') }}" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file" required>
-            <input type="hidden" name="subpath" value="{{ current_path }}">
-            <button type="submit" class="btn">העלאת קובץ</button>
-        </form>
-        
-        <br>
-        <a href="{{ url_for('auth.logout') }}" class="btn">התנתקות</a>
-    </div>
+    <header>
+        <h1>לוח בקרה {{ bot_name }}</h1>
+    </header>
+    <main>
+        <div class="tab-container">
+            <button class="tab active" onclick="openTab(event, 'home')">בית</button>
+            <button class="tab" onclick="openTab(event, 'widget')">{{ bot_name }}</button>
+            <button class="tab" onclick="openTab(event, 'settings')">הגדרות</button>
+        </div>
 
-    <script src="{{ url_for('dashboard.static', filename='js/dashboard.js') }}"></script>
+        <div id="home" class="tab-content" style="display: block;">
+            <h2>ברוכים הבאים ללוח הבקרה</h2>
+            <p>בחר כרטיסייה כדי להתחיל.</p>
+        </div>
+
+        <div id="widget" class="tab-content">
+            <section id="widget-container">
+                {% if widget_template %}
+                    {% include widget_template %}
+                {% endif %}
+            </section>
+        </div>
+
+        <div id="settings" class="tab-content">
+            <h2>הגדרות</h2>
+            <p>כאן תוכל לשנות את הגדרות הבוט.</p>
+        </div>
+    </main>
+    <footer>
+        <div class="background-animation"></div>
+    </footer>
+    <script src="{{ url_for('dashboard.static', filename='js/dashboard.js') }}" defer></script>
 </body>
 </html>
