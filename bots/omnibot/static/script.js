@@ -39,7 +39,7 @@ function captureScreen() {
 
     if (slider) {
         originalSliderDisplay = slider.style.display;
-        slider.style.display = 'none';
+        //slider.style.display = 'none';
     }
 
     setTimeout(() => {
@@ -50,7 +50,7 @@ function captureScreen() {
             scrollY: -window.scrollY
         }).then(canvas => {
             // Determine the amount to crop from the top
-            const topCrop = 20; // Adjust this value as needed
+            const topCrop = 0; // Adjust this value as needed
 
             // Crop the captured image
             const croppedCanvas = document.createElement('canvas');
