@@ -28,7 +28,7 @@ class VectorDB:
     INITIAL_SEARCH_K = 100  # Number of initial results to fetch from FAISS
     RERANK_TOP_N = 5  # Number of results to return after reranking
     
-    def __init__(self, file_path_or_url: str):
+    def __init__(self, file_paths_or_urls: Union[str, List[str]]):
         print("Initializing VectorDB...")
         cohere_api_key = os.getenv('COHERE_API_KEY')
         if not cohere_api_key:
@@ -37,16 +37,16 @@ class VectorDB:
         self.cohere_client = Client(cohere_api_key)
         print("Cohere client initialized.")
         
-        self.file_path = file_path_or_url
-        self.chunks_file = f"{self.file_path}.chunks"
-        self.embeddings_file = f"{self.file_path}.embeddings"
-        self.index_file = f"{self.file_path}.index"
+        self.file_paths = file_paths_or_urls if isinstance(file_paths_or_urls, list) else [file_paths_or_urls]
+        self.chunks_file = "chunks.pkl"
+        self.embeddings_file = "embeddings.npy"
+        self.index_file = "index.faiss"
         
         if self._load_existing_data():
             print("Loaded existing data.")
         else:
-            self.file_content = self._load_file(file_path_or_url)
-            print(f"File loaded. Content length: {len(self.file_content)} characters")
+            self.file_content = self._load_files(self.file_paths)
+            print(f"Files loaded. Total content length: {len(self.file_content)} characters")
             
             self.chunks = self._split_text()
             print(f"Text split into {len(self.chunks)} chunks")
@@ -79,23 +79,27 @@ class VectorDB:
             np.save(f, self.embeddings)
         faiss.write_index(self.index, self.index_file)
 
-    def _load_file(self, file_path_or_url: str) -> str:
-        print(f"Loading file from: {file_path_or_url}")
-        if file_path_or_url.startswith(('http://', 'https://')):
-            response = requests.get(file_path_or_url)
-            content = response.content
-            print("File loaded from URL")
-            return self._process_file_content(content, file_path_or_url)
-        else:
-            file_extension = os.path.splitext(file_path_or_url)[1].lower()
-            if file_extension == '.docx':
-                return self._process_docx(file_path_or_url)
+    def _load_files(self, file_paths_or_urls: List[str]) -> str:
+        print(f"Loading files from: {file_paths_or_urls}")
+        content = []
+        for file_path_or_url in file_paths_or_urls:
+            if file_path_or_url.startswith(('http://', 'https://')):
+                response = requests.get(file_path_or_url)
+                file_content = response.content
+                content.append(self._process_file_content(file_content, file_path_or_url))
             else:
-                reader = SimpleDirectoryReader(input_files=[file_path_or_url])
-                documents = reader.load_data()
-                content = documents[0].get_content()
-                print("File loaded using SimpleDirectoryReader")
-                return content
+                file_extension = os.path.splitext(file_path_or_url)[1].lower()
+                if file_extension == '.docx':
+                    content.append(self._process_docx(file_path_or_url))
+                else:
+                    reader = SimpleDirectoryReader(input_files=[file_path_or_url])
+                    documents = reader.load_data()
+                    file_content = documents[0].get_content()
+                    content.append(file_content)
+        
+        combined_content = "\n".join(content)
+        print(f"Total combined content length: {len(combined_content)} characters")
+        return combined_content
 
     def _process_docx(self, file_path: str) -> str:
         print(f"Starting to process DOCX file: {file_path}")
@@ -119,7 +123,6 @@ class VectorDB:
             print(f"Error processing DOCX file: {str(e)}")
             raise
 
-
     def _process_file_content(self, content: bytes, file_name: str) -> str:
         file_extension = os.path.splitext(file_name)[1].lower()
         if file_extension == '.docx':
@@ -137,7 +140,7 @@ class VectorDB:
         processed_content = "\n".join([paragraph.text for paragraph in doc.paragraphs])
         print(f"DOCX content processed. Result length: {len(processed_content)} characters")
         return processed_content
-        
+
     def _split_text(self) -> List[str]:
         print("Splitting text into chunks")
         document = LlamaDocument(text=self.file_content)
@@ -218,8 +221,7 @@ class VectorDB:
         except Exception as e:
             print(f"Error in reranking process: {str(e)}")
             return []
-            
-            
+
     def search(self, queries: Union[str, List[str]], do_rerank: bool = True) -> List[Dict[str, Any]]:
         if isinstance(queries, str):
             queries = [queries]
@@ -278,10 +280,11 @@ class VectorDB:
         
         print(f"Search complete. Returning {len(final_results)} final results")
         return final_results
+
 if __name__ == "__main__":
     print("Starting VectorDB example")
-    db = VectorDB("path/to/your/multilingual_file.txt")
-    results = db.search(["Query 1 here", "Query 2 here", "Query 3 here"], skip_rerank=True)
+    db = VectorDB(["path/to/your/multilingual_file_1.txt", "path/to/your/multilingual_file_2.docx"])
+    results = db.search(["Query 1 here", "Query 2 here", "Query 3 here"], do_rerank=True)
     for i, result in enumerate(results, 1):
         print(f"Result {i}:")
         print(f"Text: {result['text']}")

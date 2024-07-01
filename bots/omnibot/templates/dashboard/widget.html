@@ -1,17 +1,20 @@
-<!-- dashboard/templates/widget.html -->
-<div class="widget">
-    <!-- Example of a generic widget for displaying user info -->
-    <div class="user-widget">
-        <img src="{{ url_for('static', filename='images/user.png') }}" alt="User Icon" class="user-icon">
-        <div class="user-details">
-            <h4>{{ user_name }}</h4>
-            <p>{{ user_role }}</p>
+<div class="widget-container">
+    
+    <div id="file-upload-container" class="file-upload-container">
+        <div id="drop-zone" class="drop-zone">
+            <p>Drag and drop files here (txt, pdf, docx only)</p>
+            <input type="file" id="file-input" accept=".txt,.pdf,.docx" multiple style="display: none;">
         </div>
+        <button id="upload-button">Upload Files</button>
+        <div id="upload-progress" class="progress-bar" style="display: none;"></div>
+        <div id="append-progress" class="progress-bar" style="display: none;"></div>
     </div>
-
-    <!-- Example of a quick action widget -->
-    <div class="actions-widget">
-        <button onclick="someFunction()" class="btn btn-primary">Do Action</button>
-        <button onclick="anotherFunction()" class="btn btn-secondary">Another Action</button>
+    
+    <div id="file-list-container">
+        <h3>Uploaded Files</h3>
+        <ul id="file-list"></ul>
     </div>
 </div>
+
+<link rel="stylesheet" href="{{ url_for('custom_static', filename='dashboard.css') }}">
+<script src="{{ url_for('custom_static', filename='dashboard.js') }}"></script>

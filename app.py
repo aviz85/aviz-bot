@@ -1,8 +1,10 @@
 import os
 import sys
 import time
-from flask import Flask, request, jsonify, render_template, send_from_directory
+import traceback
+from flask import Flask, request, jsonify, render_template, send_from_directory, url_for
 from flask_login import LoginManager, login_required, logout_user
+from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 from jinja2 import TemplateNotFound, ChoiceLoader, FileSystemLoader
@@ -10,7 +12,6 @@ import importlib
 import logging
 from models import User
 from config import Config
-
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -24,7 +25,6 @@ app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'your_secret_key')  # Make sure to set this in your .env file
 
 app.config.from_object(Config)
-
 
 # Initialize Flask-Login
 login_manager = LoginManager()
@@ -63,6 +63,9 @@ chatbot = ChatBot()
 app.config['chatbot'] = chatbot
 app.config['bot_directory'] = bot_directory
 app.config['UPLOAD_FOLDER'] = os.path.join(bot_directory, 'uploads')
+
+# Ensure the upload folder exists
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Add the bot's template directory to the template loader search path
 template_path = os.path.join(os.path.dirname(__file__), bot_directory, 'templates')
@@ -139,9 +142,14 @@ from dashboard.routes import dashboard as dashboard_blueprint
 
 app.register_blueprint(dashboard_blueprint, url_prefix='/dashboard')
 
-# Remove or comment out any references to 'auth' blueprint if it's not used
-# app.register_blueprint(auth_blueprint, url_prefix='/auth')
-
+@app.errorhandler(Exception)
+def handle_exception(e):
+    # Log the error
+    app.logger.error(f"Unhandled exception: {str(e)}")
+    app.logger.error(traceback.format_exc())
+    # Return JSON instead of HTML for HTTP errors
+    return jsonify(error=str(e)), 500
+    
 try:
     routes_module = f"bots.{chatbot_name}.routes"
     bot_routes = importlib.import_module(routes_module)
@@ -160,4 +168,4 @@ if __name__ == '__main__':
     app.logger.info(f'Starting server for {chatbot_name}')
     if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
         print(f' * Starting server for {chatbot_name}')
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5002)

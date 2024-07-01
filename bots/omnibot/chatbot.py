@@ -239,15 +239,17 @@ class ChatBot:
         Create a new VectorDB instance with the given file and assign it to self.rag.
         
         :param file_path: Path to the file containing the knowledge to be added.
-        :return: None
+        :return: str: A message indicating success or failure.
         """
         try:
+            logging.info(f"Attempting to append knowledge from file: {file_path}")
             self.rag = VectorDB(file_path)
-            logging.info(f"Successfully appended knowledge from file: {file_path}")
+            logging.info(f"Successfully created VectorDB instance with file: {file_path}")
             return f"Knowledge from {file_path} has been successfully appended."
         except Exception as e:
             logging.error(f"Error appending knowledge: {str(e)}")
-            return f"Error appending knowledge: {str(e)}"
+            logging.error(f"Traceback: {traceback.format_exc()}")
+            raise  # Re-raise the exception to be caught by the route handler
 
 # Usage
 # chatbot = ChatBot(knowledge_file="path/to/your/knowledge_file.txt")
