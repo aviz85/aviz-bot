@@ -3,6 +3,7 @@ import os
 import logging
 import requests
 from dotenv import load_dotenv
+from flask import Blueprint, jsonify, request, current_app, send_from_directory
 from tools.generate_image import generate_image
 from tools.rag import VectorDB
 
@@ -153,9 +154,10 @@ class ChatBot:
                 "max_tokens": 1024,
                 "system": self.system_message,
                 "tools": tools,
-                #"tool_choice": {"type": "tool", "name": "get_knowledge"},
                 "messages": messages
             }
+            if current_app.config["FORCE_RAG"]:
+                data["tool_choice"] = {"type": "tool", "name": "get_knowledge"}
 
             first_iteration = True
             while True:

@@ -4266,3 +4266,466 @@ werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on 
 2024-07-01 22:27:11,341 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:27:11] "POST /chat HTTP/1.1" 200 -
 2024-07-01 22:27:11,345 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:27:11] "GET /get_current_personality HTTP/1.1" 200 -
 2024-07-01 22:27:11,349 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:27:11] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:37:19,884 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-01 22:37:19,889 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-01 22:37:20,051 WARNING app Routes module for chatbot not found. Continuing without additional routes.
+2024-07-01 22:37:20,051 INFO app Starting server for chatbot
+2024-07-01 22:37:20,107 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5002
+2024-07-01 22:37:20,108 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-07-01 22:37:20,109 INFO werkzeug  * Restarting with stat
+2024-07-01 22:37:20,671 DEBUG faiss.loader Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-07-01 22:37:20,672 INFO faiss.loader Loading faiss.
+2024-07-01 22:37:20,724 INFO faiss.loader Successfully loaded faiss.
+2024-07-01 22:37:23,029 INFO app Custom routes for omnibot registered successfully.
+2024-07-01 22:37:23,029 INFO app Starting server for omnibot
+2024-07-01 22:37:23,033 WARNING werkzeug  * Debugger is active!
+2024-07-01 22:37:23,044 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-01 22:37:23,103 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:37:23] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-01 22:37:23,105 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:37:23] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-01 22:37:23,108 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:37:23] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-01 22:37:23,169 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:37:23] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-01 22:37:23,170 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:37:23] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-01 22:37:23,178 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:37:23] "[36mGET /custom/static/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-01 22:37:23,229 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:37:23] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-01 22:37:23,245 INFO app Checking for files in: bots/omnibot/uploads
+2024-07-01 22:37:23,245 INFO app All files in directory: ['.DS_Store', 'aviz-3.docx']
+2024-07-01 22:37:23,245 INFO app Filtered files: ['aviz-3.docx']
+2024-07-01 22:37:23,246 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:37:23] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-01 22:37:23,790 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-01 22:37:23,794 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-01 22:37:23,795 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:37:23] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-01 22:38:18,665 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:18] "POST /delete_file HTTP/1.1" 200 -
+2024-07-01 22:38:18,671 INFO app Checking for files in: bots/omnibot/uploads
+2024-07-01 22:38:18,671 INFO app All files in directory: ['.DS_Store']
+2024-07-01 22:38:18,672 INFO app Filtered files: []
+2024-07-01 22:38:18,672 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:18] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-01 22:38:41,021 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:41] "POST /upload_file HTTP/1.1" 200 -
+2024-07-01 22:38:42,034 INFO app Received data: {'filename': 'aviz_chadash.docx'}
+2024-07-01 22:38:42,034 INFO app Attempting to append knowledge from file: bots/omnibot/uploads/aviz_chadash.docx
+2024-07-01 22:38:42,034 INFO root Attempting to append knowledge from file: bots/omnibot/uploads/aviz_chadash.docx
+2024-07-01 22:38:42,040 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-01 22:38:42,041 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-01 22:38:42,060 INFO root Successfully created VectorDB instance with file: bots/omnibot/uploads/aviz_chadash.docx
+2024-07-01 22:38:42,060 INFO app Knowledge appended successfully: Knowledge from bots/omnibot/uploads/aviz_chadash.docx has been successfully appended.
+2024-07-01 22:38:42,061 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:42] "POST /append_knowledge HTTP/1.1" 200 -
+2024-07-01 22:38:42,065 INFO app Checking for files in: bots/omnibot/uploads
+2024-07-01 22:38:42,065 INFO app All files in directory: ['.DS_Store', 'aviz_chadash.docx']
+2024-07-01 22:38:42,065 INFO app Filtered files: ['aviz_chadash.docx']
+2024-07-01 22:38:42,065 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:42] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-01 22:38:57,895 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:57] "GET / HTTP/1.1" 200 -
+2024-07-01 22:38:57,957 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:57] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-07-01 22:38:57,967 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:57] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-07-01 22:38:57,969 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:57] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-07-01 22:38:57,972 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:57] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-07-01 22:38:57,976 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:57] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-07-01 22:38:57,976 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:57] "[36mGET /custom/static/script.js HTTP/1.1[0m" 304 -
+2024-07-01 22:38:57,976 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:57] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-07-01 22:38:57,987 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:57] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:38:58,181 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-01 22:38:58,185 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-01 22:38:58,185 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:38:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-01 22:39:07,962 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:39:10,856 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:39:10,859 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:39:10] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:39:10,864 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:39:10] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:39:10,869 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:39:10] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:39:23,121 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:39:26,108 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:39:26,112 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-01 22:39:26,152 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x13d443b50>
+2024-07-01 22:39:26,152 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x13d410240> server_hostname='api.cohere.com' timeout=300
+2024-07-01 22:39:26,184 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x13c8f85b0>
+2024-07-01 22:39:26,184 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-01 22:39:26,185 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-01 22:39:26,185 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-01 22:39:26,185 DEBUG httpcore.http11 send_request_body.complete
+2024-07-01 22:39:26,185 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-01 22:39:26,410 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'18'), (b'num_tokens', b'7'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'436633c4d4898f5bddaf13406216718d'), (b'x-endpoint-monthly-call-limit', b'1000'), (b'x-trial-endpoint-call-limit', b'40'), (b'x-trial-endpoint-call-remaining', b'39'), (b'date', b'Mon, 01 Jul 2024 19:39:26 GMT'), (b'x-envoy-upstream-service-time', b'52'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-01 22:39:26,411 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-01 22:39:26,412 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-01 22:39:26,434 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-01 22:39:26,435 DEBUG httpcore.http11 response_closed.started
+2024-07-01 22:39:26,435 DEBUG httpcore.http11 response_closed.complete
+2024-07-01 22:39:26,450 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-01 22:39:26,450 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-01 22:39:26,451 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-01 22:39:26,451 DEBUG httpcore.http11 send_request_body.complete
+2024-07-01 22:39:26,451 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-01 22:39:26,684 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'f5ddc5f6e0c10cc543064c93b100e63a'), (b'x-endpoint-monthly-call-limit', b'1000'), (b'x-trial-endpoint-call-limit', b'40'), (b'x-trial-endpoint-call-remaining', b'39'), (b'date', b'Mon, 01 Jul 2024 19:39:26 GMT'), (b'Content-Length', b'339'), (b'x-envoy-upstream-service-time', b'46'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000')])
+2024-07-01 22:39:26,685 INFO httpx HTTP Request: POST https://api.cohere.com/v1/rerank "HTTP/1.1 200 OK"
+2024-07-01 22:39:26,685 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-01 22:39:26,685 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-01 22:39:26,685 DEBUG httpcore.http11 response_closed.started
+2024-07-01 22:39:26,685 DEBUG httpcore.http11 response_closed.complete
+2024-07-01 22:39:26,694 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:39:29,466 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:39:29,468 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:39:29] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:39:29,478 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:39:29] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:39:29,484 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:39:29] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:39:59,878 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:40:02,993 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:40:02,998 DEBUG httpcore.connection close.started
+2024-07-01 22:40:02,998 DEBUG httpcore.connection close.complete
+2024-07-01 22:40:02,998 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-01 22:40:03,010 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x13d443670>
+2024-07-01 22:40:03,011 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x13d410240> server_hostname='api.cohere.com' timeout=300
+2024-07-01 22:40:03,031 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x13c8f8c10>
+2024-07-01 22:40:03,031 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-01 22:40:03,032 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-01 22:40:03,032 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-01 22:40:03,032 DEBUG httpcore.http11 send_request_body.complete
+2024-07-01 22:40:03,032 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-01 22:40:03,255 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'20'), (b'num_tokens', b'5'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'4bc3989178d5646235dc57f4a3ac61e9'), (b'x-endpoint-monthly-call-limit', b'1000'), (b'x-trial-endpoint-call-limit', b'40'), (b'x-trial-endpoint-call-remaining', b'38'), (b'date', b'Mon, 01 Jul 2024 19:40:03 GMT'), (b'x-envoy-upstream-service-time', b'50'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-01 22:40:03,256 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-01 22:40:03,256 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-01 22:40:03,268 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-01 22:40:03,268 DEBUG httpcore.http11 response_closed.started
+2024-07-01 22:40:03,268 DEBUG httpcore.http11 response_closed.complete
+2024-07-01 22:40:03,275 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-01 22:40:03,275 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-01 22:40:03,275 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-01 22:40:03,276 DEBUG httpcore.http11 send_request_body.complete
+2024-07-01 22:40:03,276 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-01 22:40:03,530 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'82c86ad3bccd26f2e7b41c7725f18a4c'), (b'x-endpoint-monthly-call-limit', b'1000'), (b'x-trial-endpoint-call-limit', b'40'), (b'x-trial-endpoint-call-remaining', b'38'), (b'date', b'Mon, 01 Jul 2024 19:40:03 GMT'), (b'Content-Length', b'339'), (b'x-envoy-upstream-service-time', b'49'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000')])
+2024-07-01 22:40:03,531 INFO httpx HTTP Request: POST https://api.cohere.com/v1/rerank "HTTP/1.1 200 OK"
+2024-07-01 22:40:03,531 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-01 22:40:03,531 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-01 22:40:03,531 DEBUG httpcore.http11 response_closed.started
+2024-07-01 22:40:03,532 DEBUG httpcore.http11 response_closed.complete
+2024-07-01 22:40:03,537 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:40:07,368 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:40:07,370 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:07] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:40:07,380 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:07] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:40:07,386 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:07] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:40:23,027 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:23] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:24,310 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:24] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:25,361 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:25] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:26,344 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:26,381 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:26,392 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:26,426 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:26,458 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:26] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:27,079 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:27] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:27,861 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:27] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:28,177 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:28,244 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:28,595 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:28,628 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:28] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:29,327 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:29] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:29,947 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:29] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:31,510 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:31] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 22:40:33,283 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-01 22:40:33,283 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-01 22:40:33,284 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:33] "[35m[1mPOST /reset HTTP/1.1[0m" 500 -
+2024-07-01 22:40:35,551 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:40:37,764 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:40:37,776 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:40:39,841 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:40:39,843 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:39] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:40:39,850 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:39] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:40:39,857 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:39] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:40:45,975 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:40:48,494 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:40:48,498 DEBUG httpcore.connection close.started
+2024-07-01 22:40:48,498 DEBUG httpcore.connection close.complete
+2024-07-01 22:40:48,498 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-01 22:40:48,509 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x13d4d5c40>
+2024-07-01 22:40:48,509 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x13d410240> server_hostname='api.cohere.com' timeout=300
+2024-07-01 22:40:48,533 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x13d4d5970>
+2024-07-01 22:40:48,534 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-01 22:40:48,535 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-01 22:40:48,535 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-01 22:40:48,535 DEBUG httpcore.http11 send_request_body.complete
+2024-07-01 22:40:48,535 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-01 22:40:48,761 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'27'), (b'num_tokens', b'8'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'0b61c9582c4d18a1c64e1a22ca4bfcdd'), (b'x-endpoint-monthly-call-limit', b'1000'), (b'x-trial-endpoint-call-limit', b'40'), (b'x-trial-endpoint-call-remaining', b'38'), (b'date', b'Mon, 01 Jul 2024 19:40:48 GMT'), (b'x-envoy-upstream-service-time', b'50'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-01 22:40:48,761 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-01 22:40:48,762 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-01 22:40:48,770 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-01 22:40:48,770 DEBUG httpcore.http11 response_closed.started
+2024-07-01 22:40:48,770 DEBUG httpcore.http11 response_closed.complete
+2024-07-01 22:40:48,794 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-01 22:40:48,794 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-01 22:40:48,794 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-01 22:40:48,794 DEBUG httpcore.http11 send_request_body.complete
+2024-07-01 22:40:48,794 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-01 22:40:49,026 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'daafb0d4652878589a81202f0b7bcb13'), (b'x-endpoint-monthly-call-limit', b'1000'), (b'x-trial-endpoint-call-limit', b'40'), (b'x-trial-endpoint-call-remaining', b'38'), (b'date', b'Mon, 01 Jul 2024 19:40:49 GMT'), (b'Content-Length', b'341'), (b'x-envoy-upstream-service-time', b'44'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000')])
+2024-07-01 22:40:49,026 INFO httpx HTTP Request: POST https://api.cohere.com/v1/rerank "HTTP/1.1 200 OK"
+2024-07-01 22:40:49,026 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-01 22:40:49,026 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-01 22:40:49,027 DEBUG httpcore.http11 response_closed.started
+2024-07-01 22:40:49,027 DEBUG httpcore.http11 response_closed.complete
+2024-07-01 22:40:49,030 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:40:51,969 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:40:51,970 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:51] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:40:51,979 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:51] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:40:51,985 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:51] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:40:56,928 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:40:59,424 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:40:59,426 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:59] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:40:59,432 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:59] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:40:59,440 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:40:59] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:41:03,917 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:41:07,170 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:41:07,174 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:41:07] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:41:07,182 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:41:07] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:41:07,187 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:41:07] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:42:37,953 INFO werkzeug  * Detected change in '/Users/aviz/new/aviz-bot/bots/omnibot/chatbot.py', reloading
+2024-07-01 22:42:38,363 INFO werkzeug  * Restarting with stat
+2024-07-01 22:42:39,076 DEBUG faiss.loader Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-07-01 22:42:39,076 INFO faiss.loader Loading faiss.
+2024-07-01 22:42:39,106 INFO faiss.loader Successfully loaded faiss.
+2024-07-01 22:42:40,539 INFO app Custom routes for omnibot registered successfully.
+2024-07-01 22:42:40,539 INFO app Starting server for omnibot
+2024-07-01 22:42:40,543 WARNING werkzeug  * Debugger is active!
+2024-07-01 22:42:40,554 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-01 22:43:01,625 INFO werkzeug  * Detected change in '/Users/aviz/new/aviz-bot/bots/omnibot/chatbot.py', reloading
+2024-07-01 22:43:01,923 INFO werkzeug  * Restarting with stat
+2024-07-01 22:43:02,484 DEBUG faiss.loader Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-07-01 22:43:02,485 INFO faiss.loader Loading faiss.
+2024-07-01 22:43:02,499 INFO faiss.loader Successfully loaded faiss.
+2024-07-01 22:43:03,991 INFO app Custom routes for omnibot registered successfully.
+2024-07-01 22:43:03,991 INFO app Starting server for omnibot
+2024-07-01 22:43:03,995 WARNING werkzeug  * Debugger is active!
+2024-07-01 22:43:04,008 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-01 22:43:07,229 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-01 22:43:07,233 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-01 22:43:07,234 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:43:07] "[35m[1mPOST /reset HTTP/1.1[0m" 500 -
+2024-07-01 22:43:09,884 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:43:11,199 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:43:11,204 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:43:14,288 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:43:14,290 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:43:14] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:43:14,297 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:43:14] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:43:14,301 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:43:14] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:43:44,246 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:43:45,816 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:43:45,822 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:43:48,992 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:43:48,994 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:43:48] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:43:49,005 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:43:49] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:43:49,009 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:43:49] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:44:01,613 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:44:03,262 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:44:03,266 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:44:05,470 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:44:05,472 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:44:05] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:44:05,481 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:44:05] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:44:05,490 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:44:05] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:44:23,858 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:44:23] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-01 22:44:23,926 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:44:23] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-01 22:44:23,927 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:44:23] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-01 22:44:23,933 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:44:23] "[36mGET /custom/static/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-01 22:44:23,951 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:44:23] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-01 22:44:23,990 INFO app Checking for files in: bots/omnibot/uploads
+2024-07-01 22:44:23,991 INFO app All files in directory: ['.DS_Store', 'aviz_chadash.docx']
+2024-07-01 22:44:23,991 INFO app Filtered files: ['aviz_chadash.docx']
+2024-07-01 22:44:23,991 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:44:23] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-01 22:44:24,398 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-01 22:44:24,399 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-01 22:44:24,399 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:44:24] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-01 22:44:47,507 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-01 22:44:47,508 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-01 22:44:47,589 WARNING app Routes module for chatbot not found. Continuing without additional routes.
+2024-07-01 22:44:47,589 INFO app Starting server for chatbot
+2024-07-01 22:44:47,599 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5002
+2024-07-01 22:44:47,599 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-07-01 22:44:47,600 INFO werkzeug  * Restarting with stat
+2024-07-01 22:44:48,072 DEBUG faiss.loader Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-07-01 22:44:48,072 INFO faiss.loader Loading faiss.
+2024-07-01 22:44:48,082 INFO faiss.loader Successfully loaded faiss.
+2024-07-01 22:44:49,514 INFO app Custom routes for omnibot registered successfully.
+2024-07-01 22:44:49,514 INFO app Starting server for omnibot
+2024-07-01 22:44:49,517 WARNING werkzeug  * Debugger is active!
+2024-07-01 22:44:49,528 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-01 22:45:02,513 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:45:02] "POST /delete_file HTTP/1.1" 200 -
+2024-07-01 22:45:02,518 INFO app Checking for files in: bots/omnibot/uploads
+2024-07-01 22:45:02,518 INFO app All files in directory: ['.DS_Store']
+2024-07-01 22:45:02,518 INFO app Filtered files: []
+2024-07-01 22:45:02,519 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:45:02] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-01 22:45:05,782 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:45:05] "POST /upload_file HTTP/1.1" 200 -
+2024-07-01 22:45:06,791 INFO app Received data: {'filename': 'aviz_chadash.docx'}
+2024-07-01 22:45:06,791 INFO app Attempting to append knowledge from file: bots/omnibot/uploads/aviz_chadash.docx
+2024-07-01 22:45:06,791 INFO root Attempting to append knowledge from file: bots/omnibot/uploads/aviz_chadash.docx
+2024-07-01 22:45:06,795 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-01 22:45:06,796 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-01 22:45:06,812 INFO root Successfully created VectorDB instance with file: bots/omnibot/uploads/aviz_chadash.docx
+2024-07-01 22:45:06,812 INFO app Knowledge appended successfully: Knowledge from bots/omnibot/uploads/aviz_chadash.docx has been successfully appended.
+2024-07-01 22:45:06,813 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:45:06] "POST /append_knowledge HTTP/1.1" 200 -
+2024-07-01 22:45:06,817 INFO app Checking for files in: bots/omnibot/uploads
+2024-07-01 22:45:06,817 INFO app All files in directory: ['.DS_Store', 'aviz_chadash.docx']
+2024-07-01 22:45:06,817 INFO app Filtered files: ['aviz_chadash.docx']
+2024-07-01 22:45:06,817 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:45:06] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-01 22:45:12,754 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:45:14,525 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:45:14,529 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-01 22:45:14,547 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x158320400>
+2024-07-01 22:45:14,547 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x1582d8f40> server_hostname='api.cohere.com' timeout=300
+2024-07-01 22:45:14,566 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x15833e820>
+2024-07-01 22:45:14,567 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-01 22:45:14,570 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-01 22:45:14,571 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-01 22:45:14,571 DEBUG httpcore.http11 send_request_body.complete
+2024-07-01 22:45:14,571 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-01 22:45:14,797 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'16'), (b'num_tokens', b'7'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'60e9c470e990a9c8a433118fbabe14b3'), (b'x-endpoint-monthly-call-limit', b'1000'), (b'x-trial-endpoint-call-limit', b'40'), (b'x-trial-endpoint-call-remaining', b'39'), (b'date', b'Mon, 01 Jul 2024 19:45:14 GMT'), (b'x-envoy-upstream-service-time', b'54'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-01 22:45:14,798 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-01 22:45:14,798 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-01 22:45:14,805 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-01 22:45:14,806 DEBUG httpcore.http11 response_closed.started
+2024-07-01 22:45:14,806 DEBUG httpcore.http11 response_closed.complete
+2024-07-01 22:45:14,832 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-01 22:45:14,833 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-01 22:45:14,833 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-01 22:45:14,833 DEBUG httpcore.http11 send_request_body.complete
+2024-07-01 22:45:14,833 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-01 22:45:15,062 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'70d66682d50c4cf4060f146eb7418741'), (b'x-endpoint-monthly-call-limit', b'1000'), (b'x-trial-endpoint-call-limit', b'40'), (b'x-trial-endpoint-call-remaining', b'39'), (b'date', b'Mon, 01 Jul 2024 19:45:15 GMT'), (b'Content-Length', b'338'), (b'x-envoy-upstream-service-time', b'44'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000')])
+2024-07-01 22:45:15,063 INFO httpx HTTP Request: POST https://api.cohere.com/v1/rerank "HTTP/1.1 200 OK"
+2024-07-01 22:45:15,063 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-01 22:45:15,063 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-01 22:45:15,063 DEBUG httpcore.http11 response_closed.started
+2024-07-01 22:45:15,064 DEBUG httpcore.http11 response_closed.complete
+2024-07-01 22:45:15,070 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-01 22:45:17,672 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-01 22:45:17,674 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:45:17] "POST /chat HTTP/1.1" 200 -
+2024-07-01 22:45:17,682 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:45:17] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:45:17,686 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 22:45:17] "GET /get_current_personality HTTP/1.1" 200 -
+2024-07-01 22:58:55,513 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-01 22:58:55,518 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-01 22:58:55,596 WARNING app Routes module for chatbot not found. Continuing without additional routes.
+2024-07-01 22:58:55,597 INFO app Starting server for chatbot
+2024-07-01 22:58:55,605 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5002
+2024-07-01 22:58:55,605 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-07-01 22:58:55,605 INFO werkzeug  * Restarting with stat
+2024-07-01 22:58:56,157 DEBUG faiss.loader Environment variable FAISS_OPT_LEVEL is not set, so let's pick the instruction set according to the current CPU
+2024-07-01 22:58:56,157 INFO faiss.loader Loading faiss.
+2024-07-01 22:58:56,187 INFO faiss.loader Successfully loaded faiss.
+2024-07-01 22:58:57,481 INFO app Custom routes for omnibot registered successfully.
+2024-07-01 22:58:57,481 INFO app Starting server for omnibot
+2024-07-01 22:58:57,484 WARNING werkzeug  * Debugger is active!
+2024-07-01 22:58:57,493 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-01 23:00:58,419 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:58] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-01 23:00:58,472 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:58] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-01 23:00:58,472 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:58] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-01 23:00:58,474 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:58] "[36mGET /custom/static/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-01 23:00:58,506 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:58] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-01 23:00:58,518 INFO app Checking for files in: bots/omnibot/uploads
+2024-07-01 23:00:58,519 INFO app All files in directory: ['.DS_Store', 'aviz_chadash.docx']
+2024-07-01 23:00:58,519 INFO app Filtered files: ['aviz_chadash.docx']
+2024-07-01 23:00:58,519 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:58] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-01 23:00:58,794 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-01 23:00:58,802 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-01 23:00:58,802 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-01 23:00:59,907 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:59] "GET / HTTP/1.1" 200 -
+2024-07-01 23:00:59,954 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:59] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-07-01 23:00:59,964 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:59] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-07-01 23:00:59,966 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:59] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-07-01 23:00:59,972 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:59] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-07-01 23:00:59,975 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:59] "[36mGET /custom/static/script.js HTTP/1.1[0m" 304 -
+2024-07-01 23:00:59,979 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:59] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-07-01 23:00:59,980 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:59] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-07-01 23:00:59,989 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:00:59] "POST /set_prompt HTTP/1.1" 200 -
+2024-07-01 23:01:00,160 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-01 23:01:00,162 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-01 23:01:00,163 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:01:00] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-01 23:01:02,767 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:01:02] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-01 23:01:02,925 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-01 23:01:02,926 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 854, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 463, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/routing/map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-01 23:01:02,929 INFO werkzeug 127.0.0.1 - - [01/Jul/2024 23:01:02] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -

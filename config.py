@@ -8,6 +8,7 @@ class Config:
         # Add more users here if needed
     }
     CHATBOT_NAME = os.getenv('CHATBOT_NAME', 'chatbot')
+    FORCE_RAG = os.getenv('FORCE_RAG'), True
     
 
 CHATBOT_IMPORT_PATH = "bots.chatbot.chatbot.ChatBot"
