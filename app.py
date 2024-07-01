@@ -2,10 +2,13 @@ import os
 import sys
 import time
 from flask import Flask, request, jsonify, render_template, send_from_directory
+from flask_login import LoginManager, login_required, logout_user
+from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 from jinja2 import TemplateNotFound, ChoiceLoader, FileSystemLoader
 import importlib
 import logging
+from models import User
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -14,9 +17,19 @@ load_dotenv()
 RATE_LIMIT_WINDOW = int(os.getenv('RATE_LIMIT_WINDOW', 3600))  # 1 hour in seconds by default
 RATE_LIMIT_REQUESTS = int(os.getenv('RATE_LIMIT_REQUESTS', 30))  # 30 requests per hour by default
 
-
 # Initialize the Flask application
 app = Flask(__name__)
+app.secret_key = os.getenv('SECRET_KEY', 'your_secret_key')  # Make sure to set this in your .env file
+
+# Initialize Flask-Login
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'dashboard.login'
+
+# User loader for Flask-Login
+@login_manager.user_loader
+def load_user(user_id):
+    return User(user_id)
 
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(message)s')
@@ -44,6 +57,7 @@ chatbot = ChatBot()
 # Make chatbot globally accessible
 app.config['chatbot'] = chatbot
 app.config['bot_directory'] = bot_directory
+app.config['UPLOAD_FOLDER'] = os.path.join(bot_directory, 'uploads')
 
 # Add the bot's template directory to the template loader search path
 template_path = os.path.join(os.path.dirname(__file__), bot_directory, 'templates')
@@ -75,8 +89,6 @@ first_request_time = None
 request_count = 0
 
 # Handle chat messages via POST requests
-import inspect
-
 @app.route('/chat', methods=['POST'])
 def chat():
     global first_request_time, request_count
@@ -117,7 +129,11 @@ def get_current_personality():
     except AttributeError:
         app.logger.error("Chatbot object does not have initial_prompt_label attribute")
         return jsonify({'error': 'Unable to retrieve current personality'}), 500
-          
+
+# Register the dashboard blueprint
+from dashboard.routes import dashboard
+app.register_blueprint(dashboard, url_prefix='/dashboard')
+
 try:
     routes_module = f"bots.{chatbot_name}.routes"
     bot_routes = importlib.import_module(routes_module)

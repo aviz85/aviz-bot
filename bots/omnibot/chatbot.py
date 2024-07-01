@@ -128,7 +128,8 @@ class ChatBot:
                 },
                 {
                     "name": "get_knowledge",
-                    "description": "Retrieve specific knowledge when the bot feels it lacks information or understanding on particular topics. Can ask up to 3 queries.",
+                    "description": "Retrieve specific knowledge when the user ask something. Can ask up to 3 queries.",
+                    #"description": "Retrieve specific knowledge when the bot feels it lacks information or understanding on particular topics. Can ask up to 3 queries.",
                     "input_schema": {
                         "type": "object",
                         "properties": {
@@ -152,7 +153,7 @@ class ChatBot:
                 "max_tokens": 1024,
                 "system": self.system_message,
                 "tools": tools,
-                "tool_choice": {"type": "tool", "name": "get_knowledge"},
+                #"tool_choice": {"type": "tool", "name": "get_knowledge"},
                 "messages": messages
             }
 
