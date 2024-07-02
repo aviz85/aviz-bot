@@ -1,5 +1,6 @@
 // Global variables and functions
 let messageCount = 0;
+let documentCount = 0;
 
 // Function to show modal
 function showModal(content) {
@@ -39,7 +40,6 @@ function captureScreen() {
 
     if (slider) {
         originalSliderDisplay = slider.style.display;
-        //slider.style.display = 'none';
     }
 
     setTimeout(() => {
@@ -195,15 +195,138 @@ function showSelfieModal() {
     };
 }
 
-// Function to add capture screen button
-function addCaptureScreenButton() {
+// Function to add capture screen button and file upload button
+function addHeaderButtons() {
     const chatHeader = document.querySelector('.chat-header');
     if (chatHeader) {
+        // Create a spacer element
+        const spacer = document.createElement('div');
+        spacer.className = 'header-spacer';
+        chatHeader.appendChild(spacer);
+
+        // Create a container for the buttons
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'header-buttons';
+        
+        // Add file upload button
+        const uploadButton = document.createElement('button');
+        uploadButton.id = 'upload-button';
+        uploadButton.className = 'upload-button';
+        uploadButton.innerHTML = `
+            <i class="fas fa-file-upload"></i>
+            <span id="document-counter" class="document-counter">0</span>
+        `;
+        buttonContainer.appendChild(uploadButton);
+
+        // Add capture screen button
         const captureButton = document.createElement('button');
         captureButton.innerHTML = '📸';
         captureButton.className = 'capture-screen-button';
         captureButton.onclick = captureScreen;
-        chatHeader.appendChild(captureButton);
+        buttonContainer.appendChild(captureButton);
+
+        // Add the button container to the chat header
+        chatHeader.appendChild(buttonContainer);
+
+        // Create file input
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.id = 'file-input';
+        fileInput.style.display = 'none';
+        chatHeader.appendChild(fileInput);
+
+        // Add event listeners
+        uploadButton.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', handleFileUpload);
+    }
+}
+
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+        uploadFile(file);
+    }
+}
+
+async function uploadFile(file) {
+    const formData = new FormData();
+    formData.append('file', file);
+    try {
+        // Upload file
+        const uploadResponse = await fetch('/upload_file', {
+            method: 'POST',
+            body: formData,
+        });
+        if (!uploadResponse.ok) {
+            throw new Error(`HTTP error! status: ${uploadResponse.status}`);
+        }
+        const uploadResult = await uploadResponse.json();
+        console.log('Upload result:', uploadResult);
+
+        // Append knowledge
+        const appendResponse = await fetch('/append_knowledge', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ filename: uploadResult.filename }),
+        });
+        if (!appendResponse.ok) {
+            throw new Error(`HTTP error! status: ${appendResponse.status}`);
+        }
+        const appendResult = await appendResponse.json();
+        console.log('Append result:', appendResult);
+
+        console.log('File uploaded and knowledge appended successfully');
+        updateDocumentCount();
+    } catch (error) {
+        console.error('Error:', error);
+        alert(`An error occurred: ${error.message}`);
+        // Delete the file if there was an error
+        if (uploadResult && uploadResult.filename) {
+            deleteFile(uploadResult.filename);
+        }
+    }
+}
+
+function deleteFile(filename) {
+    fetch('/delete_file', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ filename: filename }),
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.success) {
+            updateDocumentCount();
+        } else {
+            alert('Failed to delete file');
+        }
+    })
+    .catch(error => console.error('Error deleting file:', error));
+}
+
+async function updateDocumentCount() {
+    try {
+        const response = await fetch('/get_file_list');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const fileList = await response.json();
+        documentCount = fileList.length;
+        updateCounterDisplay();
+    } catch (error) {
+        console.error('Error updating document count:', error);
+    }
+}
+
+function updateCounterDisplay() {
+    const counter = document.getElementById('document-counter');
+    if (counter) {
+        counter.textContent = documentCount;
+        counter.style.display = documentCount > 0 ? 'inline' : 'none';
     }
 }
 
@@ -212,7 +335,8 @@ function loadHtml2Canvas() {
     const script = document.createElement('script');
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
     script.onload = () => {
-        addCaptureScreenButton();
+        addHeaderButtons();
+        updateDocumentCount(); // Initial count update
         // Override the existing addMessageToChat function to include the message counter
         const originalAddMessageToChat = window.addMessageToChat;
         window.addMessageToChat = function(sender, message) {

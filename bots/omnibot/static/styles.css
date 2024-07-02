@@ -14,7 +14,6 @@
 .selfie-modal-backdrop.active {
     opacity: 1;
 }
-
 /* Styles for the modal */
 .selfie-modal {
     position: fixed;
@@ -33,7 +32,6 @@
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
 }
-
 /* Styles for modal content */
 .modal-content {
     text-align: center;
@@ -42,7 +40,6 @@
     font-size: 24px;
     margin-bottom: 20px;
 }
-
 /* Styles for buttons */
 .close-button {
     position: absolute;
@@ -72,7 +69,6 @@
 .selfie-button:hover, .download-button:hover {
     background-color: #45a049;
 }
-
 /* Styles for screenshot modal */
 .screenshot-modal {
     max-width: 90%;
@@ -80,8 +76,8 @@
     overflow: auto;
 }
 .screenshot-container {
-    max-width: 50%; /* One third of the current size */
-    margin: 0 auto; /* Center the container */
+    max-width: 50%;
+    margin: 0 auto;
 }
 .screenshot-image {
     max-width: 100%;
@@ -94,7 +90,6 @@
 .download-button i {
     margin-right: 5px;
 }
-
 /* Flash animation */
 @keyframes flash {
     0% { opacity: 0; }
@@ -115,13 +110,26 @@
 .flash.active {
     animation: flash 0.5s ease-out;
 }
-
-/* Capture button styles (new) */
-.capture-screen-button {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+/* Styles for header and buttons */
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.chat-header h1 {
+    margin: 0;
+    order: -1; /* Ensures the title is always first */
+}
+.header-spacer {
+    flex-grow: 1;
+}
+.header-buttons {
+    display: flex;
+    align-items: center;
+}
+.capture-screen-button,
+.upload-button {
     background: none;
     border: none;
     font-size: 24px;
@@ -129,15 +137,26 @@
     padding: 5px;
     transition: transform 0.2s ease;
 }
-.capture-screen-button:hover {
-    transform: translateY(-50%) scale(1.1);
+.capture-screen-button:hover,
+.upload-button:hover {
+    transform: scale(1.1);
 }
-
-/* Ensure the chat header can position the capture button correctly (new) */
-.chat-header {
+.upload-button {
+    margin-right: 10px;
     position: relative;
 }
-
+/* Styles for document counter */
+.document-counter {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 12px;
+    display: none;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .screenshot-container {
@@ -146,5 +165,20 @@
     .selfie-button, .download-button {
         font-size: 16px;
         padding: 8px 16px;
+    }
+    .chat-header {
+        padding: 5px;
+    }
+    .capture-screen-button,
+    .upload-button {
+        font-size: 20px;
+        padding: 3px;
+    }
+    .upload-button {
+        margin-right: 5px;
+    }
+    .document-counter {
+        font-size: 10px;
+        padding: 1px 4px;
     }
 }

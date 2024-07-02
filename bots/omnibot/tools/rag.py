@@ -102,6 +102,8 @@ class VectorDB:
             file_extension = os.path.splitext(file_path_or_url)[1].lower()
             if file_extension == '.docx':
                 content.append(self._process_docx(file_path_or_url))
+            elif file_extension == '.pdf':
+                content.append(self._process_pdf(file_path_or_url))
             else:
                 reader = SimpleDirectoryReader(input_files=[file_path_or_url])
                 documents = reader.load_data()
@@ -141,7 +143,7 @@ class VectorDB:
         elif file_extension == '.txt':
             return content.decode('utf-8')
         elif file_extension == '.pdf':
-            return self._process_pdf(content)
+            return self._process_pdf_content(content)
         else:
             raise ValueError(f"Unsupported file type: {file_extension}")
 
@@ -151,6 +153,25 @@ class VectorDB:
         processed_content = "\n".join([paragraph.text for paragraph in doc.paragraphs])
         print(f"DOCX content processed. Result length: {len(processed_content)} characters")
         return processed_content
+
+    def _process_pdf(self, file_path: str) -> str:
+        print(f"Starting to process PDF file: {file_path}")
+        try:
+            with open(file_path, 'rb') as file:
+                return self._process_pdf_content(file.read())
+        except Exception as e:
+            print(f"Error processing PDF file: {str(e)}")
+            raise
+
+    def _process_pdf_content(self, content: bytes) -> str:
+        print("Processing PDF content")
+        pdf_reader = PdfReader(io.BytesIO(content))
+        processed_content = []
+        for page in pdf_reader.pages:
+            processed_content.append(page.extract_text())
+        result = "\n".join(processed_content)
+        print(f"PDF content processed. Result length: {len(result)} characters")
+        return result
 
     def _split_text(self) -> List[str]:
         print("Splitting text into chunks")
@@ -296,10 +317,3 @@ if __name__ == "__main__":
     print("Starting VectorDB example")
     db = VectorDB(["path/to/your/multilingual_file_1.txt", "path/to/your/multilingual_file_2.docx"])
     results = db.search(["Query 1 here", "Query 2 here", "Query 3 here"], do_rerank=True)
-    for i, result in enumerate(results, 1):
-        print(f"Result {i}:")
-        print(f"Text: {result['text']}")
-        print(f"Relevance Score: {result['relevance_score']}")
-        print(f"Original Index: {result['original_index']}")
-        print("---")
-    print("VectorDB example complete")
