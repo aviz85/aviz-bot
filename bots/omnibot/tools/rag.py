@@ -1,7 +1,6 @@
 import os
 import io
 import requests
-import csv
 import json
 import faiss
 import numpy as np
@@ -12,247 +11,191 @@ from cohere import Client
 from docx import Document
 from PyPDF2 import PdfReader
 from llama_index.core import Document as LlamaDocument
-from llama_index.core import SimpleDirectoryReader
 from llama_index.core.node_parser import SimpleNodeParser
 from llama_index.core.schema import MetadataMode
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
 load_dotenv()
 
 class VectorDB:
-    # Configuration constants
+    VALID_EXTENSIONS = ('.docx', '.txt', '.pdf')
     CHUNK_SIZE = 100
     CHUNK_OVERLAP = 20
     COHERE_EMBED_MODEL = "embed-multilingual-v3.0"
     COHERE_RERANK_MODEL = "rerank-multilingual-v3.0"
-    INITIAL_SEARCH_K = 100  # Number of initial results to fetch from FAISS
-    RERANK_TOP_N = 5  # Number of results to return after reranking
-    
+    INITIAL_SEARCH_K = 100
+    RERANK_TOP_N = 5
+
     def __init__(self, file_paths_or_urls: Union[str, List[str]]):
         print("Initializing VectorDB...")
+        self.cohere_client = self._initialize_cohere()
+        self.upload_folder = current_app.config['UPLOAD_FOLDER']
+        self.manifest_file = os.path.join(self.upload_folder, "file_manifest.json")
+        self.file_manifest = self._load_manifest()
+        
+        self.chunks = []
+        self.embeddings = None
+        self.index = None
+        
+        self._process_files(file_paths_or_urls)
+        print("VectorDB initialization complete")
+
+    def _initialize_cohere(self):
         cohere_api_key = os.getenv('COHERE_API_KEY')
         if not cohere_api_key:
             raise ValueError("COHERE_API_KEY not found in environment variables")
-        
-        self.cohere_client = Client(cohere_api_key)
-        print("Cohere client initialized.")
-        
-        self.file_paths = file_paths_or_urls if isinstance(file_paths_or_urls, list) else [file_paths_or_urls]
-        
-        # Ensure filenames are set correctly based on the input files
-        self.files_metadata = {
-            os.path.splitext(os.path.basename(file_path))[0]: {
-                "chunks_file": os.path.join(current_app.config['UPLOAD_FOLDER'], f"{os.path.splitext(os.path.basename(file_path))[0]}_chunks.pkl"),
-                "embeddings_file": os.path.join(current_app.config['UPLOAD_FOLDER'], f"{os.path.splitext(os.path.basename(file_path))[0]}_embeddings.npy"),
-                "index_file": os.path.join(current_app.config['UPLOAD_FOLDER'], f"{os.path.splitext(os.path.basename(file_path))[0]}_index.faiss")
-            }
-            for file_path in self.file_paths
-        }
-        
-        self.file_content = ""
-        for file_path in self.file_paths:
-            if self._load_existing_data(file_path):
-                print(f"Loaded existing data for {file_path}.")
+        return Client(cohere_api_key)
+
+    def _load_manifest(self):
+        if os.path.exists(self.manifest_file):
+            with open(self.manifest_file, 'r') as f:
+                return json.load(f)
+        return {}
+
+    def _save_manifest(self):
+        with open(self.manifest_file, 'w') as f:
+            json.dump(self.file_manifest, f)
+
+    def _process_files(self, file_paths_or_urls):
+        files = file_paths_or_urls if isinstance(file_paths_or_urls, list) else [file_paths_or_urls]
+        for file_path in files:
+            if self._is_valid_file(file_path):
+                base_name = self._get_base_name(file_path)
+                if self._should_process_file(file_path, base_name):
+                    print(f"Processing file: {file_path}")
+                    self._process_single_file(file_path, base_name)
+                else:
+                    print(f"Loading existing data for: {file_path}")
+                    self._load_existing_data(base_name)
             else:
-                self.file_content = self._load_files(file_path)
-                print(f"Files loaded. Total content length: {len(self.file_content)} characters")
-                
-                self.chunks = self._split_text()
-                print(f"Text split into {len(self.chunks)} chunks")
-                
-                self.embeddings = self._create_embeddings()
-                print(f"Embeddings created. Shape: {self.embeddings.shape}")
-                
-                self.index = self._create_faiss_index()
-                print("FAISS index created")
-                
-                self._save_data(file_path)
-                print(f"Data saved for {file_path} for future use.")
+                print(f"Skipping invalid file: {file_path}")
         
-        print("VectorDB initialization complete")
+        self._combine_data()
 
-    def _load_existing_data(self, file_path: str) -> bool:
-        file_metadata = self.files_metadata[os.path.splitext(os.path.basename(file_path))[0]]
-        if os.path.exists(file_metadata["chunks_file"]) and os.path.exists(file_metadata["embeddings_file"]) and os.path.exists(file_metadata["index_file"]):
-            with open(file_metadata["chunks_file"], 'rb') as f:
-                self.chunks = pickle.load(f)
-            with open(file_metadata["embeddings_file"], 'rb') as f:
-                self.embeddings = np.load(f)
-            self.index = faiss.read_index(file_metadata["index_file"])
+    def _is_valid_file(self, file_path):
+        return file_path.lower().endswith(self.VALID_EXTENSIONS)
+
+    def _get_base_name(self, file_path):
+        return os.path.splitext(os.path.basename(file_path))[0]
+
+    def _should_process_file(self, file_path, base_name):
+        if base_name not in self.file_manifest:
             return True
-        return False
+        mod_time = os.path.getmtime(file_path)
+        return self.file_manifest[base_name]['mod_time'] < mod_time
 
-    def _save_data(self, file_path: str):
-        file_metadata = self.files_metadata[os.path.splitext(os.path.basename(file_path))[0]]
-        with open(file_metadata["chunks_file"], 'wb') as f:
-            pickle.dump(self.chunks, f)
-        with open(file_metadata["embeddings_file"], 'wb') as f:
-            np.save(f, self.embeddings)
-        faiss.write_index(self.index, file_metadata["index_file"])
+    def _process_single_file(self, file_path, base_name):
+        content = self._load_files(file_path)
+        chunks = self._split_text(content)
+        embeddings = self._create_embeddings(chunks)
+        
+        chunks_file = os.path.join(self.upload_folder, f"{base_name}_chunks.pkl")
+        embeddings_file = os.path.join(self.upload_folder, f"{base_name}_embeddings.npy")
+        
+        with open(chunks_file, 'wb') as f:
+            pickle.dump(chunks, f)
+        np.save(embeddings_file, embeddings)
+        
+        self.file_manifest[base_name] = {
+            'mod_time': os.path.getmtime(file_path),
+            'chunks_file': chunks_file,
+            'embeddings_file': embeddings_file,
+            'original_file': file_path
+        }
+        self._save_manifest()
 
     def _load_files(self, file_path_or_url: str) -> str:
         print(f"Loading file from: {file_path_or_url}")
-        content = []
         if file_path_or_url.startswith(('http://', 'https://')):
             response = requests.get(file_path_or_url)
             file_content = response.content
-            content.append(self._process_file_content(file_content, file_path_or_url))
+            return self._process_file_content(file_content, file_path_or_url)
         else:
             file_extension = os.path.splitext(file_path_or_url)[1].lower()
             if file_extension == '.docx':
-                content.append(self._process_docx(file_path_or_url))
+                return self._process_docx(file_path_or_url)
             elif file_extension == '.pdf':
-                content.append(self._process_pdf(file_path_or_url))
+                return self._process_pdf(file_path_or_url)
+            elif file_extension == '.txt':
+                return self._process_txt(file_path_or_url)
             else:
-                reader = SimpleDirectoryReader(input_files=[file_path_or_url])
-                documents = reader.load_data()
-                file_content = documents[0].get_content()
-                content.append(file_content)
-        
-        combined_content = "\n".join(content)
-        print(f"Total combined content length: {len(combined_content)} characters")
-        return combined_content
+                raise ValueError(f"Unsupported file type: {file_extension}")
 
     def _process_docx(self, file_path: str) -> str:
-        print(f"Starting to process DOCX file: {file_path}")
-        try:
-            doc = Document(file_path)
-            print(f"DOCX file loaded successfully. Number of paragraphs: {len(doc.paragraphs)}")
-            
-            paragraphs = [paragraph.text for paragraph in doc.paragraphs if paragraph.text.strip()]
-            print(f"Number of non-empty paragraphs: {len(paragraphs)}")
-            
-            content = "\n".join(paragraphs)
-            print(f"DOCX processed. Result length: {len(content)} characters")
-            
-            if not content.strip():
-                print("Processed DOCX content is empty")
-            else:
-                print(f"First 100 characters of content: {content[:100]}")
-            
-            return content
-        except Exception as e:
-            print(f"Error processing DOCX file: {str(e)}")
-            raise
+        print(f"Processing DOCX file: {file_path}")
+        doc = Document(file_path)
+        return "\n".join([paragraph.text for paragraph in doc.paragraphs if paragraph.text.strip()])
+
+    def _process_pdf(self, file_path: str) -> str:
+        print(f"Processing PDF file: {file_path}")
+        with open(file_path, 'rb') as file:
+            pdf_reader = PdfReader(file)
+            return "\n".join([page.extract_text() for page in pdf_reader.pages])
+
+    def _process_txt(self, file_path: str) -> str:
+        print(f"Processing TXT file: {file_path}")
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return file.read()
 
     def _process_file_content(self, content: bytes, file_name: str) -> str:
         file_extension = os.path.splitext(file_name)[1].lower()
         if file_extension == '.docx':
             return self._process_docx_content(content)
-        elif file_extension == '.txt':
-            return content.decode('utf-8')
         elif file_extension == '.pdf':
             return self._process_pdf_content(content)
+        elif file_extension == '.txt':
+            return content.decode('utf-8')
         else:
             raise ValueError(f"Unsupported file type: {file_extension}")
 
     def _process_docx_content(self, content: bytes) -> str:
-        print("Processing DOCX content")
         doc = Document(io.BytesIO(content))
-        processed_content = "\n".join([paragraph.text for paragraph in doc.paragraphs])
-        print(f"DOCX content processed. Result length: {len(processed_content)} characters")
-        return processed_content
-
-    def _process_pdf(self, file_path: str) -> str:
-        print(f"Starting to process PDF file: {file_path}")
-        try:
-            with open(file_path, 'rb') as file:
-                return self._process_pdf_content(file.read())
-        except Exception as e:
-            print(f"Error processing PDF file: {str(e)}")
-            raise
+        return "\n".join([paragraph.text for paragraph in doc.paragraphs])
 
     def _process_pdf_content(self, content: bytes) -> str:
-        print("Processing PDF content")
         pdf_reader = PdfReader(io.BytesIO(content))
-        processed_content = []
-        for page in pdf_reader.pages:
-            processed_content.append(page.extract_text())
-        result = "\n".join(processed_content)
-        print(f"PDF content processed. Result length: {len(result)} characters")
-        return result
+        return "\n".join([page.extract_text() for page in pdf_reader.pages])
 
-    def _split_text(self) -> List[str]:
-        print("Splitting text into chunks")
-        document = LlamaDocument(text=self.file_content)
+    def _load_existing_data(self, base_name):
+        file_info = self.file_manifest[base_name]
+        with open(file_info['chunks_file'], 'rb') as f:
+            chunks = pickle.load(f)
+        embeddings = np.load(file_info['embeddings_file'])
+        return chunks, embeddings
+
+    def _combine_data(self):
+        all_chunks = []
+        all_embeddings = []
+        for base_name, file_info in self.file_manifest.items():
+            chunks, embeddings = self._load_existing_data(base_name)
+            all_chunks.extend(chunks)
+            all_embeddings.append(embeddings)
+        
+        self.chunks = all_chunks
+        self.embeddings = np.vstack(all_embeddings) if all_embeddings else None
+        self.index = self._create_faiss_index(self.embeddings)
+
+    def _split_text(self, content: str) -> List[str]:
+        document = LlamaDocument(text=content)
         parser = SimpleNodeParser.from_defaults(chunk_size=self.CHUNK_SIZE, chunk_overlap=self.CHUNK_OVERLAP)
         nodes = parser.get_nodes_from_documents([document])
-        chunks = [node.get_content(metadata_mode=MetadataMode.EMBED) for node in nodes]
-        print(f"Text split into {len(chunks)} chunks")
-        return chunks
+        return [node.get_content(metadata_mode=MetadataMode.EMBED) for node in nodes]
 
-    def _create_embeddings(self) -> np.ndarray:
+    def _create_embeddings(self, chunks: List[str]) -> np.ndarray:
         print("Creating embeddings")
         embeddings = self.cohere_client.embed(
-            texts=self.chunks,
+            texts=chunks,
             model=self.COHERE_EMBED_MODEL,
             input_type="search_document"
         ).embeddings
-        embeddings_array = np.array(embeddings, dtype=np.float32)
-        print(f"Embeddings created. Shape: {embeddings_array.shape}")
-        return embeddings_array
+        return np.array(embeddings, dtype=np.float32)
 
-    def _create_faiss_index(self) -> faiss.IndexFlatL2:
+    def _create_faiss_index(self, embeddings: np.ndarray) -> faiss.IndexFlatL2:
         print("Creating FAISS index")
-        dimension = self.embeddings.shape[1]
+        dimension = embeddings.shape[1]
         index = faiss.IndexFlatL2(dimension)
-        index.add(self.embeddings)
-        print(f"FAISS index created with {index.ntotal} vectors")
+        index.add(embeddings)
         return index
-
-    def _rerank(self, queries: List[str], initial_results: List[str]) -> List[Dict[str, Any]]:
-        print(f"Starting reranking process for {len(queries)} queries and {len(initial_results)} initial results")
-        
-        try:
-            all_reranked_results = []
-            for query in queries:
-                print(f"Reranking for query: {query}")
-                
-                if not initial_results:
-                    print("Initial results list is empty")
-                    continue
-                
-                rerank_results = self.cohere_client.rerank(
-                    model=self.COHERE_RERANK_MODEL,
-                    query=query,
-                    documents=initial_results,
-                    top_n=self.RERANK_TOP_N,
-                    return_documents=False  # We don't need the API to return documents
-                )
-                
-                print(f"Rerank API response: {rerank_results}")
-                
-                if rerank_results is None or not hasattr(rerank_results, 'results'):
-                    print(f"Unexpected rerank response structure: {rerank_results}")
-                    continue
-                
-                for result in rerank_results.results:
-                    if result is None:
-                        print("Encountered None result in reranked results")
-                        continue
-                    if not hasattr(result, 'index') or not hasattr(result, 'relevance_score'):
-                        print(f"Unexpected result structure: {result}")
-                        continue
-                    all_reranked_results.append({
-                        'text': initial_results[result.index],  # Get the text from our original list
-                        'index': result.index,
-                        'relevance_score': result.relevance_score
-                    })
-            
-            print(f"Total reranked results: {len(all_reranked_results)}")
-            
-            # Deduplicate results based on the text
-            unique_results = {result['text']: result for result in all_reranked_results}
-            
-            sorted_results = sorted(unique_results.values(), key=lambda x: x['relevance_score'], reverse=True)
-            
-            print(f"Reranking complete. Top {len(sorted_results)} unique results returned")
-            return sorted_results[:self.RERANK_TOP_N]
-        
-        except Exception as e:
-            print(f"Error in reranking process: {str(e)}")
-            return []
 
     def search(self, queries: Union[str, List[str]], do_rerank: bool = True) -> List[Dict[str, Any]]:
         if isinstance(queries, str):
@@ -260,14 +203,11 @@ class VectorDB:
         
         print(f"Searching for queries: {queries}")
         
-        # Step 1: Get initial results from FAISS
-        print("Step 1: Getting initial results from FAISS")
         query_embeddings = self.cohere_client.embed(
             texts=queries,
             model=self.COHERE_EMBED_MODEL,
             input_type="search_query"
         ).embeddings
-        print("Query embeddings created")
         
         all_indices = []
         all_distances = []
@@ -276,33 +216,15 @@ class VectorDB:
             all_indices.extend(indices[0])
             all_distances.extend(distances[0])
         
-        # Remove duplicates while preserving order
-        unique_indices = []
-        seen = set()
-        for index in all_indices:
-            if index not in seen:
-                seen.add(index)
-                unique_indices.append(index)
-        
+        unique_indices = list(dict.fromkeys(all_indices))
         initial_results = [self.chunks[i] for i in unique_indices[:self.INITIAL_SEARCH_K]]
-        print(f"Initial search complete. Found {len(initial_results)} unique results")
         
         if not do_rerank:
-            print("Skipping rerank process as per the flag")
             return [{"text": initial_results[i], "relevance_score": all_distances[i], "original_index": int(unique_indices[i])} for i in range(min(len(initial_results), self.RERANK_TOP_N))]
         
-        # Step 2: Rerank the initial results
-        print("Step 2: Reranking initial results")
         reranked_results = self._rerank(queries, initial_results)
         
-        # Step 3: Return the reranked results with original indices
-        print("Step 3: Preparing final results")
         final_results = []
-        
-        if not reranked_results:
-            print("No results to process after reranking")
-            return []
-        
         for result in reranked_results:
             final_results.append({
                 "text": result['text'],
@@ -310,10 +232,33 @@ class VectorDB:
                 "original_index": int(unique_indices[result['index']])
             })
         
-        print(f"Search complete. Returning {len(final_results)} final results")
         return final_results
+
+    def _rerank(self, queries: List[str], initial_results: List[str]) -> List[Dict[str, Any]]:
+        all_reranked_results = []
+        for query in queries:
+            rerank_results = self.cohere_client.rerank(
+                model=self.COHERE_RERANK_MODEL,
+                query=query,
+                documents=initial_results,
+                top_n=self.RERANK_TOP_N,
+                return_documents=False
+            )
+            
+            for result in rerank_results.results:
+                all_reranked_results.append({
+                    'text': initial_results[result.index],
+                    'index': result.index,
+                    'relevance_score': result.relevance_score
+                })
+        
+        unique_results = {result['text']: result for result in all_reranked_results}
+        sorted_results = sorted(unique_results.values(), key=lambda x: x['relevance_score'], reverse=True)
+        
+        return sorted_results[:self.RERANK_TOP_N]
 
 if __name__ == "__main__":
     print("Starting VectorDB example")
-    db = VectorDB(["path/to/your/multilingual_file_1.txt", "path/to/your/multilingual_file_2.docx"])
+    db = VectorDB(["path/to/your/file1.txt", "path/to/your/file2.docx"])
     results = db.search(["Query 1 here", "Query 2 here", "Query 3 here"], do_rerank=True)
+    print(results)

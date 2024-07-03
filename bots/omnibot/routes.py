@@ -141,13 +141,32 @@ def create_blueprint(chatbot):
             data = request.json
             if not data or 'filename' not in data:
                 return jsonify({'error': 'No filename provided'}), 400
+        
             filename = data['filename']
-            file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
-            if not os.path.exists(file_path):
-                return jsonify({'error': 'File not found'}), 404
-            
-            os.remove(file_path)
-            return jsonify({'success': True, 'message': f'File {filename} deleted successfully'})
+            file_base_name = os.path.splitext(filename)[0]
+            upload_folder = current_app.config['UPLOAD_FOLDER']
+        
+            # Delete the main file and associated files
+            for file in os.listdir(upload_folder):
+                if file.startswith(file_base_name):
+                    file_path = os.path.join(upload_folder, file)
+                    os.remove(file_path)
+                    current_app.logger.info(f"Deleted file: {file}")
+        
+            # Update manifest.json
+            manifest_path = os.path.join(upload_folder, 'file_manifest.json')
+            if os.path.exists(manifest_path):
+                with open(manifest_path, 'r+') as f:
+                    manifest = json.load(f)
+                    if file_base_name in manifest:
+                        del manifest[file_base_name]
+                        f.seek(0)
+                        json.dump(manifest, f, indent=2)
+                        f.truncate()
+                        current_app.logger.info(f"Updated manifest.json, removed entry for {file_base_name}")
+        
+            return jsonify({'success': True, 'message': f'File {filename} and associated files deleted successfully'})
+ 
         except Exception as e:
             current_app.logger.error(f"Error in delete_file: {str(e)}")
             return jsonify({'error': str(e)}), 500

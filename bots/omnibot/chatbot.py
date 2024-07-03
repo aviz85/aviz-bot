@@ -14,32 +14,44 @@ load_dotenv()
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s %(levelname)s %(name)s %(message)s')
 
 class ChatBot:
-    def __init__(self, app, knowledge_file=None):
-        self.app = app
-        self.personas = []
-        self.load_personas()
-        
+    def __init__(self, app, knowledge_files=None):
         self.api_key = os.getenv('ANTHROPIC_API_KEY')
         if not self.api_key:
             raise ValueError("ANTHROPIC_API_KEY not found in environment variables.")
-        
+     
+        self.app = app
         self.rag = None
-        self.personas = []
-        self.current_persona = None
         
-        # Load personas
+        with self.app.app_context():
+            # Initialize VectorDB with all files in the uploads directory if not specified
+            if knowledge_files is None:
+                uploads_dir = os.path.join(app.config['BOT_DIRECTORY'], 'uploads')
+                knowledge_files = [os.path.join(uploads_dir, f) for f in os.listdir(uploads_dir) 
+                                   if os.path.isfile(os.path.join(uploads_dir, f))]
+            
+            if not isinstance(knowledge_files, list):
+                knowledge_files = [knowledge_files]
+            
+            print(f"Initializing knowledge base with files: {knowledge_files}")
+            
+            valid_files = [f for f in knowledge_files if os.path.exists(f)]
+            
+            if valid_files:
+                try:
+                    self.rag = VectorDB(valid_files)
+                    print(f"Successfully created VectorDB instance with {len(valid_files)} file(s)")
+                except Exception as e:
+                    print(f"Error initializing VectorDB: {str(e)}")
+                    app.logger.error(f"Error initializing VectorDB: {str(e)}")
+                    app.logger.error(traceback.format_exc())
+            else:
+                print("No valid knowledge files found. VectorDB not initialized.")
+        
+        
+        # Load personas and set current persona outside of app context
         self.load_personas()
-        
-        # Set default persona
         if self.personas:
             self.current_persona = self.personas[0]
-        
-        knowledge_file = knowledge_file or os.path.join(os.path.dirname(__file__), 'uploads', 'aviz.docx')
-        print(f"Knowledge file exists: {os.path.exists(knowledge_file)}")
-        
-        # Automatically append knowledge if file exists
-        if knowledge_file and os.path.exists(knowledge_file):
-            self.append_knowledge(knowledge_file)
 
     def load_personas(self):
         with self.app.app_context():
@@ -130,6 +142,14 @@ class ChatBot:
         
         response_data = self.call_anthropic_api(data)
         return "".join(content_block.get('text', '') for content_block in response_data.get('content', []) if content_block.get('type') == 'text')
+  
+    def switch_persona(self, persona_index):
+        try:
+            self.current_persona = self.personas[persona_index]
+            self.system_message = self.get_system_message()
+            return f"Switched to {self.current_persona['display_name']} personality."
+        except IndexError:
+            return "Invalid prompt index. Please choose a valid index."
 
     def get_chat_response(self, user_message, history):
         try:
@@ -143,6 +163,17 @@ class ChatBot:
                             "prompt": {"type": "string", "description": "The prompt for generating the image"}
                         },
                         "required": ["prompt"]
+                    }
+                },
+                {
+                    "name": "switch_persona",
+                    "description": f"Switch to a different bot personality. Available personalities:\n{self.personas}",
+                    "input_schema": {
+                        "type": "object",
+                        "properties": {
+                            "persona_index": {"type": "integer", "description": "The index of the prompt to switch to"}
+                        },
+                        "required": ["persona_index"]
                     }
                 },
                 {
@@ -212,6 +243,10 @@ class ChatBot:
             image_url = generate_image(tool_input.get("prompt"))
             print(f"Debug: Image generated. URL: {image_url}")
             return image_url
+        elif tool_name == "switch_persona":
+            print("Debug: Switching persona")
+            switch_result = self.switch_persona(tool_input.get("persona_index"))
+            print(f"Debug: Prompt switch result: {switch_result}")
         elif tool_name == "get_knowledge":
             print("Debug: Getting knowledge")
             queries = tool_input.get("queries", [])
