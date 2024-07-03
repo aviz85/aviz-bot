@@ -1,8 +1,6 @@
-# routes.py
 import os
-import traceback
 import json
-from flask import Blueprint, jsonify, request, current_app, send_from_directory
+from flask import Blueprint, jsonify, request, current_app
 from werkzeug.utils import secure_filename
 
 def create_blueprint(chatbot):
@@ -13,28 +11,77 @@ def create_blueprint(chatbot):
     def allowed_file(filename):
         return '.' in filename and filename.rsplit('.', 1)[1].lower() in allowed_extensions
 
+    @bp.route('/favicon.ico')
+    def favicon():
+        return send_from_directory(os.path.join(bp.root_path, 'static'),
+                                   'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
     @bp.route('/status', methods=['GET'])
     def status():
         return jsonify({'status': 'The chatbot is running'})
 
-    @bp.route('/get_prompts', methods=['GET'])
-    def get_prompts():
-        prompts_file = os.path.join(current_app.config['BOT_DIRECTORY'], 'prompts.json')
-        if not os.path.exists(prompts_file):
-            return jsonify({'error': 'prompts.json file not found'}), 404
-        with open(prompts_file, 'r', encoding='utf-8') as f:
-            prompts = json.load(f)
-        return jsonify(prompts)
+    @bp.route('/get_personas', methods=['GET'])
+    def get_personas():
+        personas = chatbot.get_all_personas()
+        return jsonify([{
+            'slug': p.get('slug') or p.get('id'),
+            'display_name': p.get('display_name'),
+            'emojicon': p.get('emojicon'),
+            'prompt': p.get('prompt')
+        } for p in personas])
 
-    @bp.route('/set_prompt', methods=['POST'])
-    def set_prompt():
+    @bp.route('/set_persona', methods=['POST'])
+    def set_persona():
         data = request.json
-        prompt_label = data.get('label')
-        if not prompt_label:
-            return jsonify({'error': 'No prompt label provided'}), 400
-        chatbot.initial_prompt_label = prompt_label
-        chatbot.system_message = chatbot.get_system_message()
-        return jsonify({'message': f'Prompt {prompt_label} set successfully'})
+        slug = data.get('slug')
+        if not slug:
+            return jsonify({'error': 'No persona slug provided'}), 400
+        if chatbot.set_persona(slug):
+            current_persona = chatbot.get_current_persona()
+            return jsonify({
+                'message': f'Persona set to {current_persona.get("display_name")}',
+                'slug': current_persona.get('slug') or current_persona.get('id'),
+                'display_name': current_persona.get('display_name'),
+                'emojicon': current_persona.get('emojicon')
+            })
+        return jsonify({'error': 'Persona not found'}), 404
+
+    @bp.route('/get_current_persona', methods=['GET'])
+    def get_current_persona():
+        current_persona = chatbot.get_current_persona()
+        if current_persona:
+            return jsonify({
+                'slug': current_persona.get('slug') or current_persona.get('id'),
+                'display_name': current_persona.get('display_name'),
+                'emojicon': current_persona.get('emojicon')
+            })
+        return jsonify({'error': 'No current persona set'}), 404
+
+    @bp.route('/dashboard/personas/<slug>', methods=['PUT'])
+    def update_persona(slug):
+        data = request.json
+        try:
+            updated_persona = chatbot.update_persona(slug, data)
+            return jsonify(updated_persona), 200
+        except Exception as e:
+            return jsonify({'error': str(e)}), 400
+
+    @bp.route('/dashboard/personas/<slug>', methods=['DELETE'])
+    def delete_persona(slug):
+        try:
+            chatbot.delete_persona(slug)
+            return jsonify({'message': 'Persona deleted successfully'}), 200
+        except Exception as e:
+            return jsonify({'error': str(e)}), 400
+
+    @bp.route('/dashboard/personas', methods=['POST'])
+    def create_persona():
+        data = request.json
+        try:
+            new_persona = chatbot.create_persona(data)
+            return jsonify(new_persona), 201
+        except Exception as e:
+            return jsonify({'error': str(e)}), 400
 
     @bp.route('/upload_file', methods=['POST'])
     def upload_file():
@@ -44,7 +91,7 @@ def create_blueprint(chatbot):
             file = request.files['file']
             if file.filename == '':
                 return jsonify({'error': 'No selected file'}), 400
-            if file:
+            if file and allowed_file(file.filename):
                 filename = secure_filename(file.filename)
                 upload_folder = current_app.config['UPLOAD_FOLDER']
                 if not os.path.exists(upload_folder):
@@ -52,99 +99,77 @@ def create_blueprint(chatbot):
                 file_path = os.path.join(upload_folder, filename)
                 file.save(file_path)
                 return jsonify({'message': 'File successfully uploaded', 'filename': filename})
+            else:
+                return jsonify({'error': 'File type not allowed'}), 400
         except Exception as e:
             current_app.logger.error(f"Error in upload_file: {str(e)}")
-            return jsonify({'error': str(e), 'traceback': traceback.format_exc()}), 500
-    
+            return jsonify({'error': str(e)}), 500
+
     @bp.route('/append_knowledge', methods=['POST'])
     def append_knowledge():
         try:
             data = request.json
-            current_app.logger.info(f"Received data: {data}")
-            
             if not data or 'filename' not in data:
                 return jsonify({'error': 'No filename provided'}), 400
-            upload_folder = current_app.config['UPLOAD_FOLDER']
-            file_path = os.path.join(upload_folder, data['filename'])
-            current_app.logger.info(f"Attempting to append knowledge from file: {file_path}")
-            
+            filename = data['filename']
+            file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
             if not os.path.exists(file_path):
-                current_app.logger.error(f"File not found: {file_path}")
                 return jsonify({'error': 'File not found'}), 404
             
-            # Call the chatbot's append_knowledge method
-            print(file_path)
-            result = current_app.config['chatbot'].append_knowledge(file_path)
-            current_app.logger.info(f"Knowledge appended successfully: {result}")
+            result = chatbot.append_knowledge(file_path)
             return jsonify({'message': result}), 200
         except Exception as e:
-            current_app.logger.error(f"Error in append_knowledge route: {str(e)}")
-            return jsonify({'error': str(e), 'traceback': traceback.format_exc()}), 500
-            
-    
+            current_app.logger.error(f"Error in append_knowledge: {str(e)}")
+            return jsonify({'error': str(e)}), 500
+
     @bp.route('/get_file_list', methods=['GET'])
     def get_file_list():
         try:
             upload_folder = current_app.config['UPLOAD_FOLDER']
-            current_app.logger.info(f"Checking for files in: {upload_folder}")
-            
             if not os.path.exists(upload_folder):
-                current_app.logger.warning(f"Upload folder does not exist: {upload_folder}")
                 return jsonify({'error': 'Upload folder does not exist'}), 404
             
-            all_files = os.listdir(upload_folder)
-            current_app.logger.info(f"All files in directory: {all_files}")
-            
-            files = [f for f in all_files if f.endswith(('.txt', '.docx', '.pdf'))]
-            current_app.logger.info(f"Filtered files: {files}")
-            
+            files = [f for f in os.listdir(upload_folder) if os.path.isfile(os.path.join(upload_folder, f)) and allowed_file(f)]
             return jsonify(files)
         except Exception as e:
-             current_app.logger.error(f"Error in get_file_list: {str(e)}")
-             return jsonify({'error': str(e)}), 500
-    
+            current_app.logger.error(f"Error in get_file_list: {str(e)}")
+            return jsonify({'error': str(e)}), 500
+
     @bp.route('/delete_file', methods=['POST'])
     def delete_file():
         try:
-            filename = request.json.get('filename')
-            if not filename:
+            data = request.json
+            if not data or 'filename' not in data:
                 return jsonify({'error': 'No filename provided'}), 400
-            
+            filename = data['filename']
             file_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
             if not os.path.exists(file_path):
                 return jsonify({'error': 'File not found'}), 404
             
             os.remove(file_path)
-            
-            # Delete any additional files with the same name prefix
-            base_name = os.path.splitext(filename)[0]
-            for f in os.listdir(current_app.config['UPLOAD_FOLDER']):
-                if f.startswith(base_name) and f != filename:
-                    os.remove(os.path.join(current_app.config['UPLOAD_FOLDER'], f))
-            
             return jsonify({'success': True, 'message': f'File {filename} deleted successfully'})
         except Exception as e:
             current_app.logger.error(f"Error in delete_file: {str(e)}")
             return jsonify({'error': str(e)}), 500
 
-    @bp.route('/set_additional_instructions', methods=['POST'])
-    def set_additional_instructions():
+    @bp.route('/set_global_instructions', methods=['POST'])
+    def set_global_instructions():
         try:
             data = request.json
             instructions = data.get('instructions', '')
-            current_app.config['ADDITIONAL_INSTRUCTIONS'] = instructions
-            return jsonify({'success': True, 'message': 'Additional instructions saved successfully'})
+            current_app.config['GLOBAL_INSTRUCTIONS'] = instructions
+            return jsonify({'success': True, 'message': 'Global instructions saved successfully'})
         except Exception as e:
-            current_app.logger.error(f"Error in set_additional_instructions: {str(e)}")
+            current_app.logger.error(f"Error in set_global_instructions: {str(e)}")
             return jsonify({'success': False, 'error': str(e)}), 500
 
-    @bp.route('/get_additional_instructions', methods=['GET'])
-    def get_additional_instructions():
+    @bp.route('/get_global_instructions', methods=['GET'])
+    def get_global_instructions():
         try:
-            instructions = current_app.config.get('ADDITIONAL_INSTRUCTIONS', '')
+            instructions = current_app.config.get('GLOBAL_INSTRUCTIONS', '')
             return jsonify({'instructions': instructions})
         except Exception as e:
-            current_app.logger.error(f"Error in get_additional_instructions: {str(e)}")
+            current_app.logger.error(f"Error in get_global_instructions: {str(e)}")
             return jsonify({'error': str(e)}), 500
-        
+
     return bp

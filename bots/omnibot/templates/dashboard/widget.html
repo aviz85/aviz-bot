@@ -1,5 +1,4 @@
 <div class="widget-container">
-    
     <div id="file-upload-container" class="file-upload-container">
         <div id="drop-zone" class="drop-zone">
             <p>גרור לכאן את המסמך (txt, pdf, docx)</p>
@@ -14,12 +13,18 @@
         <h3>מסמכים שהועלו</h3>
         <ul id="file-list"></ul>
     </div>
-    <div id="additional-instructions-container">
-    <h3>הנחיות מותאמות אישית</h3>
-    <textarea id="additional-instructions" rows="4" cols="50"></textarea>
-    <button id="save-instructions">שמור הנחיות</button>
+    
+    <div id="personas-container">
+        <h3>ניהול פרסונות</h3>
+        <div id="personas-list"></div>
+        <button id="add-persona">הוסף פרסונה</button>
+    </div>
+
+    <div id="global-instructions-container">
+        <h3>הנחיות כלליות</h3>
+        <textarea id="global-instructions" rows="4" cols="50"></textarea>
+        <button id="save-global-instructions">שמור הנחיות כלליות</button>
     </div>
 </div>
-
 <link rel="stylesheet" href="{{ url_for('custom_static', filename='dashboard.css') }}">
 <script src="{{ url_for('custom_static', filename='dashboard.js') }}"></script>
