@@ -2,17 +2,22 @@
     
     <div id="file-upload-container" class="file-upload-container">
         <div id="drop-zone" class="drop-zone">
-            <p>Drag and drop files here (txt, pdf, docx only)</p>
+            <p>גרור לכאן את המסמך (txt, pdf, docx)</p>
             <input type="file" id="file-input" accept=".txt,.pdf,.docx" multiple style="display: none;">
         </div>
-        <button id="upload-button">Upload Files</button>
+        <button id="upload-button">העלה מסמך</button>
         <div id="upload-progress" class="progress-bar" style="display: none;"></div>
         <div id="append-progress" class="progress-bar" style="display: none;"></div>
     </div>
     
     <div id="file-list-container">
-        <h3>Uploaded Files</h3>
+        <h3>מסמכים שהועלו</h3>
         <ul id="file-list"></ul>
+    </div>
+    <div id="additional-instructions-container">
+    <h3>הנחיות מותאמות אישית</h3>
+    <textarea id="additional-instructions" rows="4" cols="50"></textarea>
+    <button id="save-instructions">שמור הנחיות</button>
     </div>
 </div>
 

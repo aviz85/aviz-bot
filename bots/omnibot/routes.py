@@ -126,5 +126,25 @@ def create_blueprint(chatbot):
         except Exception as e:
             current_app.logger.error(f"Error in delete_file: {str(e)}")
             return jsonify({'error': str(e)}), 500
-    
+
+    @bp.route('/set_additional_instructions', methods=['POST'])
+    def set_additional_instructions():
+        try:
+            data = request.json
+            instructions = data.get('instructions', '')
+            current_app.config['ADDITIONAL_INSTRUCTIONS'] = instructions
+            return jsonify({'success': True, 'message': 'Additional instructions saved successfully'})
+        except Exception as e:
+            current_app.logger.error(f"Error in set_additional_instructions: {str(e)}")
+            return jsonify({'success': False, 'error': str(e)}), 500
+
+    @bp.route('/get_additional_instructions', methods=['GET'])
+    def get_additional_instructions():
+        try:
+            instructions = current_app.config.get('ADDITIONAL_INSTRUCTIONS', '')
+            return jsonify({'instructions': instructions})
+        except Exception as e:
+            current_app.logger.error(f"Error in get_additional_instructions: {str(e)}")
+            return jsonify({'error': str(e)}), 500
+        
     return bp

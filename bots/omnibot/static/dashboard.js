@@ -184,3 +184,41 @@ async function updateFileList() {
     // Initial file list update
     updateFileList();
 });
+
+// Additional Instructions
+const additionalInstructions = document.getElementById('additional-instructions');
+const saveInstructionsButton = document.getElementById('save-instructions');
+
+// Function to load additional instructions
+function loadAdditionalInstructions() {
+    fetch('/get_additional_instructions')
+        .then(response => response.json())
+        .then(data => {
+            additionalInstructions.value = data.instructions || '';
+        })
+        .catch(error => console.error('Error fetching additional instructions:', error));
+}
+
+// Load initial instructions when the page loads
+document.addEventListener('DOMContentLoaded', loadAdditionalInstructions);
+
+// Save instructions
+saveInstructionsButton.addEventListener('click', () => {
+    const instructions = additionalInstructions.value;
+    fetch('/set_additional_instructions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ instructions: instructions }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Additional instructions saved successfully');
+        } else {
+            alert('Failed to save additional instructions');
+        }
+    })
+    .catch(error => console.error('Error saving additional instructions:', error));
+});
