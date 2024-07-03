@@ -1,0 +1,68 @@
+/* widget.css */
+.widget-container {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.mode-slider-container {
+    margin-bottom: 20px;
+}
+
+#mode-slider {
+    width: 100%;
+}
+
+.file-upload-container {
+    margin-bottom: 20px;
+}
+
+.drop-zone {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.drop-zone.dragover {
+    background-color: #f0f0f0;
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-bar .progress {
+    height: 100%;
+    background-color: #4CAF50;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+#file-list-container {
+    margin-top: 20px;
+}
+
+#file-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#file-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.delete-file {
+    color: red;
+    cursor: pointer;
+}
