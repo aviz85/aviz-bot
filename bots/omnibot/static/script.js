@@ -174,7 +174,7 @@ function showScreenshotModal(imageDataUrl) {
 function incrementMessageCount() {
     messageCount++;
     if (messageCount === 3) {
-        setTimeout(showSelfieModal, 1750);
+        //setTimeout(showSelfieModal, 1750); // can we selfie ?
     }
 }
 

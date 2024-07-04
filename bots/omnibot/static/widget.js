@@ -97,7 +97,6 @@ function checkAndUpdatePersona() {
                 if (slider) {
                     slider.value = personaIndex;
                 }
-                alert ("helo" + data.emojicon)
                 updateChatbotTitle(data.display_name, data.emojicon);
             }
         }
