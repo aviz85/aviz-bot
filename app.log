@@ -4258,3 +4258,173 @@ werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on 
 2024-07-04 17:55:18,561 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 17:55:18] "POST /chat HTTP/1.1" 200 -
 2024-07-04 17:55:18,572 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 17:55:18] "GET /get_current_persona HTTP/1.1" 200 -
 2024-07-04 17:55:18,578 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 17:55:18] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:06,131 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 18:02:06,131 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 18:02:06,260 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 18:02:06,267 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-07-04 18:02:06,267 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-07-04 18:02:06,267 INFO werkzeug  * Restarting with stat
+2024-07-04 18:02:07,555 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 18:02:07,556 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 18:02:07,630 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 18:02:07,633 WARNING werkzeug  * Debugger is active!
+2024-07-04 18:02:07,640 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-04 18:02:07,691 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:07] "GET / HTTP/1.1" 200 -
+2024-07-04 18:02:07,726 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:07] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-07-04 18:02:07,726 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:07] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-07-04 18:02:07,727 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:07] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-07-04 18:02:07,728 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:07] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-07-04 18:02:07,729 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:07] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-07-04 18:02:07,731 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:07] "GET /custom/static/script.js HTTP/1.1" 200 -
+2024-07-04 18:02:07,733 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:07] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-07-04 18:02:07,774 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:07] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:02:07,780 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:07] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:02:08,057 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:08] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:02:08,080 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:08] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:08,106 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:08] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:08,141 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:02:08,144 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:02:08,145 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:02:09,411 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:09] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:02:09,417 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:09] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:09,423 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:09] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:09,543 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:09] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:02:09,550 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:09] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:09,556 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:09] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:16,439 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:16] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:02:16,471 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:16] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:02:16,473 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:16] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:02:16,477 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:16] "[36mGET /custom/static/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:02:16,482 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:16] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:02:16,495 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:16] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:02:16,498 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:16] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:16,504 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:16] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:02:16,508 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:16] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:02:16,675 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:02:16,676 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:02:16,676 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:16] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:02:47,311 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:47] "POST /set_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:02:50,068 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:50] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:02:51,017 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:51] "[35m[1mPOST /dashboard/personas HTTP/1.1[0m" 201 -
+2024-07-04 18:02:55,280 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "GET / HTTP/1.1" 200 -
+2024-07-04 18:02:55,320 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-07-04 18:02:55,327 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-07-04 18:02:55,332 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-07-04 18:02:55,338 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-07-04 18:02:55,352 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-07-04 18:02:55,352 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "[36mGET /custom/static/script.js HTTP/1.1[0m" 304 -
+2024-07-04 18:02:55,352 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-07-04 18:02:55,362 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:02:55,366 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:02:55,445 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:02:55,462 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:55,475 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:55,507 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:02:55,508 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:02:55,509 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:02:55,510 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:02:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:02:57,368 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-04 18:02:59,430 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-04 18:02:59,433 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-04 18:02:59,460 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x15c5d5c70>
+2024-07-04 18:02:59,461 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x15bae8ec0> server_hostname='api.cohere.com' timeout=300
+2024-07-04 18:02:59,480 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x15c6041c0>
+2024-07-04 18:02:59,481 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:02:59,482 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:02:59,482 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:02:59,482 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:02:59,482 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:02:59,704 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'11'), (b'num_tokens', b'5'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'a505a3f32f29f01159d775ea45021d31'), (b'date', b'Thu, 04 Jul 2024 15:02:59 GMT'), (b'x-envoy-upstream-service-time', b'47'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-04 18:02:59,705 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-04 18:02:59,706 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:02:59,712 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:02:59,713 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:02:59,713 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:02:59,739 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:02:59,739 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:02:59,740 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:02:59,740 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:02:59,740 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:02:59,972 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'07cdc065e01ed26d8e3a141d44b28c2d'), (b'date', b'Thu, 04 Jul 2024 15:03:00 GMT'), (b'Content-Length', b'339'), (b'x-envoy-upstream-service-time', b'42'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000')])
+2024-07-04 18:02:59,973 INFO httpx HTTP Request: POST https://api.cohere.com/v1/rerank "HTTP/1.1 200 OK"
+2024-07-04 18:02:59,973 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:02:59,973 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:02:59,973 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:02:59,973 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:02:59,978 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-04 18:03:02,443 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-04 18:03:02,445 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:03:02] "POST /chat HTTP/1.1" 200 -
+2024-07-04 18:03:02,452 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:03:02] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:03:02,456 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:03:02] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:03:16,084 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-04 18:03:17,723 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-04 18:03:17,727 DEBUG httpcore.connection close.started
+2024-07-04 18:03:17,727 DEBUG httpcore.connection close.complete
+2024-07-04 18:03:17,728 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-04 18:03:17,737 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x15bbf2d60>
+2024-07-04 18:03:17,738 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x15bae8ec0> server_hostname='api.cohere.com' timeout=300
+2024-07-04 18:03:17,777 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x15bbf2af0>
+2024-07-04 18:03:17,777 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:03:17,778 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:03:17,778 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:03:17,778 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:03:17,778 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:03:18,363 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'16'), (b'num_tokens', b'4'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'24846b0dfe00178c54344abfdbda9630'), (b'date', b'Thu, 04 Jul 2024 15:03:18 GMT'), (b'x-envoy-upstream-service-time', b'92'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-04 18:03:18,364 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-04 18:03:18,364 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:03:18,371 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:03:18,372 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:03:18,372 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:03:18,391 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:03:18,391 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:03:18,392 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:03:18,392 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:03:18,392 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:03:18,883 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'e917490e4a659f391f469b8c3517c97d'), (b'date', b'Thu, 04 Jul 2024 15:03:18 GMT'), (b'Content-Length', b'341'), (b'x-envoy-upstream-service-time', b'49'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000')])
+2024-07-04 18:03:18,884 INFO httpx HTTP Request: POST https://api.cohere.com/v1/rerank "HTTP/1.1 200 OK"
+2024-07-04 18:03:18,884 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:03:18,884 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:03:18,884 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:03:18,884 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:03:18,889 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-04 18:03:22,573 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-04 18:03:22,575 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:03:22] "POST /chat HTTP/1.1" 200 -
+2024-07-04 18:03:22,584 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:03:22] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:03:22,591 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:03:22] "GET /get_current_persona HTTP/1.1" 200 -

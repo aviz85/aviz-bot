@@ -167,7 +167,6 @@ function saveNewPersona(item, slug) {
         emojicon: item.querySelector('.persona-emojicon').innerHTML,
         prompt: item.querySelector('.persona-prompt').value
     };
-    alert(data.emojicon)
     fetch('/dashboard/personas', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
