@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchFileList();
     setupButtonListeners();
     setupUnsavedChangesWarning();
+    
 });
 
 function fetchPersonas() {

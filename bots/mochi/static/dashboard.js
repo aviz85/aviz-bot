@@ -1,4 +1,4 @@
-// widget.js
+// dashboard.js
 document.addEventListener('DOMContentLoaded', function() {
     const dropZone = document.getElementById('drop-zone');
     const fileInput = document.getElementById('file-input');

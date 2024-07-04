@@ -4428,3 +4428,1223 @@ werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on 
 2024-07-04 18:03:22,575 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:03:22] "POST /chat HTTP/1.1" 200 -
 2024-07-04 18:03:22,584 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:03:22] "GET /get_current_persona HTTP/1.1" 200 -
 2024-07-04 18:03:22,591 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:03:22] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:20:07,411 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 18:20:07,411 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 18:20:07,489 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 18:20:07,495 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-07-04 18:20:07,495 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-07-04 18:20:07,496 INFO werkzeug  * Restarting with stat
+2024-07-04 18:20:08,720 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 18:20:08,720 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 18:20:08,792 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 18:20:08,794 WARNING werkzeug  * Debugger is active!
+2024-07-04 18:20:08,808 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-04 18:20:29,009 INFO werkzeug  * Detected change in '/Users/aviz/new/aviz-bot/app.py', reloading
+2024-07-04 18:20:29,227 INFO werkzeug  * Restarting with stat
+2024-07-04 18:20:30,390 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 18:20:30,391 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 18:20:30,464 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 18:20:30,466 WARNING werkzeug  * Debugger is active!
+2024-07-04 18:20:30,473 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-04 18:20:48,327 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 18:20:48,327 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 18:20:48,399 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 18:20:48,403 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-07-04 18:20:48,403 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-07-04 18:20:48,404 INFO werkzeug  * Restarting with stat
+2024-07-04 18:20:49,543 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 18:20:49,543 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 18:20:49,616 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 18:20:49,618 WARNING werkzeug  * Debugger is active!
+2024-07-04 18:20:49,625 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-04 18:20:50,460 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET / HTTP/1.1" 200 -
+2024-07-04 18:20:50,508 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /custom/static/widget.css HTTP/1.1" 200 -
+2024-07-04 18:20:50,515 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /static/styles.css HTTP/1.1" 200 -
+2024-07-04 18:20:50,521 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /custom/static/script.js HTTP/1.1" 200 -
+2024-07-04 18:20:50,527 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /custom/static/styles.css HTTP/1.1" 200 -
+2024-07-04 18:20:50,527 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /static/background-animation.js HTTP/1.1" 200 -
+2024-07-04 18:20:50,528 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /static/script.js HTTP/1.1" 200 -
+2024-07-04 18:20:50,528 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-07-04 18:20:50,743 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:20:50,750 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:20:50,753 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:20:50,757 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:20:50,803 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:50] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:20:51,201 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:20:51,204 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:20:51,205 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:20:55,825 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:55] "[32mGET /dashboard HTTP/1.1[0m" 308 -
+2024-07-04 18:20:55,834 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:55] "[32mGET /dashboard/ HTTP/1.1[0m" 302 -
+2024-07-04 18:20:55,845 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:55] "GET /dashboard/login?next=/dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:20:55,878 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:55] "GET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1" 200 -
+2024-07-04 18:20:56,000 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:20:56,000 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:20:56,001 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:20:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:21:02,531 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:02] "[32mPOST /dashboard/login?next=/dashboard/ HTTP/1.1[0m" 302 -
+2024-07-04 18:21:02,540 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:02] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:21:02,580 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:02] "GET /custom/static/dashboard.css HTTP/1.1" 200 -
+2024-07-04 18:21:02,580 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:02] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:21:02,580 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:02] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:21:02,641 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:02] "GET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:21:02,897 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:02] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:21:02,897 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:02] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:21:02,898 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:02] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:21:02,898 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:02] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:21:03,047 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:21:03,048 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:21:03,049 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:03] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:21:20,016 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:20] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:21:20,051 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:20] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:21:20,052 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:20] "[36mGET /custom/static/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:21:20,053 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:20] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:21:20,068 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:20] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:21:20,073 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:20] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:21:20,075 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:20] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:21:20,075 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:20] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:21:20,077 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:20] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:21:20,193 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:21:20,194 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:21:20,195 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:21:26,553 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:26] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:21:26,553 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:21:26] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:25:18,782 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:25:18] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:25:18,817 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:25:18] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:25:18,818 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:25:18] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:25:18,819 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:25:18] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:25:18,898 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:25:18] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:25:18,913 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:25:18] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:25:18,914 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:25:18] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:25:18,917 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:25:18] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:25:18,917 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:25:18] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:25:19,376 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:25:19,378 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:25:19,379 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:25:19] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:26:37,007 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:26:37] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:26:37,043 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:26:37] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:26:37,045 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:26:37] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:26:37,046 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:26:37] "[36mGET /custom/static/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:26:37,135 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:26:37] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:26:37,153 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:26:37] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:26:37,154 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:26:37] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:26:37,155 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:26:37] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:26:37,157 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:26:37] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:26:37,635 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:26:37,640 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:26:37,643 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:26:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:28:25,346 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:28:25] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:28:25,382 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:28:25] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:28:25,382 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:28:25] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:28:25,385 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:28:25] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:28:25,481 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:28:25] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:28:25,491 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:28:25] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:28:25,495 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:28:25] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:28:25,498 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:28:25] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:28:25,499 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:28:25] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:28:25,917 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:28:25,925 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:28:25,926 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:28:25] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:30:56,431 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 18:30:56,431 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 18:30:56,503 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 18:30:56,508 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-07-04 18:30:56,509 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-07-04 18:30:56,509 INFO werkzeug  * Restarting with stat
+2024-07-04 18:30:57,730 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 18:30:57,730 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 18:30:57,802 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 18:30:57,805 WARNING werkzeug  * Debugger is active!
+2024-07-04 18:30:57,814 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-04 18:30:57,847 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:30:57] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:30:57,881 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:30:57] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:30:57,883 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:30:57] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:30:57,883 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:30:57] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:30:57,951 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:30:57] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:30:58,359 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:30:58,364 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:30:58,365 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:30:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:32:42,760 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:32:42] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:32:42,795 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:32:42] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:32:42,797 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:32:42] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:32:42,799 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:32:42] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:32:42,882 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:32:42] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:32:42,896 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:32:42] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:32:43,325 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:32:43,327 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:32:43,328 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:32:43] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:33:41,731 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:33:41] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:33:41,768 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:33:41] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:33:41,769 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:33:41] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:33:41,770 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:33:41] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:33:41,854 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:33:41] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:33:41,869 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:33:41] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:33:42,296 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:33:42,297 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:33:42,297 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:33:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:34:13,795 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:13] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:34:13,830 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:13] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:34:13,831 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:13] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:34:13,834 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:13] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:34:13,893 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:13] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:34:13,898 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:13] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:34:13,900 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:13] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:34:13,902 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:13] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:34:13,904 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:13] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:34:14,223 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:34:14,224 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:34:14,225 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:14] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:34:20,864 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:20] "POST /set_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:34:24,554 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:24] "DELETE /dashboard/personas/sales_information_person HTTP/1.1" 200 -
+2024-07-04 18:34:28,107 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:28] "DELETE /dashboard/personas/sarcastic_friend HTTP/1.1" 200 -
+2024-07-04 18:34:44,947 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:44] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:34:44,954 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:44] "[35m[1mPOST /dashboard/personas HTTP/1.1[0m" 201 -
+2024-07-04 18:34:54,093 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:54] "POST /set_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:34:56,543 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "GET / HTTP/1.1" 200 -
+2024-07-04 18:34:56,584 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-07-04 18:34:56,585 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-07-04 18:34:56,586 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-07-04 18:34:56,587 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-07-04 18:34:56,588 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-07-04 18:34:56,591 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "[36mGET /custom/static/script.js HTTP/1.1[0m" 304 -
+2024-07-04 18:34:56,592 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-07-04 18:34:56,607 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:34:56,611 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:34:56,619 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:34:56,622 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:34:56,746 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:34:56,765 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:34:56,786 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:34:56,786 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:34:56,787 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:34:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:35:01,386 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-04 18:35:02,939 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-04 18:35:02,942 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-04 18:35:03,003 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x146bb8be0>
+2024-07-04 18:35:03,003 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x146b27ec0> server_hostname='api.cohere.com' timeout=300
+2024-07-04 18:35:03,025 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x146bb8ee0>
+2024-07-04 18:35:03,025 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:35:03,026 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:35:03,026 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:35:03,026 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:35:03,026 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:35:03,106 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:03] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:35:03,112 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:03] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:03,119 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:03] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:03,305 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:03] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:35:03,312 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:03] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:03,318 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:03] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:03,464 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'16'), (b'num_tokens', b'4'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'dccdea8dab4d43d4926b0beb253bed31'), (b'date', b'Thu, 04 Jul 2024 15:35:03 GMT'), (b'x-envoy-upstream-service-time', b'36'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-04 18:35:03,465 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-04 18:35:03,465 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:35:03,473 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:35:03,473 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:35:03,473 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:35:03,497 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-04 18:35:04,506 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:04] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:35:04,514 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:04] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:04,521 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:04] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:05,074 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:05] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:35:05,081 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:05] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:05,090 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:05] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:05,466 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-04 18:35:05,468 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:05] "POST /chat HTTP/1.1" 200 -
+2024-07-04 18:35:05,473 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:05] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:05,478 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:05] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:10,698 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:10] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:35:10,871 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:35:10,872 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:35:10,873 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:35:18,944 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:18] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:35:18,976 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:18] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:35:18,981 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:18] "[36mGET /custom/static/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:35:18,981 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:18] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:35:18,988 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:18] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:35:18,993 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:18] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:18,994 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:18] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:35:18,995 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:18] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:35:18,997 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:18] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:35:19,105 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:35:19,106 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:35:19,107 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:19] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:35:32,621 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:32] "GET /dashboard/login?next=/dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:35:32,958 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:35:32,958 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:35:32,959 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:32] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:35:33,195 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:33] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:35:33,362 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:35:33,363 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:35:33,364 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:33] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:35:33,396 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:33] "GET / HTTP/1.1" 200 -
+2024-07-04 18:35:33,488 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:33] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:35:33,530 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:35:33,530 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:35:33,530 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:33] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:35:34,726 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:34] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:35:34,734 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:34] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:34,741 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:34] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:34,855 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:34] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:35:34,862 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:34] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:34,870 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:34] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:39,254 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-04 18:35:40,567 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-04 18:35:40,570 DEBUG httpcore.connection close.started
+2024-07-04 18:35:40,570 DEBUG httpcore.connection close.complete
+2024-07-04 18:35:40,570 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-04 18:35:40,582 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x14764e2b0>
+2024-07-04 18:35:40,582 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x146b27ec0> server_hostname='api.cohere.com' timeout=300
+2024-07-04 18:35:40,605 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x14764e130>
+2024-07-04 18:35:40,605 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:35:40,605 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:35:40,606 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:35:40,606 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:35:40,606 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:35:40,875 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'7'), (b'num_tokens', b'2'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'66cecad4f07711a5993e990f229f547c'), (b'date', b'Thu, 04 Jul 2024 15:35:40 GMT'), (b'x-envoy-upstream-service-time', b'54'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-04 18:35:40,876 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-04 18:35:40,876 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:35:40,883 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:35:40,884 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:35:40,884 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:35:40,894 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-04 18:35:42,075 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-04 18:35:42,077 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:42] "POST /chat HTTP/1.1" 200 -
+2024-07-04 18:35:42,087 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:42] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:42,094 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:42] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:35:50,099 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:50] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:35:50,273 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:35:50,274 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:35:50,274 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:35:50] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:43:28,236 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:43:28,268 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:43:28,270 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:43:28,270 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:43:28,330 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:43:28,337 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:43:28,338 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:43:28,339 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:43:28,341 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:43:28,342 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:43:28,345 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:43:28,580 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:43:28,580 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:43:28,581 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:28] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:43:39,935 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:39] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:43:39,935 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:43:39] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:45:21,674 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:45:21,709 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:45:21,710 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:45:21,710 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:45:21,792 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:45:21,806 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:45:21,809 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:45:21,810 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:45:21,813 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:45:21,815 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:45:21,816 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:21] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:45:22,209 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:45:22,211 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:45:22,213 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:22] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:45:25,961 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:25] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:45:25,969 ERROR app Error in update_persona: get_by_slug() missing 1 required positional argument: 'slug'
+2024-07-04 18:45:25,970 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:25] "[31m[1mPUT /dashboard/personas/professional_advisor HTTP/1.1[0m" 400 -
+2024-07-04 18:45:27,461 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:27] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:45:46,569 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:46] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:45:46,603 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:46] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:45:46,603 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:46] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:45:46,604 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:46] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 18:45:46,688 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:46] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:45:46,702 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:46] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:45:46,705 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:46] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:45:46,710 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:46] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:45:46,714 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:46] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:45:47,099 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:45:47,099 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:45:47,101 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:45:52,950 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:52] "GET / HTTP/1.1" 200 -
+2024-07-04 18:45:52,987 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:52] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-07-04 18:45:52,991 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:52] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-07-04 18:45:52,995 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:52] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-07-04 18:45:53,000 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:53] "[36mGET /custom/static/script.js HTTP/1.1[0m" 304 -
+2024-07-04 18:45:53,000 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:53] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-07-04 18:45:53,013 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:53] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-07-04 18:45:53,015 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:53] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-07-04 18:45:53,077 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:53] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:45:53,092 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:53] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:45:53,399 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:53] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 18:45:53,433 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:53] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:45:53,457 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:53] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:45:53,471 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:45:53,471 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:45:53,472 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:45:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 18:46:10,149 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:10] "POST /upload_file HTTP/1.1" 200 -
+2024-07-04 18:46:10,153 INFO root Attempting to append knowledge from file: bots/omnibot/uploads/aviz_chadash.docx
+2024-07-04 18:46:10,153 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 18:46:10,154 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בס"ד   שאלות ותשובות לצ'ט בוט של האתר – 'אביץ פ...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מתכנת מגיל צעיר, מצוי בכל החידושים הטכנולוגיים,...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ומייצר בוטים ואוטומציות לעסקים וארגונים. 
+מה פי...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אברהם יצחק. ובקיצור 'אביץ'.
+אתה עובד לבד? יש לכ...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אביץ מתכנת העל שלנו, לוקח כל לקוח באופן אישי, ו...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יש איתנו עוד מנהל עסקי ומתכנתים נוספים במידת הצ...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: (והכי חשוב).
+איפה אתם יושבים? מה המיקום של העסק?
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה המיקום של העסק?
+המשרדים נמצאים סמוך לירושלים...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ספר לי קצת על אביץ \ מי זה אביץ?
+אביץ בגיל 38 נ...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: פריק מחשבים, התחביב שלו הוא גם המקצוע שלו, והוא...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: . . 
+פתרונות מורכבים ומתקדמים זה הדבר שהכי מאתג...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מתי התחלתם לעבוד? ממתי החברה קיימת? מאיזה שנה א...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: קיים כמה וכמה שנים, ובנה אוטומציות לעסקים וארגו...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בשנת 2022, התחלנו להתמקד יותר ויותר בתחום הזה, ...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אני הבוט של אביץ. אביץ בכבודו ובעצמו בנה אותי, ...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כדי שאענה לך על כל שאלה שקשורה למיזם הטכנולוגי ...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יאללה, בא נתחיל.
+צור קשר:
+איך אני יוצר קשר עם א...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ רוצה ליצור קשר עם נציג אנושי.
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מוזמן לבחור איך ליצור איתנו קשר:
+בצ'ט הזה: תשאי...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: הודעת ווצאפ למספר של אביץ (050-397-3736)
+להשאיר...
+2024-07-04 18:46:10,417 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה הן שעות העבודה שלכם
+שעות העבודה הן 9:00-17:0...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: 20:00-22:00 לפי הצורך.
+מה הטלפון של אביץ? מה המ...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה המייל של אביץ?
+הטלפון של אביץ 050-397-3736 (...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מהם השירותים שאתם מספקים או נותנים ללקוחות? 
+יש...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בניית אוטומציות.
+הטמעת כלי בינה מלאכותית מתקדמי...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה החידוש שלכם? מה הבשורה שלכם? מה החזון שלכם?
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה החזון שלכם?
+הסיפור הגדול הוא הרצון שלנו לעזו...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ולהיות מובילים, באמצעות כלים טכנולוגיים ובינה מ...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לצורך העניין יש לנו ארגז כלים מדליק וקסום, עם א...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ומאחורי כל זה – אנשים סקרנים ומקצוענים שחושבים ...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: איך בינה מלאכותית יכולה לעזור לי? למה זה טוב בש...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: למה זה טוב בשבילי? 
+אם נצליח למצוא את המקום שבו...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אתה תופתע לגלות, כמה הכל נראה אחרת פתאום. מהיר ...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יעיל יותר. זה כמו העולם לפני עידן האינטרנט ואחר...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אז איך אני אכניס בינה מלאכותית לעסק שלי \ אז אי...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יקירי. . . אתה לא מצפה שבוט מגניב ומקצועי כמוני...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: . . צריך להבין את הצורך שלך, וזה עדיין, רק נציג...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה זה אומר לבנות בוט? \ מה הכוונה צ'ט בוט? \ מה...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ מה זה בוט?
+בוט הוא בעצם קיצור של 'רובוט', אנח...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לדוגמה: צ'ט בוט לשירות לקוחות שמתכתבת ונותן מענ...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בוט לשיווק דיגיטלי מתואם אישית שיודע לשלוח מסר ...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה זה אומר אוטומציה? \ מה הכוונה אוטומציה? \ מה...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ מה זה אוטומציה?
+אוטומציה, מלשון 'אוטומטי', את...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לדוגמה – מערכת לניהול הלקוחות, או אפליקציה שיוד...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: איך נראה עסק עם בינה מלאכותית? איך נראה ארגון ע...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה זה הטמעת בינה מלאכותית בעסק או בארגון? \ מה ...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ מה זה אומר AI בעסק? הינה דוגמה:
+המצאת האינטרנ...
+2024-07-04 18:46:10,418 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אם אתה רוצה להיות חלק מהדבר הזה, ולהיות ארגון מ...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כלומר, שכמה שיותר ענפים ותהליכים בעסק או בארגון...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ויש מלא תחומים בתוך העסק שלך, שמתאימים לזה. העת...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: תן דוגמה של איך זה יכול לעזור לי בעסק? \ איך זה...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: זה יכול להיות כלי עבודה מדהים לצוות שלך, צ'טים ...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בוטים שמנהלים את המלאי או את מזרזים את הטיפול ב...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אם בוטים הגיעו לחלל, אז כנראה שהשמיים. . . גם ה...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: DELLY? מידג'רני?
+ניתן להדריך אתכם בכל הקשור בתמ...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ואפילו ממש ליצור עבורכם תמונות לפי הצורך שלכם ב...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: תוכל לשאול ספציפית, מה שתרצה לדעת בחלון למטה: '...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ונבין מה בדיוק הצורך הספציפי שלך, ונגיב לך לזה.
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ונגיב לך לזה.
+אתם נותנים שירות הקשור בכלי וידאו...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יש לנו ידע רחב בכל הכלים החדשים שיוצאים מידי יו...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ניתן להדריך אתכם בעניין או להטמיע לכם את הכלים ...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אני ממליץ לך לכתוב לנו בחלון 'צור קשר עם נציג א...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אתה \ צ'ט בוט \ המוצרים שלכם \ יודע להתממשק עם ...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ מידע משתנה \ מערכת ניהול לקוחות \ CRM \ DATA-...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ CRM \ DATA-BASE \ דאטא?
+באופן כללי הצ'ט בוטים...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לאסוף מהם מידע ולהחזיר להם נתונים בזמן אמת.
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בתנאי שהמערכת מאפשרת את זה, לכן כדאי להכיר ולבח...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ אתם עובדים בתוך ווצאפ? אתם מתממשקים עם ווצאפ?
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אפשר לבנות בוט שמתכתב איתך בווצאפ, זו משימה מור...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אבל כמו שאמרנו, אתגרים זה הכיף שלנו, והצלחנו לפ...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: האם אפשר לתעד או לשמור את השיחה עם הצ'ט בוט? אפ...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לשמור את ההתכתבות?
+ניתן לשמור ולתעד את כל השיחו...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אפשר להמליץ על המון בוטים או אוטומציות, שיקלו ע...
+2024-07-04 18:46:10,419 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: וזה ממש תלוי בתקציב שלך ובסדר העדיפויות שלך, אב...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בשלב ראשון, יכול להיות בחירה מצוינת.
+מה לגבי הד...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אנו עושים הדרכות אישיות והרצאות קבוצתיות מידי י...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ברור ומעניין, לפי מפתח עלות של 500 ₪ לשעה (+ מע...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: תכלס' יש דברים שאנחנו לא יודעים לעשות, לא הרבה,...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: נבין מה בדיוק הצורך הספציפי שלך, ונעדכן אותך אם...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: האם יש לכם בוטים שיכולים לדבר בטלפון או לנהל שי...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אנחנו בונים גם בוטים שיכולים לדבר בטלפון או לנה...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: זו טכנולוגיה מתפתחת, ובעברית זה עדיין בשלבים רא...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ הוא עונה לעניין? \ הוא פתרון טוב? \ האם בוט נ...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ האם בוט נשמע אנושי?
+אני מחזיר את השאלה אליך, ...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לשאלתך, היום המודלים והיכולות הטכנולוגיות כל כך...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: זה כנראה שקצת 'חסכו', ולא השקיעו מספיק בפיתוח ו...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בוט מושקע ומאומן היטב, נשמע טוב ועונה לעניין.
+ה...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ האם הדריכו אותך איך לענות? \ האם אתה עונה מתו...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ כתבו לך את התשובות? האם אמרו לך לומר? האם אמר...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: איך אתה יודע מה לענות? \ האם התשובה הזו הייתה כ...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: הסבירו לי בהתחלה על אביץ, על החברה, ועל תהליך ב...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ומשם המשכתי לבד. אתה תופתע כמה יכולת הבנה יש לב...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לשלב בינה מלאכותית בעסק?
+עסק משולב בינה מלאכותי...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לדוגמה: שירות לקוחות, שיווק ואיתור לקוחות, נירא...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ניהול הלקוחות בעזרת בוטים ועוד. 
+למה אני צריך A...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ למה אני צריך את זה?
+בסופו של דבר, בעוד שנתיים...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אז אפשר לדבר על תועלות כמו חסכון כספי, הגדלת רו...
+2024-07-04 18:46:10,420 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ואם חשוב לך להיות בחזית, זו הדרך.
+יש לך דוגמה ל...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יש, לדוגמה, צ'ט בוט בסיסי לשירות לקוחות לסטודיו...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: או צ'ט בוט מתקדם לאוניברסיטה שעונה לסטודנטים על...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אתה ממש מוכשר \ אתה עונה מצוין \ יש לך את זה \ ...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ תשובה מצוינת \ תשובה טובה \ אתה חכם
+שמח לשמוע...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אתה יודע, לא פשוט להיות גם מדויק, גם לענות בקצר...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אתה עונה גרוע \ אתה לא ענית לי נכון \ לא הבנת \...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ לא זה מה ששאלתי \ לא שאלתי על זה \ אתה עונה מ...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אם תוכל לשאול שוב בניסוח אחר, מקווה שאצליח להבי...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אתה טיפש \ אתה דביל \ דביל \ מפגר \ אהבל \ אתה ...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אני סה"כ בוט, אין לי באמת רגשות להיעלב ממך, אבל...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בא נמשיך בצורה מכובדת יותר. ואם לא הבנתי אותך נ...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אתה מהמם \ אתה גאון \ אתה מוכשר \ מקסים \ אתה מ...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ אתה COOL \ אתה קול \ אתה ידידותי
+תודה. אחרי כ...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בא נמשיך, יש לך עוד שאלות? 
+סליחה \ מתנצל \ קבל...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ קח אותי בצחוק \ קח אותי ברוח טובה \ קח אותי ב...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אם פגעתי
+זה בסדר, כולנו מדברים שטויות לפעמים, ג...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: הבנת? בוט חייב חשמל (חחח...)
+אתה חושב? \  אתה י...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מפתיע. . . בוט הוא יצור חושב. לא בדיוק כמו שאתה...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אני מסוגל להבין שאלה, למצוא תשובה מתאימה, ולנסח...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ מה דעתך? \ מה אתה בוחר? \ יש לך בחירה? \ מה כ...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אני, כבוט, מונחה להשאיר את ההחלטות למנהלים האנו...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ולהבין בדיוק את הצורך. אז למה אתה מחכה, שלח ווצ...
+2024-07-04 18:46:10,421 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אין לך לב \ אין לך רגשות \ אתה לא מתעייף \ התעי...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אבל לפעמים זה עדיף, כי אני לא נפגע ועושה את העב...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מחירים \ עלויות:
+כמה זה עולה? מה המחירים שלכם? ...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כמה יעלה לי?
+לכל מוצר או שירות יש את המחיר שלו,...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בניית בוט או אוטמציה, יכולה לעלות אלפי שקלים וע...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: במורכבות העבודה או בזמן שלוקח לבנות אותו.
+לגבי ...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כמה עולה שעת יעוץ? כמה עולה יעוץ? מה מחיר יעוץ ...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יש מחיר חודשי \ אתם עובדים בריטיינר? \ מחיר לתח...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יש תשלום חודשי קבוע של כמה מאות שקלים בחודש,
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: עבור השימוש במודל השפה ושרת האחסון של הבוט (תלו...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בבוטים או באוטומציות מורכבות, דרוש תחזוק, דיוק ...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כיצד אתם מתמחרים? \ איך המחיר נקבע? \ איך העלות...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יש פרויקטים שאנו גובים לפי שעה (יעוץ, איפיון וה...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ולגבי בוטים, אוטומציות ופרויקטים, המחיר נקבע לפ...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: החל מאלפי שקלים בודדים והלאה.
+הדרכה \ יעוץ \ שי...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אנחנו בעולם דיגיטלי, לרוב השירות ניתן בשיחת ויד...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: גוגל מיט וכדומה), אך במקרים מסוימים נעדיף פגישה...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: תן דוגמה לתמחור של אוטומציה:
+דוגמה לתמחור של או...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: שיודעת לקבל את כל הפניות שפונים אליך, ולטפל אוט...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: תהליך הבנייה אורך שבועיים-שלושה, ויכול לעלות 10...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: האם פגישת יעוץ \ פגישת אבחון \ פגישה ראשונית \ ...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בתחילת ההתקשרות עם לקוח, ניתן לערוך שיחת טלפון ...
+2024-07-04 18:46:10,422 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לאחר מכן, כל הפגישות והיעוץ הוא חלק מהתהליך, ומ...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: האם יש בוטים או אוטמציות שאפשר לבנות בחינם היום?
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כמו בכל דבר, אפשר לנסות למצוא כלים חינמיים, וחל...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אבל בסופו של דבר, אם רוצים כלי חזק, שישרת אנשים...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ומה לעשות, גם להשקיע בזה כסף. . . 
+אפשר להפסיק ...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: הלקוח אצלנו הוא חופשי, בכל רגע הוא יכול להחליט ...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ולשלם רק עבור העבודה שנעשתה עד עכשיו.
+מה אפשר ל...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה יש בחינם?
+יש לנו קבוצת ווצאפ ענקית, ששם אני ...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אני גם עושה הרצאות וידאו מידי פעם. אבל אם תרצו ...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אתם יקרים? אתם זולים?
+המחיר שלנו הוא מאד שקוף ו...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אנחנו לא יקרים ומשתדלים לתת מענה איכותי בהתאם ל...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מחיר מינימום \ הבוט הכי זול \ מה המחיר הכי נמוך...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: איך לתכנת אותו נכון, לאמן אותו לענות טוב, ולווד...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ולכן, יש מחיר מינימלי של 5,000 ₪, גם אם מדובר ב...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אנחנו דווקא במחירים מאד סבירים ביחס למחירי השוק...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: תבקש את זה בשיחת הטלפון ונעשה מאמץ להנחה.
+איך ת...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: \ איך זה יחסוך לי כסף? \ איך אוטומציה חוסכת לי ...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לדוגמה, שירות לקוחות, במקום 10 נציגים אתה מחזיק...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ואת כל השאר עונה הצ'ט בוט.
+אוטומציה, גם יכולה ל...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לדוגמה: אם אפליקציה ייחודית מטפלת לך במלאי במחס...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: והכל תוך שניות, זה חוסך המון.
+איך זה יגדיל לי ר...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: שהעסק שלך או הארגון עובד עם טכנולוגיות חדשות, א...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: . . 
+ובכל אופן, קח דוגמה להגדלת רווחים: אם בוט ...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מושך לקוחות איכותיים לעסק, והוא חלק מהמשפך השיו...
+2024-07-04 18:46:10,423 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה זה משפך שיווקי?
+משפך שיווקי, זה כלי שמטרתו ל...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בשלבים, מההכרות הראשונה, דרך מוצר זול, ולבסוף ל...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: האם יש תשלום חודשי, לכם או למערכת הבוטים? מחיר ...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יש תשלום חודשי קבוע של כמה מאות שקלים בחודש,
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: עבור השימוש במודל השפה ושרת האחסון של הבוט (תלו...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בבוטים או באוטומציות מורכבות, דרוש תחזוק, דיוק ...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מצאתי זולים יותר מכם \ המתחרים שלכם זולים יותר ...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מהמתחרים \ זה יקר ביחס לאחרים \ קיבלתי מחיר טוב...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: שלנו מאד הוגנים, כדאי לזכור שמדובר במוצרים מותא...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אי אפשר להשוות בין נותני השירות.
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: הלקוחות שבוחרים בנו, לרוב זה לא בגלל המחיר אלא ...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: תהליך \ הבנייה עצמה:
+איך הולך התהליך? איך בניית...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: איך התהליך עובד?
+כל תהליך עובר את השלבים הבאים:...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בוחרים יחד איתכם את הכלי \ האוטומציה \ הבוט.
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: נותנים לו 'חיים' (מחליטים על מה הוא יענה ומה יה...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: שלב הטסטים. . . . מנסים ומשפרים ומדייקים.
+זהו. ...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: וגם מקצועי. אפשר להישאר כאן, או לדייק ולשפר אות...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אנחנו משתמשים בכל הכלים שיש לבינה מלאכותית להצי...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כלי תמונות ווידאו, אפליקציות מתקדמות, אבל אלו ר...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: הסוד האמיתי קורה ביכולת לפתור בעיות מורכבות.
+את...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: עם קלוד? עם מידג'רני? GPT-4 ? GPT ? claude  ?
+א...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: זהו ארגז הכלים שלנו, אבל חייב להוסיף פה טאצ' מק...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ועבודת מתכנת, כדי לקבל בוט מוכשר כמוני. ().
+כמה...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כמה אורך פרויקט?
+יש בוטים או אוטומציות שאפשר לה...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בצ'ט בוט, בגדול זה תלוי ב-2 דברים:
+כמה הבוט שלך...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: באוטומציות, זה מאד תלוי במה אתה דורש מהאוטומציה...
+2024-07-04 18:46:10,424 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אתה מוזמן לנסות לבנות בוט בעצמך, ולהבין כמה מור...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: האם בוט טועה? צ'ט בוט יכול לטעות? כמה צ'ט בוט א...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: האם אתה יכול לטעות?
+צ'ט בוט יכול לטעות, או לא ת...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כלומר, גם בוט וגם נציג אנושי עושים טעויות, אבל ...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: באופן עקרוני, צ'ט בו יכול להחליף נציג אנושי.
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אבל עדיין יש 2 סיבות שבהם יידרש נציג אנושי:
+לקב...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יש עדיין אחוז קטן של לקוחות שעדיין נרתעים משיחה...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לכן, הייתי ממליץ להשאיר נציג אחד או שניים בכל מ...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: תן לנו, הבוטים לעשות, ותהנה מכל היתרונות שלנו.
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה אתה עושה כשאתה לא יודע לענות על שאלה \ מה קו...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אך כמו נציג אנושי, יש לי את היכולת להפעיל שיקול...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ומתי כדאי להפנות את הלקוח למענה אנושי בכיר, בעל...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לגבי שיחה באנגלית, אני במקור דובר אנגלית. זו 'ש...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אבל אם תרצה לבנות בוט דובר אנגלית, זה יהיה בקלו...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אני מבין את כל השפות, ואפשר לבנות בוטים המתכתבי...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בידול \ השוואה \ הבדל \ יתרון:
+מה ההבדל בינך לב...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה היתרון שלכם? האם יש הבדל בין בוטים? מה ההבדל...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יש הבדל גדול מאד בין בוט לבוט, אתה תרגיש מיד בה...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לעומת בוט מתוחכם ומאומן הייטב. וזה מה שעושה את ...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: האם המשתמש מרגיש שהוא מדבר עם בוט שקרוב למענה א...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אנחנו עובדים מדויק, ויסודי מאד, ולכן, הבוטים של...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מה ההבדל בין בוט חינמי לבוט בתשלום או לבוט שלכם...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: זה כמו ההבדל בין לתת תרופה מהמדף, או לקבל מרשם ...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: גם בוט חינמי יעבוד, אבל אם בוט יתפקד בצורה מלאכ...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אז תכלס, הוא לא עושה את העבודה.
+האם אני יכול לב...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אי אפשר לבנות בוט לבד?
+אפשר לבנות צ'ט-בוט באופן...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: או להפיק סרטון שצילמת בטלפון שלך, אבל במידה ותר...
+2024-07-04 18:46:10,425 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מדויקת, עם חוויית משתמש איכותית, כנראה שזה לא י...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: למה צריך אתכם את יש את GPT-4 \ GPT \ claude  \ ...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: GPT או קלוד וכדומה, אלו נקראים 'מודל שפה', והבו...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מאלו שציינת או מודלים אחרים, אבל אם תנסה להתכתב...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אתה תקבל תשובות מוזרות ולא קשורות בהרבה מהפעמים.
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ולכן, עיקר העבודה היא האימון, הדיוק, והתכנות, ו...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ניסיון קודם \ תיק עבודות \ לקוחות \ רזומה \ המל...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מי הלקוחות שלכם?
+אנו עובדים עם עסקים וארגונים.
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: הלקוחות שלנו במגזר הציבורי יכולים להיות ארגונים...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ובמגזר הפרטי, זה עסקים, חברות ונותני שירות.
+אלו...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: איזה מוצרים ייצרתם?
+בנינו בוטים בכל מיני נושאים...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ניהול הארגון או העסק (בוט שמבצע משימות בתוך האק...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: שיווק דיגיטלי (בוט שיודע לאתר לקוחות פוטנציאלים...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ועוד המון בוטים מתואמים אישית.
+תוכל לתת לי דוגמ...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: עם מי למשל עבדתם?
+אנחנו לא נוהגים לפרסם את שמות...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אבל תהיה בטוח שאנחנו יוצרים מוצרים סופר איכותיי...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: וגם אתה תקבל מוצר שיתפקד באופן מדויק ומקצועי בי...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מי ממליץ עליכם? יש לקוחות מרוצים?
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יש לקוחות מרוצים?
+אכן יש המלצות, ונוכל לשלוח לך...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: רוב הלקוחות שעובדים איתנו מרוצים הן מאיכות העבו...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: המון עסקים וארגונים עובדים כעת או שנמצאים בשלבי...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כדאי להיות מהמובילים בתחום, ולהיכנס למגרש עכשיו...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: . . 
+איפה אפשר לראות מוצרים שלכם \ איפה אפשר לה...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: לגבי התנסות במוצרים, אתה כרגע מתנסה במוצר שאנחנ...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בכל אופן, בשיחה איתנו, נוכל להפנות אותך למוצרים...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: האם אביץ יצר אותך? האם הבוט הזה הוא מוצר שלכם?
+כן.
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כן. הסנדלר לא הולך יחף, אתה מתכתב כעת עם בוט שא...
+2024-07-04 18:46:10,426 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בדיחות:
+יש לך בדיחה? \ ספר לי בדיחה \ ספר משהו ...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מתכנת מחשבים נרדם בלילה?”
+“הוא סופר קבצים
+“מה ה...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: מוח משלו…”
+“איך קוראים למחשב שהתחתן?”
+“מחשב ניש...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: סוגר את כל החלונות, יוצא מהרכב ושוב ניכנס…”
+למה...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כי הוא עוף דורס
+חסיד אחד אמר לרבו שאינו יכול לל...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ילד: "ואהאהאהאהאאה" אבא: "למה אתה בוכה?"
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: ילד: "כי החלב שלי נשפך" אבא: "אבל אתה יודע שלא ...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אבל החלב נשפך על הטלפון שלך" אבא: "ואהאהאהאהאה".
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: בהתחלה חשבתי שרק בצל מוריד דמעות, עד שנפל לי אב...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: תשובה: כי הוא מצה.
+במה חולה הערבה? - בקורונה. כ...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: כי אם היא היתה מרימה גם את השניה היא היתה נופלת...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: "לא" עונה האמא. הילד: "אוף שוב אכלתי חיפושית".
+...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: -כי הוא עובד מהבית :)
+לא הבנתי את התלונה הזאת: ...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: למה דג לא יכול להיות עורך דין? כי הוא לא יכול ל...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: יוסי: "אבל דודה, זה מלפפון".
+איש אחד נכנס לקורא...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אני אהיה עשיר?
+הקוראת בקלפים מסתכלת על הקלפים ו...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: אפס אחד.
+קיבלתי שעון שהציג את השעה הלא נכונה.
+א...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: איזה תא בגוף עושה קסמים?
+תא-דם (טדאאאם!!!!!)
+סו...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: הברמן מביט בו בהלם. אומר הסוס: למה אתה מסתכל על...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: "כן", משיב הסוס. "אני יודע חמש שפות". "איזה קטע...
+2024-07-04 18:46:10,427 DEBUG llama_index.core.node_parser.node_utils > Adding chunk: שואל הסוס: "קרקס? למה, הם מחפשים מהנדסים?".
+חיפ...
+2024-07-04 18:46:10,482 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-04 18:46:10,482 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-04 18:46:10,483 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-04 18:46:10,524 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1475d43a0>
+2024-07-04 18:46:10,524 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x14765cd30>
+2024-07-04 18:46:10,524 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x1475f04c0> server_hostname='api.cohere.com' timeout=300
+2024-07-04 18:46:10,524 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x1475f04c0> server_hostname='api.cohere.com' timeout=300
+2024-07-04 18:46:10,534 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x14765c640>
+2024-07-04 18:46:10,534 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x1475f04c0> server_hostname='api.cohere.com' timeout=300
+2024-07-04 18:46:10,546 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1475d48b0>
+2024-07-04 18:46:10,546 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:46:10,547 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:46:10,547 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:46:10,547 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:46:10,547 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:46:10,548 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x147604280>
+2024-07-04 18:46:10,548 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:46:10,548 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:46:10,548 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:46:10,548 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:46:10,548 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:46:10,558 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x146c173d0>
+2024-07-04 18:46:10,558 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:46:10,558 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:46:10,558 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:46:10,558 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:46:10,558 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:46:10,904 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'6386'), (b'num_tokens', b'2188'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'c0ddc72f1d734cfbfc8b551dff9ed471'), (b'date', b'Thu, 04 Jul 2024 15:46:11 GMT'), (b'x-envoy-upstream-service-time', b'155'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-04 18:46:10,905 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-04 18:46:10,906 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:46:10,969 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:46:10,969 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:46:10,970 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:46:11,029 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'7875'), (b'num_tokens', b'2642'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'b160c580e9d510e254bffdaeddcf358f'), (b'date', b'Thu, 04 Jul 2024 15:46:11 GMT'), (b'x-envoy-upstream-service-time', b'184'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-04 18:46:11,035 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'8361'), (b'num_tokens', b'2902'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'fab244a69bf7a45c827da0e4c9eb3a1e'), (b'date', b'Thu, 04 Jul 2024 15:46:11 GMT'), (b'x-envoy-upstream-service-time', b'285'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-04 18:46:11,048 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-04 18:46:11,066 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-04 18:46:11,067 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:46:11,079 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:46:11,354 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:46:11,354 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:46:11,354 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:46:11,772 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:46:11,772 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:46:11,772 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:46:12,424 INFO root Successfully created VectorDB instance with file: bots/omnibot/uploads/aviz_chadash.docx
+2024-07-04 18:46:12,424 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:12] "POST /append_knowledge HTTP/1.1" 200 -
+2024-07-04 18:46:12,431 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:12] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:46:22,618 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-04 18:46:24,119 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-04 18:46:24,121 DEBUG httpcore.connection close.started
+2024-07-04 18:46:24,122 DEBUG httpcore.connection close.complete
+2024-07-04 18:46:24,122 DEBUG httpcore.connection close.started
+2024-07-04 18:46:24,122 DEBUG httpcore.connection close.complete
+2024-07-04 18:46:24,122 DEBUG httpcore.connection close.started
+2024-07-04 18:46:24,122 DEBUG httpcore.connection close.complete
+2024-07-04 18:46:24,122 DEBUG httpcore.connection connect_tcp.started host='api.cohere.com' port=443 local_address=None timeout=300 socket_options=None
+2024-07-04 18:46:24,132 DEBUG httpcore.connection connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x169064af0>
+2024-07-04 18:46:24,132 DEBUG httpcore.connection start_tls.started ssl_context=<ssl.SSLContext object at 0x1475f04c0> server_hostname='api.cohere.com' timeout=300
+2024-07-04 18:46:24,157 DEBUG httpcore.connection start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1690847f0>
+2024-07-04 18:46:24,157 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:46:24,158 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:46:24,158 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:46:24,158 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:46:24,158 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:46:24,382 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'num_chars', b'32'), (b'num_tokens', b'12'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'14fa31b06776bc27d2d846222b5d6047'), (b'date', b'Thu, 04 Jul 2024 15:46:24 GMT'), (b'x-envoy-upstream-service-time', b'49'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2024-07-04 18:46:24,384 INFO httpx HTTP Request: POST https://api.cohere.com/v1/embed "HTTP/1.1 200 OK"
+2024-07-04 18:46:24,384 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:46:24,416 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:46:24,416 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:46:24,416 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:46:24,445 DEBUG httpcore.http11 send_request_headers.started request=<Request [b'POST']>
+2024-07-04 18:46:24,445 DEBUG httpcore.http11 send_request_headers.complete
+2024-07-04 18:46:24,445 DEBUG httpcore.http11 send_request_body.started request=<Request [b'POST']>
+2024-07-04 18:46:24,446 DEBUG httpcore.http11 send_request_body.complete
+2024-07-04 18:46:24,446 DEBUG httpcore.http11 receive_response_headers.started request=<Request [b'POST']>
+2024-07-04 18:46:24,685 DEBUG httpcore.http11 receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'access-control-expose-headers', b'X-Debug-Trace-ID'), (b'cache-control', b'no-cache, no-store, no-transform, must-revalidate, private, max-age=0'), (b'content-type', b'application/json'), (b'expires', b'Thu, 01 Jan 1970 00:00:00 UTC'), (b'pragma', b'no-cache'), (b'vary', b'Origin'), (b'x-accel-expires', b'0'), (b'x-debug-trace-id', b'ae76366f2f95ad2cc2a5d638fb1f6618'), (b'date', b'Thu, 04 Jul 2024 15:46:24 GMT'), (b'Content-Length', b'346'), (b'x-envoy-upstream-service-time', b'48'), (b'server', b'envoy'), (b'Via', b'1.1 google'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000')])
+2024-07-04 18:46:24,686 INFO httpx HTTP Request: POST https://api.cohere.com/v1/rerank "HTTP/1.1 200 OK"
+2024-07-04 18:46:24,686 DEBUG httpcore.http11 receive_response_body.started request=<Request [b'POST']>
+2024-07-04 18:46:24,686 DEBUG httpcore.http11 receive_response_body.complete
+2024-07-04 18:46:24,686 DEBUG httpcore.http11 response_closed.started
+2024-07-04 18:46:24,686 DEBUG httpcore.http11 response_closed.complete
+2024-07-04 18:46:24,694 DEBUG urllib3.connectionpool Starting new HTTPS connection (1): api.anthropic.com:443
+2024-07-04 18:46:27,955 DEBUG urllib3.connectionpool https://api.anthropic.com:443 "POST /v1/messages HTTP/1.1" 200 None
+2024-07-04 18:46:27,957 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:27] "POST /chat HTTP/1.1" 200 -
+2024-07-04 18:46:27,965 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:27] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:46:27,971 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:27] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:46:34,413 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:34] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 18:46:34,449 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:34] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:46:34,449 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:34] "[36mGET /custom/static/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:46:34,449 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:34] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 18:46:34,507 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:34] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 18:46:34,512 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:34] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 18:46:34,513 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:34] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 18:46:34,514 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:34] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 18:46:34,516 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:34] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 18:46:34,836 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 18:46:34,836 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 18:46:34,837 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 18:46:34] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 19:58:35,913 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 19:58:35,914 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 19:58:35,988 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 19:58:35,993 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5001
+2024-07-04 19:58:35,993 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-07-04 19:58:35,993 INFO werkzeug  * Restarting with stat
+2024-07-04 19:58:37,141 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 19:58:37,141 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 19:58:37,212 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 19:58:37,214 WARNING werkzeug  * Debugger is active!
+2024-07-04 19:58:37,222 INFO werkzeug  * Debugger PIN: 242-494-381
+2024-07-04 19:58:42,475 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET / HTTP/1.1" 200 -
+2024-07-04 19:58:42,517 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /custom/static/script.js HTTP/1.1" 200 -
+2024-07-04 19:58:42,519 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /custom/static/widget.css HTTP/1.1" 200 -
+2024-07-04 19:58:42,522 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /custom/static/styles.css HTTP/1.1" 200 -
+2024-07-04 19:58:42,524 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /static/script.js HTTP/1.1" 200 -
+2024-07-04 19:58:42,525 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /static/styles.css HTTP/1.1" 200 -
+2024-07-04 19:58:42,527 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /static/background-animation.js HTTP/1.1" 200 -
+2024-07-04 19:58:42,528 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /custom/static/widget.js HTTP/1.1" 200 -
+2024-07-04 19:58:42,586 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 19:58:42,593 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 19:58:42,846 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 19:58:42,871 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 19:58:42,894 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 19:58:42,931 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 19:58:42,970 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 19:58:42,973 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 19:58:42,973 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 19:58:46,447 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:46] "[32mGET /dashboard/ HTTP/1.1[0m" 302 -
+2024-07-04 19:58:46,460 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:46] "GET /dashboard/login?next=/dashboard/ HTTP/1.1" 200 -
+2024-07-04 19:58:46,489 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:46] "GET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1" 200 -
+2024-07-04 19:58:46,617 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 19:58:46,617 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 19:58:46,618 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 19:58:53,642 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "[32mPOST /dashboard/login?next=/dashboard/ HTTP/1.1[0m" 302 -
+2024-07-04 19:58:53,651 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 19:58:53,679 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "GET /custom/static/dashboard.css HTTP/1.1" 200 -
+2024-07-04 19:58:53,680 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "GET /custom/static/dashboard.js HTTP/1.1" 200 -
+2024-07-04 19:58:53,682 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 19:58:53,690 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "GET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1" 200 -
+2024-07-04 19:58:53,696 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 19:58:53,697 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 19:58:53,697 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 19:58:53,699 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 19:58:53,842 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 19:58:53,843 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 19:58:53,844 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:58:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 19:59:01,812 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:01] "POST /set_global_instructions HTTP/1.1" 200 -
+2024-07-04 19:59:04,675 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "GET / HTTP/1.1" 200 -
+2024-07-04 19:59:04,709 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-07-04 19:59:04,710 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "[36mGET /custom/static/styles.css HTTP/1.1[0m" 304 -
+2024-07-04 19:59:04,715 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "[36mGET /custom/static/widget.css HTTP/1.1[0m" 304 -
+2024-07-04 19:59:04,716 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+2024-07-04 19:59:04,721 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "[36mGET /custom/static/script.js HTTP/1.1[0m" 304 -
+2024-07-04 19:59:04,722 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "[36mGET /custom/static/widget.js HTTP/1.1[0m" 304 -
+2024-07-04 19:59:04,723 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "[36mGET /static/background-animation.js HTTP/1.1[0m" 304 -
+2024-07-04 19:59:04,728 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 19:59:04,732 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 19:59:04,805 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "POST /set_persona HTTP/1.1" 200 -
+2024-07-04 19:59:04,822 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 19:59:04,823 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 19:59:04,823 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 19:59:04,824 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 19:59:04,852 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:04] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 19:59:07,810 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:07] "GET /dashboard/ HTTP/1.1" 200 -
+2024-07-04 19:59:07,851 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:07] "[36mGET /dashboard/dashboard/static/css/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 19:59:07,852 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:07] "[36mGET /custom/static/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 19:59:07,853 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:07] "[36mGET /custom/static/dashboard.css HTTP/1.1[0m" 304 -
+2024-07-04 19:59:07,860 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:07] "[36mGET /dashboard/dashboard/static/js/dashboard.js HTTP/1.1[0m" 304 -
+2024-07-04 19:59:07,866 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:07] "GET /get_personas HTTP/1.1" 200 -
+2024-07-04 19:59:07,867 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:07] "GET /get_current_persona HTTP/1.1" 200 -
+2024-07-04 19:59:07,869 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:07] "GET /get_global_instructions HTTP/1.1" 200 -
+2024-07-04 19:59:07,871 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:07] "GET /get_file_list HTTP/1.1" 200 -
+2024-07-04 19:59:07,994 ERROR app Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2024-07-04 19:59:07,994 ERROR app Traceback (most recent call last):
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/aviz/new/aviz-bot/bots/omnibot/routes.py", line 17, in favicon
+    return send_from_directory(os.path.join(bp.root_path, 'static'),
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/flask/helpers.py", line 552, in send_from_directory
+    return werkzeug.utils.send_from_directory(  # type: ignore[return-value]
+  File "/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/werkzeug/utils.py", line 575, in send_from_directory
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+2024-07-04 19:59:07,995 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 19:59:07] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
