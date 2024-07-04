@@ -1,28 +1,31 @@
 // Global variables
-let currentPersona = null;
 let personas = [];
+let unsavedChanges = false;
+let currentOpenEmojiPicker = null;
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Load personas
+    console.log("DOM fully loaded and parsed");
+    
     loadPersonas();
-    
-    // Load global instructions
     loadGlobalInstructions();
-    
-    // File upload functionality
     setupFileUpload();
-    
-    // Initial file list update
     updateFileList();
-    
-    // Add listeners for buttons
     setupButtonListeners();
+
+    window.addEventListener('beforeunload', function (e) {
+        if (unsavedChanges) {
+            e.preventDefault();
+            e.returnValue = '';
+        }
+    });
 });
 
 function loadPersonas() {
+    console.log("Loading personas...");
     fetch('/get_personas')
         .then(response => response.json())
         .then(data => {
+            console.log("Personas loaded:", data);
             personas = data;
             updatePersonasList();
         })
@@ -30,6 +33,7 @@ function loadPersonas() {
 }
 
 function updatePersonasList() {
+    console.log("Updating personas list...");
     const personasList = document.getElementById('personas-list');
     if (personasList) {
         personasList.innerHTML = '';
@@ -37,20 +41,70 @@ function updatePersonasList() {
             const personaItem = createPersonaItem(persona);
             personasList.appendChild(personaItem);
         });
+    } else {
+        console.error("personas-list element not found");
     }
 }
 
 function createPersonaItem(persona) {
+    console.log("Creating persona item for:", persona.slug);
     const item = document.createElement('div');
     item.className = 'persona-item';
     item.innerHTML = `
         <p class="persona-slug">${persona.slug}</p>
         <input type="text" class="persona-display-name" value="${persona.display_name}" placeholder="שם תצוגה">
-        <input type="text" class="persona-emojicon" value="${persona.emojicon}" placeholder="אימוג'י">
+        <div class="emoji-picker-container">
+            <button type="button" class="emoji-picker-button">${persona.emojicon || '😀'}</button>
+            <emoji-picker class="emoji-picker" style="display: none; position: absolute; z-index: 1000;"></emoji-picker>
+        </div>
         <textarea class="persona-prompt" rows="3" cols="50" placeholder="תוכן הפרומפט">${persona.prompt || ''}</textarea>
         <button class="save-persona">שמור</button>
         <button class="delete-persona">מחק</button>
+        <span class="unsaved-indicator" style="display: none; color: red;">*</span>
     `;
+
+    const inputs = item.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            unsavedChanges = true;
+            item.querySelector('.unsaved-indicator').style.display = 'inline';
+        });
+    });
+
+    const emojiButton = item.querySelector('.emoji-picker-button');
+    const emojiPicker = item.querySelector('emoji-picker');
+
+    emojiButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (currentOpenEmojiPicker && currentOpenEmojiPicker !== emojiPicker) {
+            currentOpenEmojiPicker.style.display = 'none';
+        }
+        if (emojiPicker.style.display === 'none') {
+            emojiPicker.style.display = 'block';
+            const rect = emojiButton.getBoundingClientRect();
+            emojiPicker.style.top = `${rect.bottom + window.scrollY}px`;
+            emojiPicker.style.left = `${rect.left + window.scrollX}px`;
+            currentOpenEmojiPicker = emojiPicker;
+        } else {
+            emojiPicker.style.display = 'none';
+            currentOpenEmojiPicker = null;
+        }
+    });
+
+    emojiPicker.addEventListener('emoji-click', event => {
+        emojiButton.textContent = event.detail.unicode;
+        emojiPicker.style.display = 'none';
+        currentOpenEmojiPicker = null;
+        unsavedChanges = true;
+        item.querySelector('.unsaved-indicator').style.display = 'inline';
+    });
+
+    document.addEventListener('click', (event) => {
+        if (currentOpenEmojiPicker && !currentOpenEmojiPicker.contains(event.target) && event.target !== emojiButton) {
+            currentOpenEmojiPicker.style.display = 'none';
+            currentOpenEmojiPicker = null;
+        }
+    });
 
     item.querySelector('.save-persona').addEventListener('click', () => savePersona(item, persona.slug));
     item.querySelector('.delete-persona').addEventListener('click', () => deletePersona(persona.slug));
@@ -61,7 +115,7 @@ function createPersonaItem(persona) {
 function savePersona(item, slug) {
     const data = {
         display_name: item.querySelector('.persona-display-name').value,
-        emojicon: item.querySelector('.persona-emojicon').value,
+        emojicon: item.querySelector('.emoji-picker-button').textContent,
         prompt: item.querySelector('.persona-prompt').value
     };
 
@@ -74,6 +128,8 @@ function savePersona(item, slug) {
     .then(updatedPersona => {
         console.log('Persona updated:', updatedPersona);
         alert('פרסונה עודכנה בהצלחה');
+        item.querySelector('.unsaved-indicator').style.display = 'none';
+        checkUnsavedChanges();
         loadPersonas();  // Reload all personas to reflect changes
     })
     .catch(error => {
@@ -89,6 +145,7 @@ function deletePersona(slug) {
                 if (response.ok) {
                     loadPersonas();  // Reload all personas to reflect changes
                     alert('פרסונה נמחקה בהצלחה');
+                    checkUnsavedChanges();
                 } else {
                     throw new Error('Failed to delete persona');
                 }
@@ -100,8 +157,32 @@ function deletePersona(slug) {
     }
 }
 
+function addNewPersona() {
+    const slug = prompt('הכנס מזהה ייחודי לפרסונה החדשה:');
+    if (slug) {
+        const newPersona = {
+            slug: slug,
+            display_name: '',
+            emojicon: '',
+            prompt: ''
+        };
+
+        const personasList = document.getElementById('personas-list');
+        const newPersonaItem = createPersonaItem(newPersona);
+        personasList.appendChild(newPersonaItem);
+
+        unsavedChanges = true;
+        newPersonaItem.querySelector('.unsaved-indicator').style.display = 'inline';
+    }
+}
+
+function checkUnsavedChanges() {
+    const unsavedIndicators = document.querySelectorAll('.unsaved-indicator');
+    unsavedChanges = Array.from(unsavedIndicators).some(indicator => indicator.style.display !== 'none');
+}
+
 function loadGlobalInstructions() {
-    fetch('/dashboard/global_instructions')
+    fetch('/get_global_instructions')
         .then(response => response.json())
         .then(data => {
             document.getElementById('global-instructions').value = data.instructions || '';
@@ -111,10 +192,10 @@ function loadGlobalInstructions() {
 
 function saveGlobalInstructions() {
     const instructions = document.getElementById('global-instructions').value;
-    fetch('/dashboard/global_instructions', {
-        method: 'PUT',
+    fetch('/set_global_instructions', {
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ global_instructions: instructions })
+        body: JSON.stringify({ instructions: instructions })
     })
     .then(response => response.json())
     .then(data => {
@@ -315,33 +396,5 @@ function setupButtonListeners() {
     const addPersonaButton = document.getElementById('add-persona');
     if (addPersonaButton) {
         addPersonaButton.addEventListener('click', addNewPersona);
-    }
-}
-
-function addNewPersona() {
-    const slug = prompt('הכנס מזהה ייחודי לפרסונה החדשה:');
-    if (slug) {
-        const newPersona = {
-            slug: slug,
-            display_name: '',
-            emojicon: '',
-            prompt: ''
-        };
-
-        fetch('/dashboard/personas', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newPersona)
-        })
-        .then(response => response.json())
-        .then(createdPersona => {
-            console.log('New persona created:', createdPersona);
-            loadPersonas();  // Reload all personas to reflect changes
-            alert('פרסונה חדשה נוצרה בהצלחה');
-        })
-        .catch(error => {
-            console.error('Error creating new persona:', error);
-            alert('שגיאה ביצירת פרסונה חדשה');
-        });
     }
 }

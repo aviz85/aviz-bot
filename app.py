@@ -32,7 +32,9 @@ def create_app():
         app.logger.warning(f"Directory for {chatbot_name} not found, falling back to default chatbot directory.")
         chatbot_name = 'chatbot'  # Revert to the default chatbot
         bot_directory = 'bots/chatbot'  # Set the directory to the default chatbot's directory
-
+    
+    app.config['RATE_LIMIT_REQUESTS'] = int(os.getenv('RATE_LIMIT_REQUESTS', 30))
+    app.config['HISTORY_LIMIT'] = int(os.getenv('HISTORY_LIMIT', 20))
     app.config['BOT_DIRECTORY'] = bot_directory
     app.config['UPLOAD_FOLDER'] = os.path.join(bot_directory, 'uploads')
 
@@ -127,9 +129,21 @@ def create_app():
         if first_request_time is None or current_time - first_request_time > int(os.getenv('RATE_LIMIT_WINDOW', 3600)):
             first_request_time = current_time
             request_count = 0
-        if request_count >= int(os.getenv('RATE_LIMIT_REQUESTS', 30)):
+        if request_count >= app.config['RATE_LIMIT_REQUESTS']:
             return jsonify({'response': "וואו, אני עייף. בוא נדבר עוד שעה ככה... בסדר?"})
         request_count += 1
+
+        # Limit history
+        history_limit = app.config['HISTORY_LIMIT']
+        if history_limit % 2 != 0:
+            history_limit -= 1
+        if history:
+            if history[-1]['role'] == 'assistant':
+                history = history[-history_limit:]
+            else:
+                history = history[-(history_limit-1):]
+                if history and history[0]['role'] != 'user':
+                    history = history[1:]  # Ensure the first message is from the user
 
         try:
             # Call get_chat_response with both user_message and history

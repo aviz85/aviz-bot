@@ -158,6 +158,29 @@
     margin-top: 1rem;
 }
 
+.unsaved-indicator {
+    color: red;
+    margin-left: 5px;
+}
+
+.emoji-picker-button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.emoji-picker-button:hover {
+    background-color: #e0e0e0;
+}
+
+emoji-picker {
+    width: 300px;
+    height: 400px;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .widget-container {

@@ -18,6 +18,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class VectorDB:
+
+    LIMIT_SIZE_MB = 1
     VALID_EXTENSIONS = ('.docx', '.txt', '.pdf')
     CHUNK_SIZE = 100
     CHUNK_OVERLAP = 20
@@ -25,7 +27,7 @@ class VectorDB:
     COHERE_RERANK_MODEL = "rerank-multilingual-v3.0"
     INITIAL_SEARCH_K = 100
     RERANK_TOP_N = 5
-
+    
     def __init__(self, file_paths_or_urls: Union[str, List[str]]):
         print("Initializing VectorDB...")
         self.cohere_client = self._initialize_cohere()
@@ -60,15 +62,24 @@ class VectorDB:
         files = file_paths_or_urls if isinstance(file_paths_or_urls, list) else [file_paths_or_urls]
         for file_path in files:
             if self._is_valid_file(file_path):
-                base_name = self._get_base_name(file_path)
-                if self._should_process_file(file_path, base_name):
-                    print(f"Processing file: {file_path}")
-                    self._process_single_file(file_path, base_name)
+                if self._is_file_size_within_limit(file_path):
+                    base_name = self._get_base_name(file_path)
+                    if self._should_process_file(file_path, base_name):
+                        print(f"Processing file: {file_path}")
+                        self._process_single_file(file_path, base_name)
+                    else:
+                        print(f"Loading existing data for: {file_path}")
+                        self._load_existing_data(base_name)
                 else:
-                    print(f"Loading existing data for: {file_path}")
-                    self._load_existing_data(base_name)
+                    print(f"Skipping file due to size limit: {file_path}")
             else:
                 print(f"Skipping invalid file: {file_path}")
+    
+        self._combine_data()
+
+    def _is_file_size_within_limit(self, file_path, size_limit_mb=LIMIT_SIZE_MB):
+        file_size = os.path.getsize(file_path) / (1024 * 1024)  # Convert bytes to MB
+        return file_size <= size_limit_mb
         
         self._combine_data()
 
@@ -85,6 +96,8 @@ class VectorDB:
         return self.file_manifest[base_name]['mod_time'] < mod_time
 
     def _process_single_file(self, file_path, base_name):
+        #if not self._is_file_size_within_limit(file_path):
+        #    return "Error: file exceed size limit"
         content = self._load_files(file_path)
         chunks = self._split_text(content)
         embeddings = self._create_embeddings(chunks)
@@ -191,6 +204,8 @@ class VectorDB:
         return np.array(embeddings, dtype=np.float32)
 
     def _create_faiss_index(self, embeddings: np.ndarray) -> faiss.IndexFlatL2:
+        if embeddings is None or embeddings.size == 0:
+            return None
         print("Creating FAISS index")
         dimension = embeddings.shape[1]
         index = faiss.IndexFlatL2(dimension)
