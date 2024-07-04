@@ -1,31 +1,21 @@
-// Global variables
 let personas = [];
 let unsavedChanges = false;
 let currentOpenEmojiPicker = null;
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log("DOM fully loaded and parsed");
-    
-    loadPersonas();
-    loadGlobalInstructions();
-    setupFileUpload();
-    updateFileList();
-    setupButtonListeners();
 
-    window.addEventListener('beforeunload', function (e) {
-        if (unsavedChanges) {
-            e.preventDefault();
-            e.returnValue = '';
-        }
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    fetchPersonas();
+    fetchCurrentPersona();
+    loadGlobalInstructions();
+    fetchFileList();
+    setupButtonListeners();
+    setupUnsavedChangesWarning();
 });
 
-function loadPersonas() {
-    console.log("Loading personas...");
+function fetchPersonas() {
     fetch('/get_personas')
         .then(response => response.json())
         .then(data => {
-            console.log("Personas loaded:", data);
             personas = data;
             updatePersonasList();
         })
@@ -33,7 +23,17 @@ function loadPersonas() {
 }
 
 function updatePersonasList() {
-    console.log("Updating personas list...");
+    const personaList = document.getElementById('persona-list');
+    if (personaList) {
+        personaList.innerHTML = '';
+        personas.forEach(persona => {
+            const li = document.createElement('li');
+            li.textContent = `${persona.display_name} (${persona.slug}) - ${persona.emojicon}`;
+            li.onclick = () => setPersona(persona.slug);
+            personaList.appendChild(li);
+        });
+    }
+
     const personasList = document.getElementById('personas-list');
     if (personasList) {
         personasList.innerHTML = '';
@@ -41,8 +41,6 @@ function updatePersonasList() {
             const personaItem = createPersonaItem(persona);
             personasList.appendChild(personaItem);
         });
-    } else {
-        console.error("personas-list element not found");
     }
 }
 
@@ -54,20 +52,17 @@ function createPersonaItem(persona) {
         <p class="persona-slug">${persona.slug}</p>
         <input type="text" class="persona-display-name" value="${persona.display_name}" placeholder="שם תצוגה">
         <div class="emoji-picker-container">
-            <button type="button" class="emoji-picker-button">${persona.emojicon || '😀'}</button>
+            <button type="button" class="emoji-picker-button persona-emojicon">${persona.emojicon || '😀'}</button>
             <emoji-picker class="emoji-picker" style="display: none; position: absolute; z-index: 1000;"></emoji-picker>
         </div>
         <textarea class="persona-prompt" rows="3" cols="50" placeholder="תוכן הפרומפט">${persona.prompt || ''}</textarea>
         <button class="save-persona">שמור</button>
-        <button class="delete-persona">מחק</button>
-        <span class="unsaved-indicator" style="display: none; color: red;">*</span>
-    `;
+        <button class="delete-persona">מחק</button>`;
 
     const inputs = item.querySelectorAll('input, textarea');
     inputs.forEach(input => {
         input.addEventListener('input', () => {
             unsavedChanges = true;
-            item.querySelector('.unsaved-indicator').style.display = 'inline';
         });
     });
 
@@ -96,7 +91,6 @@ function createPersonaItem(persona) {
         emojiPicker.style.display = 'none';
         currentOpenEmojiPicker = null;
         unsavedChanges = true;
-        item.querySelector('.unsaved-indicator').style.display = 'inline';
     });
 
     document.addEventListener('click', (event) => {
@@ -107,54 +101,43 @@ function createPersonaItem(persona) {
     });
 
     item.querySelector('.save-persona').addEventListener('click', () => savePersona(item, persona.slug));
-    item.querySelector('.delete-persona').addEventListener('click', () => deletePersona(persona.slug));
+    item.querySelector('.delete-persona').addEventListener('click', () => deletePersona(item, persona.slug, false));
 
     return item;
 }
 
-function savePersona(item, slug) {
-    const data = {
-        display_name: item.querySelector('.persona-display-name').value,
-        emojicon: item.querySelector('.emoji-picker-button').textContent,
-        prompt: item.querySelector('.persona-prompt').value
-    };
-
-    fetch('/dashboard/personas/' + slug, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+function setPersona(slug) {
+    fetch('/set_persona', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ slug: slug }),
     })
     .then(response => response.json())
-    .then(updatedPersona => {
-        console.log('Persona updated:', updatedPersona);
-        alert('פרסונה עודכנה בהצלחה');
-        item.querySelector('.unsaved-indicator').style.display = 'none';
-        checkUnsavedChanges();
-        loadPersonas();  // Reload all personas to reflect changes
+    .then(data => {
+        if (data.error) {
+            console.error('Error setting persona:', data.error);
+        } else {
+            console.log('Persona set successfully:', data.message);
+            fetchCurrentPersona();
+        }
     })
-    .catch(error => {
-        console.error('Error updating persona:', error);
-        alert('שגיאה בעדכון הפרסונה');
-    });
+    .catch(error => console.error('Error setting persona:', error));
 }
 
-function deletePersona(slug) {
-    if (confirm('האם אתה בטוח שברצונך למחוק פרסונה זו?')) {
-        fetch('/dashboard/personas/' + slug, { method: 'DELETE' })
-            .then(response => {
-                if (response.ok) {
-                    loadPersonas();  // Reload all personas to reflect changes
-                    alert('פרסונה נמחקה בהצלחה');
-                    checkUnsavedChanges();
-                } else {
-                    throw new Error('Failed to delete persona');
-                }
-            })
-            .catch(error => {
-                console.error('Error deleting persona:', error);
-                alert('שגיאה במחיקת הפרסונה');
-            });
-    }
+function fetchCurrentPersona() {
+    fetch('/get_current_persona')
+        .then(response => response.json())
+        .then(persona => {
+            if (persona.error) {
+                console.error('Error fetching current persona:', persona.error);
+            } else {
+                document.getElementById('current-persona').textContent = 
+                    `Current Persona: ${persona.display_name} (${persona.slug}) - ${persona.emojicon}`;
+            }
+        })
+        .catch(error => console.error('Error fetching current persona:', error));
 }
 
 function addNewPersona() {
@@ -168,24 +151,129 @@ function addNewPersona() {
         };
 
         const personasList = document.getElementById('personas-list');
-        const newPersonaItem = createPersonaItem(newPersona);
-        personasList.appendChild(newPersonaItem);
-
-        unsavedChanges = true;
-        newPersonaItem.querySelector('.unsaved-indicator').style.display = 'inline';
+        if (personasList) {
+            const newPersonaItem = createPersonaItem(newPersona, true);
+            newPersonaItem.classList.add('unsaved');
+            personasList.appendChild(newPersonaItem);
+            setUnsavedChanges(true);
+        }
     }
 }
 
-function checkUnsavedChanges() {
-    const unsavedIndicators = document.querySelectorAll('.unsaved-indicator');
-    unsavedChanges = Array.from(unsavedIndicators).some(indicator => indicator.style.display !== 'none');
+function saveNewPersona(item, slug) {
+    const data = {
+        slug: slug,
+        display_name: item.querySelector('.persona-display-name').value,
+        emojicon: item.querySelector('.persona-emojicon').innerHTML,
+        prompt: item.querySelector('.persona-prompt').value
+    };
+    alert(data.emojicon)
+    fetch('/dashboard/personas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(createdPersona => {
+        console.log('New persona created:', createdPersona);
+        item.classList.remove('unsaved', 'new-persona');
+        //item.querySelector('.save-new-persona').remove();
+        //const saveButton = item.querySelector('.save-persona');
+        //saveButton.replaceWith(saveButton.cloneNode(true));
+        //item.querySelector('.save-persona').addEventListener('click', () => savePersona(item, slug));
+        //const deleteButton = item.querySelector('.delete-persona');
+        //deleteButton.replaceWith(deleteButton.cloneNode(true));
+        item.querySelector('.delete-persona').addEventListener('click', () => deletePersona(item, slug, false));
+        alert('פרסונה חדשה נוצרה בהצלחה');
+        setUnsavedChanges(false);
+    })
+    .catch(error => {
+        console.error('Error creating new persona:', error);
+        alert('שגיאה ביצירת פרסונה חדשה');
+    });
+}
+
+function savePersona(item, slug) {
+        fetch('/get_personas')
+            .then(response => response.json())
+            .then(data => {
+                let personaExists = data.some(persona => persona.slug === slug);
+
+                if (personaExists) {
+                    saveExistedPersona(item, slug);
+                } else {
+                    saveNewPersona(item, slug);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching personas:', error);
+            });
+    
+
+}
+
+function saveExistedPersona(item, slug) {
+    const data = {
+        display_name: item.querySelector('.persona-display-name').value,
+        emojicon: item.querySelector('.persona-emojicon').innerHTML,
+        prompt: item.querySelector('.persona-prompt').value
+    };
+
+    fetch('/dashboard/personas/' + slug, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(updatedPersona => {
+        console.log('Persona updated:', updatedPersona);
+        item.classList.remove('unsaved');
+        alert('פרסונה עודכנה בהצלחה');
+        setUnsavedChanges(false);
+        fetchPersonas();
+    })
+    .catch(error => {
+        console.error('Error updating persona:', error);
+        alert('שגיאה בעדכון הפרסונה');
+    });
+}
+
+function deletePersona(item, slug, isNew) {
+    if (confirm(`האם אתה בטוח שברצונך למחוק את הפרסונה ${slug}?`)) {
+        if (isNew) {
+            item.remove();
+            setUnsavedChanges(false);
+            alert('פרסונה נמחקה בהצלחה');
+        } else {
+            fetch(`/dashboard/personas/${slug}`, { method: 'DELETE' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error('Error deleting persona:', data.error);
+                        alert('שגיאה במחיקת הפרסונה');
+                    } else {
+                        item.remove();
+                        setUnsavedChanges(false);
+                        alert('פרסונה נמחקה בהצלחה');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting persona:', error);
+                    alert('שגיאה במחיקת הפרסונה');
+                });
+        }
+    }
 }
 
 function loadGlobalInstructions() {
     fetch('/get_global_instructions')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('global-instructions').value = data.instructions || '';
+            if (data.error) {
+                console.error('Error getting global instructions:', data.error);
+            } else {
+                document.getElementById('global-instructions').value = data.instructions || '';
+            }
         })
         .catch(error => console.error('Error loading global instructions:', error));
 }
@@ -199,8 +287,12 @@ function saveGlobalInstructions() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log('Global instructions updated:', data);
-        alert('הנחיות כלליות נשמרו בהצלחה');
+        if (data.error) {
+            console.error('Error setting global instructions:', data.error);
+        } else {
+            console.log('Global instructions updated:', data);
+            alert('הנחיות כלליות נשמרו בהצלחה');
+        }
     })
     .catch(error => {
         console.error('Error saving global instructions:', error);
@@ -208,164 +300,28 @@ function saveGlobalInstructions() {
     });
 }
 
-function setupFileUpload() {
-    const dropZone = document.getElementById('drop-zone');
-    const fileInput = document.getElementById('file-input');
-    const uploadButton = document.getElementById('upload-button');
+function uploadFile(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
 
-    if (dropZone && fileInput && uploadButton) {
-        dropZone.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            dropZone.classList.add('dragover');
-        });
-
-        dropZone.addEventListener('dragleave', () => {
-            dropZone.classList.remove('dragover');
-        });
-
-        dropZone.addEventListener('drop', (e) => {
-            e.preventDefault();
-            dropZone.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            handleFiles(files);
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            const files = e.target.files;
-            handleFiles(files);
-        });
-
-        uploadButton.addEventListener('click', () => {
-            fileInput.click();
-        });
-    }
-}
-
-function handleFiles(files) {
-    for (const file of files) {
-        if (file.type === 'text/plain' || file.type === 'application/pdf' || file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
-            uploadFile(file);
+    fetch('/upload_file', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.error) {
+            console.error('Error uploading file:', data.error);
         } else {
-            alert('סוג קובץ לא חוקי. אנא העלה רק קבצי txt, pdf, או docx.');
+            console.log('File uploaded successfully:', data.message);
+            fetchFileList();
         }
-    }
+    })
+    .catch(error => console.error('Error uploading file:', error));
 }
 
-async function uploadFile(file) {
-    const formData = new FormData();
-    formData.append('file', file);
-
-    const uploadProgress = document.getElementById('upload-progress');
-    const appendProgress = document.getElementById('append-progress');
-
-    try {
-        if (uploadProgress) {
-            uploadProgress.style.display = 'block';
-        }
-        const uploadResponse = await fetch('/upload_file', {
-            method: 'POST',
-            body: formData,
-        });
-
-        if (!uploadResponse.ok) {
-            throw new Error(`HTTP error! status: ${uploadResponse.status}`);
-        }
-
-        const uploadResult = await uploadResponse.json();
-        console.log('Upload result:', uploadResult);
-
-        if (uploadProgress && uploadProgress.querySelector('.progress')) {
-            uploadProgress.querySelector('.progress').style.width = '100%';
-        }
-
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        if (appendProgress) {
-            appendProgress.style.display = 'block';
-        }
-        
-        const appendResponse = await fetch('/append_knowledge', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ filename: uploadResult.filename }),
-        });
-
-        if (!appendResponse.ok) {
-            throw new Error(`HTTP error! status: ${appendResponse.status}`);
-        }
-
-        const appendResult = await appendResponse.json();
-        console.log('Append result:', appendResult);
-
-        if (appendProgress && appendProgress.querySelector('.progress')) {
-            appendProgress.querySelector('.progress').style.width = '100%';
-        }
-
-        await updateFileList();
-
-        console.log('File uploaded and knowledge appended successfully');
-        alert('הקובץ הועלה והידע נוסף בהצלחה');
-
-    } catch (error) {
-        console.error('Detailed error:', error);
-        alert(`אירעה שגיאה: ${error.message}`);
-    } finally {
-        setTimeout(() => {
-            if (uploadProgress) {
-                uploadProgress.style.display = 'none';
-                if (uploadProgress.querySelector('.progress')) {
-                    uploadProgress.querySelector('.progress').style.width = '0';
-                }
-            }
-            if (appendProgress) {
-                appendProgress.style.display = 'none';
-                if (appendProgress.querySelector('.progress')) {
-                    appendProgress.querySelector('.progress').style.width = '0';
-                }
-            }
-        }, 1000);
-    }
-}
-
-async function updateFileList() {
-    try {
-        const response = await fetch('/get_file_list');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const files = await response.json();
-        console.log('Retrieved file list:', files);
-
-        const fileList = document.getElementById('file-list');
-        if (fileList) {
-            fileList.innerHTML = '';
-            files.forEach(file => {
-                const li = document.createElement('li');
-                li.textContent = file;
-                const deleteButton = document.createElement('span');
-                deleteButton.textContent = '❌';
-                deleteButton.classList.add('delete-file');
-                deleteButton.onclick = () => confirmDelete(file);
-                li.appendChild(deleteButton);
-                fileList.appendChild(li);
-            });
-        }
-    } catch (error) {
-        console.error('Error fetching file list:', error);
-        alert('שגיאה בטעינת רשימת הקבצים');
-    }
-}
-
-function confirmDelete(filename) {
-    if (confirm(`האם אתה בטוח שברצונך למחוק את ${filename}?`)) {
-        deleteFile(filename);
-    }
-}
-
-function deleteFile(filename) {
-    fetch('/delete_file', {
+function appendKnowledge(filename) {
+    fetch('/append_knowledge', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -373,18 +329,79 @@ function deleteFile(filename) {
         body: JSON.stringify({ filename: filename }),
     })
     .then(response => response.json())
-    .then(result => {
-        if (result.success) {
-            updateFileList();
-            alert('הקובץ נמחק בהצלחה');
+    .then(data => {
+        if (data.error) {
+            console.error('Error appending knowledge:', data.error);
         } else {
-            throw new Error('Failed to delete file');
+            console.log('Knowledge appended successfully:', data.message);
         }
     })
-    .catch(error => {
-        console.error('Error deleting file:', error);
-        alert('שגיאה במחיקת הקובץ');
-    });
+    .catch(error => console.error('Error appending knowledge:', error));
+}
+
+function fetchFileList() {
+    fetch('/get_file_list')
+        .then(response => response.json())
+        .then(files => {
+            const fileList = document.getElementById('file-list');
+            fileList.innerHTML = '';
+            files.forEach(file => {
+                const li = document.createElement('li');
+                li.textContent = file;
+                const appendButton = document.createElement('button');
+                appendButton.textContent = 'Append';
+                appendButton.onclick = () => appendKnowledge(file);
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = () => deleteFile(file);
+                li.appendChild(appendButton);
+                li.appendChild(deleteButton);
+                fileList.appendChild(li);
+            });
+        })
+        .catch(error => console.error('Error fetching file list:', error));
+}
+
+function deleteFile(filename) {
+    if (confirm(`Are you sure you want to delete the file: ${filename}?`)) {
+        fetch('/delete_file', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ filename: filename }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                console.error('Error deleting file:', data.error);
+            } else {
+                console.log('File deleted successfully:', data.message);
+                fetchFileList();
+            }
+        })
+        .catch(error => console.error('Error deleting file:', error));
+    }
+}
+
+function setUnsavedChanges(value) {
+    unsavedChanges = value;
+    updateUnsavedChangesWarning();
+}
+
+function updateUnsavedChangesWarning() {
+    const warningElement = document.getElementById('unsaved-changes-warning');
+    if (warningElement) {
+        warningElement.style.display = unsavedChanges ? 'block' : 'none';
+    }
+}
+
+function setupUnsavedChangesWarning() {
+    window.onbeforeunload = function() {
+        if (unsavedChanges) {
+            return "You have unsaved changes. Are you sure you want to leave?";
+        }
+    };
 }
 
 function setupButtonListeners() {
@@ -396,5 +413,26 @@ function setupButtonListeners() {
     const addPersonaButton = document.getElementById('add-persona');
     if (addPersonaButton) {
         addPersonaButton.addEventListener('click', addNewPersona);
+    }
+
+    const createPersonaForm = document.getElementById('create-persona-form');
+    if (createPersonaForm) {
+        createPersonaForm.addEventListener('submit', event => {
+            event.preventDefault();
+            addNewPersona();
+        });
+    }
+
+    const uploadForm = document.getElementById('upload-form');
+    if (uploadForm) {
+        uploadForm.addEventListener('submit', uploadFile);
+    }
+
+    const setInstructionsForm = document.getElementById('set-instructions-form');
+    if (setInstructionsForm) {
+        setInstructionsForm.addEventListener('submit', event => {
+            event.preventDefault();
+            saveGlobalInstructions();
+        });
     }
 }

@@ -181,6 +181,23 @@ emoji-picker {
     height: 400px;
 }
 
+.persona-item.new-persona {
+  background-color: #e6f7ff;
+}
+
+.persona-item.unsaved {
+  border: 2px solid red;
+}
+
+#unsaved-changes-warning {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ffeeba;
+  border-radius: 4px;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .widget-container {

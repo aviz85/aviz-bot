@@ -11,7 +11,7 @@ from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 from jinja2 import TemplateNotFound, ChoiceLoader, FileSystemLoader
-from models import User, Persona
+from models import User
 from config import Config
 
 # Load environment variables from the .env file
@@ -37,6 +37,16 @@ def create_app():
     app.config['HISTORY_LIMIT'] = int(os.getenv('HISTORY_LIMIT', 20))
     app.config['BOT_DIRECTORY'] = bot_directory
     app.config['UPLOAD_FOLDER'] = os.path.join(bot_directory, 'uploads')
+
+    # Try to import custom Persona model, fall back to default if not found
+    try:
+        custom_models = importlib.import_module(f"bots.{chatbot_name}.models")
+        Persona = custom_models.Persona
+        app.logger.info(f"Custom Persona model loaded for {chatbot_name}")
+    except ImportError:
+        from models import Persona  # Fall back to default Persona model
+        app.logger.warning(f"Custom Persona model not found for {chatbot_name}, using default")
+
 
     # Ensure the upload folder exists
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -185,7 +195,7 @@ def create_app():
 
     try:
         bot_routes = importlib.import_module(routes_module)
-        blueprint = bot_routes.create_blueprint(chatbot)
+        blueprint = bot_routes.create_blueprint(app, chatbot)
         app.register_blueprint(blueprint)
         app.logger.info(f"Custom routes for {chatbot_name} registered successfully.")
     except ModuleNotFoundError:
