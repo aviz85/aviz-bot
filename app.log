@@ -3929,3 +3929,22 @@ werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on 
 werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 
 2024-07-04 17:43:30,791 INFO werkzeug 127.0.0.1 - - [04/Jul/2024 17:43:30] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2024-07-04 17:45:00,452 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 17:45:00,452 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 17:45:00,523 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 17:45:00,527 INFO werkzeug [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-07-04 17:45:00,527 INFO werkzeug [33mPress CTRL+C to quit[0m
+2024-07-04 17:45:00,528 INFO werkzeug  * Restarting with stat
+2024-07-04 17:45:01,698 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 17:45:01,699 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 17:45:01,771 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 17:45:01,773 WARNING werkzeug  * Debugger is active!
+2024-07-04 17:45:01,780 INFO werkzeug  * Debugger PIN: 144-913-664
+2024-07-04 17:50:13,545 INFO werkzeug  * Detected change in '/Users/aviz/new/aviz-bot/wsgi.py', reloading
+2024-07-04 17:50:13,762 INFO werkzeug  * Restarting with stat
+2024-07-04 17:50:15,191 DEBUG httpx load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-07-04 17:50:15,191 DEBUG httpx load_verify_locations cafile='/Users/aviz/new/aviz-bot/venv/lib/python3.9/site-packages/certifi/cacert.pem'
+2024-07-04 17:50:15,267 INFO app Custom routes for omnibot registered successfully.
+2024-07-04 17:50:15,270 WARNING werkzeug  * Debugger is active!
+2024-07-04 17:50:15,280 INFO werkzeug  * Debugger PIN: 144-913-664
